@@ -644,7 +644,7 @@ const JobBox = ({ job }) => (
 
       {/* Salary - Styled similarly to the original HTML snippet */}
       <div className="bg-gray-50 p-3 rounded-lg border border-gray-100 mb-5">
-        <DollarSign className="w-5 h-5 text-green-600 inline mr-2" />
+        {/* <DollarSign className="w-5 h-5 text-green-600 inline mr-2" /> */}
         <span className="font-bold text-lg text-green-700">{job.salary}</span>
       </div>
     </div>
