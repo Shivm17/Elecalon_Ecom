@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Verification Assistant - Remote Job | Elecalon</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .job-container {
+            max-width: 700px;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: white;
+        }
+        .job-header {
+            background: #2c3e50;
+            padding: 20px;
+            color: white;
+        }
+        .job-content {
+            padding: 20px;
+        }
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .badge {
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .salary-highlight {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border-left: 4px solid #1976d2;
+        }
+        .perks-container {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .apply-btn-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .apply-btn {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 18px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        .apply-btn:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        .vacancy-badge {
+            background-color: #e74c3c;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            margin: 15px auto;
+            width: fit-content;
+        }
+        .faq-section {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        .faq-item {
+            margin-bottom: 15px;
+            border: 1px solid #eee;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .faq-question {
+            background-color: #f8f9fa;
+            padding: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .faq-answer {
+            padding: 15px;
+            background-color: white;
+        }
+        .testimonials {
+            margin: 30px 0;
+            background: #f0f8ff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .testimonial {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .testimonial-author {
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: right;
+            font-style: italic;
+        }
+        .deposit-explanation {
+            background-color: #fff8e1;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border-left: 4px solid #ffc107;
+        }
+        @media (max-width: 600px) {
+            .apply-btn {
+                padding: 12px 25px;
+                font-size: 16px;
+                width: 90%;
+                margin: 20px auto;
+            }
+            .badge {
+                font-size: 12px;
+                padding: 4px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="job-container">
+        <!-- Header -->
+        <div class="job-header">
+            <h1 style="margin: 0; font-size: 24px;">Data Verification Assistant</h1>
+            <p style="margin: 5px 0 0; font-size: 16px; opacity: 0.9;">Remote Position • 100% Flexible Hours</p>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="job-content">
+            <div class="vacancy-badge">
+                ⏳ Only 45 Vacancies Available - Apply Now!
+            </div>
+            
+            <!-- Key Details -->
+            <div style="margin-bottom: 20px;">
+                <p style="margin: 0 0 5px;"><strong>Employment Type:</strong> Full-time/Part-time</p>
+                <div class="salary-highlight">
+                    <h3 style="margin-top: 0;">Salary: ₹18,500 – ₹25,000/month</h3>
+                    <p>(Starting salary ₹18,500 + performance bonuses up to ₹6,500/month)</p>
+                </div>
+            </div>
+            
+            <!-- Deposit Explanation -->
+            <div class="deposit-explanation">
+                <h3 style="margin-top: 0; color: #d35400;">Important Note About the ₹999 Deposit</h3>
+                <p><strong>Why we require a deposit:</strong> The ₹999 deposit serves as a commitment fee that ensures serious applicants and helps us allocate our training resources effectively. This deposit grants you immediate access to our premium verification tools worth over ₹5,000 monthly.</p>
+                <p><strong>Refund Policy:</strong> Your full ₹999 deposit will be refunded within 15 days of completing your training and submitting your first verification report. This ensures you can start working immediately with all necessary tools without any long-term financial commitment.</p>
+            </div>
+            
+            <!-- First Apply Button at Top -->
+            <div class="apply-btn-container">
+                <a href="https://rzp.io/rzp/tm9usTH" class="apply-btn" target="_blank">Apply Now (45 Positions Left)</a>
+                <p style="margin-top: 10px; font-size: 14px; color: #666;">₹999 deposit required - fully refundable within 15 days</p>
+            </div>
+            
+            <!-- Role Titles -->
+            <div style="margin-bottom: 20px;">
+                <h2 style="margin: 0 0 15px; font-size: 20px; color: #2c3e50;">About the Role</h2>
+                <p>As a Data Verification Assistant, you'll ensure the accuracy and quality of business contact data. <strong>No prior experience needed</strong> - we provide complete training!</p>
+                
+                <div class="badge-container">
+                    <span class="badge" style="background: #e3f2fd;">Data Verification & Quality Specialist</span>
+                    <span class="badge" style="background: #e8f5e9;">Contact Information Validation Executive</span>
+                    <span class="badge" style="background: #f3e5f5;">Data Accuracy & Verification Associate</span>
+                    <span class="badge" style="background: #fff3e0;">CRM & Lead Validation Specialist</span>
+                    <span class="badge" style="background: #fce4ec;">Sales Lead Quality Analyst</span>
+                    <span class="badge" style="background: #e0f7fa;">B2B Contact & Company Data Verifier</span>
+                    <span class="badge" style="background: #f1f8e9;">Database Integrity & Verification Coordinator</span>
+                    <span class="badge" style="background: #fff8e1;">Email & Lead Validation Assistant</span>
+                    <span class="badge" style="background: #ede7f6;">Lead Enrichment & Accuracy Specialist</span>
+                    <span class="badge" style="background: #e8eaf6;">Data Research and Verification Executive</span>
+                </div>
+            </div>
+            
+            <!-- Key Responsibilities -->
+            <div style="margin: 25px 0;">
+                <h3 style="margin: 0 0 15px; font-size: 18px; color: #2c3e50;">Key Responsibilities:</h3>
+                <ul>
+                    <li>Verify accuracy of contact information (emails, phone numbers, addresses)</li>
+                    <li>Check data formats and correct inconsistencies</li>
+                    <li>Remove duplicate entries from databases</li>
+                    <li>Validate company information against trusted sources</li>
+                    <li>Maintain data quality standards with 98%+ accuracy</li>
+                    <li>Generate daily verification reports</li>
+                </ul>
+            </div>
+            
+            <!-- Requirements -->
+            <div style="margin: 25px 0;">
+                <h3 style="margin: 0 0 15px; font-size: 18px; color: #2c3e50;">Requirements:</h3>
+                <ul>
+                    <li>Basic computer and internet skills</li>
+                    <li>Smartphone for verification process</li>
+                    <li>4-8 hours availability daily</li>
+                    <li>Attention to detail</li>
+                    <li>No minimum education required</li>
+                </ul>
+            </div>
+            
+            <!-- Tools Provided -->
+            <div style="margin-bottom: 20px;">
+                <h2 style="margin: 0 0 15px; font-size: 20px; color: #2c3e50;">Tools We Provide</h2>
+                <div class="badge-container">
+                    <span class="badge" style="background: #e3f2fd;">Google Sheets & Excel Format Checker</span>
+                    <span class="badge" style="background: #e8f5e9;">Duplicate Data Remover Template</span>
+                    <span class="badge" style="background: #f3e5f5;">Online Email Verifier Tools</span>
+                    <span class="badge" style="background: #fff3e0;">Mobile Number Validation Format</span>
+                    <span class="badge" style="background: #fce4ec;">SOP Document</span>
+                    <span class="badge" style="background: #e0f7fa;">Sample Verified Data Files</span>
+                    <span class="badge" style="background: #f1f8e9;">Data Tracker Sheet</span>
+                    <span class="badge" style="background: #fff8e1;">Accuracy Checklist</span>
+                    <span class="badge" style="background: #ede7f6;">Formatting Tool Add-ons</span>
+                    <span class="badge" style="background: #e8eaf6;">Real-Time Support Group</span>
+                </div>
+            </div>
+            
+            <!-- Perks -->
+            <div class="perks-container">
+                <p style="margin: 0 0 10px; font-weight: bold;">Perks & Benefits:</p>
+                <div class="badge-container">
+                    <span class="badge" style="background: #e3f2fd;">📜 Certificate</span>
+                    <span class="badge" style="background: #e8f5e9;">🕒 Flexible Hours</span>
+                    <span class="badge" style="background: #f3e5f5;">💻 Tool Access</span>
+                    <span class="badge" style="background: #fff3e0;">✉️ LOR</span>
+                    <span class="badge" style="background: #fce4ec;">🎓 Free Training</span>
+                    <span class="badge" style="background: #e0f7fa;">📈 Performance Bonuses</span>
+                    <span class="badge" style="background: #f1f8e9;">🔄 Deposit Refundable</span>
+                    <span class="badge" style="background: #fff8e1;">🛠️ All Tools Provided</span>
+                </div>
+            </div>
+            
+            <!-- Testimonials -->
+            <div class="testimonials">
+                <h3 style="margin: 0 0 15px; text-align: center; color: #2c3e50;">What Our Team Members Say</h3>
+                <div class="testimonial">
+                    <p>"I started with no experience and within 2 weeks I was earning ₹21,000/month. The training was excellent and the tools make the work very easy."</p>
+                    <div class="testimonial-author">- Priya S., Data Verifier since 6 months</div>
+                </div>
+                <div class="testimonial">
+                    <p>"Got my ₹999 deposit back within 15 days of onboarding. The work is flexible and I can manage it with my college schedule."</p>
+                    <div class="testimonial-author">- Rohan K., Part-time Verifier</div>
+                </div>
+                <div class="testimonial">
+                    <p>"The team support is always available when I have questions. I've grown to Team Coordinator position in just 5 months."</p>
+                    <div class="testimonial-author">- Anjali M., Senior Verifier</div>
+                </div>
+            </div>
+            
+            <!-- FAQ Section -->
+            <div class="faq-section">
+                <h2 style="text-align: center; margin-bottom: 20px; color: #2c3e50;">Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: Why is there a ₹999 deposit required?</div>
+                    <div class="faq-answer">
+                        The ₹999 deposit serves two important purposes:
+                        <ul>
+                            <li>Grants you immediate access to our premium verification tools worth ₹5,000+ monthly</li>
+                            <li>Helps us allocate training resources efficiently to serious applicants</li>
+                        </ul>
+                        <strong>The full amount is refunded within 15 days of onboarding</strong> after:
+                        <ul>
+                            <li>Completing the initial training program</li>
+                            <li>Setting up your verification tools</li>
+                            <li>Submitting your first verification report</li>
+                        </ul>
+                        This ensures you can start working immediately with all necessary tools while maintaining our commitment to quality training.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: When will I get my deposit back?</div>
+                    <div class="faq-answer">
+                        <strong>We refund the full ₹999 within 15 days of onboarding</strong> (typically within 10-12 working days). The process:
+                        <ol>
+                            <li>Complete training (Days 1-2)</li>
+                            <li>Submit first verification report (Days 3-5)</li>
+                            <li>Quality check and approval (Days 6-8)</li>
+                            <li>Receive deposit refund (Days 9-15)</li>
+                        </ol>
+                        This timeline ensures proper onboarding while helping you start earning without long-term financial commitment.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: What tools will I get access to?</div>
+                    <div class="faq-answer">
+                        Your ₹999 deposit gives you complete access to:
+                        <ul>
+                            <li>Premium email verification software (worth ₹3,000/month)</li>
+                            <li>Phone number validation tools</li>
+                            <li>Company data enrichment platforms</li>
+                            <li>Dedicated cloud storage for your work</li>
+                            <li>24/7 technical support</li>
+                            <li>Comprehensive training materials</li>
+                        </ul>
+                        These tools normally cost ₹5,000+ monthly - we provide them free after the refundable deposit.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: How quickly can I start earning?</div>
+                    <div class="faq-answer">
+                        Our efficient onboarding process:
+                        <ol>
+                            <li><strong>Day 1:</strong> Deposit payment & immediate tool access</li>
+                            <li><strong>Days 1-3:</strong> Complete training (4-6 hours total)</li>
+                            <li><strong>Days 3-5:</strong> Start verification tasks</li>
+                            <li><strong>Days 9-15:</strong> Receive deposit refund</li>
+                            <li><strong>Day 15+:</strong> Eligible for performance bonuses</li>
+                        </ol>
+                        Most team members earn ₹2,000-4,000 in their first two weeks after getting their deposit back.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: Are there career growth opportunities?</div>
+                    <div class="faq-answer">
+                        <strong>Yes!</strong> Performance-based growth path:
+                        <ul>
+                            <li>Senior Verifier (+₹3,000 salary increase)</li>
+                            <li>Quality Analyst (+₹5,000 salary increase)</li>
+                            <li>Team Coordinator (+₹7,000 salary increase)</li>
+                            <li>Trainer (+₹4,000 + training bonuses)</li>
+                        </ul>
+                        Promotions are evaluated every 3 months based on performance metrics.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Second Apply Button at Bottom -->
+            <div class="apply-btn-container">
+                <a href="https://rzp.io/rzp/tm9usTH" class="apply-btn" target="_blank">Apply Now (45 Positions Left)</a>
+                <p style="margin-top: 10px; font-size: 14px; color: #666;">₹999 deposit required - fully refundable within 15 days</p>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div style="background: #f8f9fa; padding: 15px; text-align: center; border-top: 1px solid #e0e0e0; font-size: 14px; color: #666;">
+            <p>© 2023 Elecalon | Data Verification Team</p>
+        </div>
+    </div>
+
+    <script>
+        // Simple FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
+            });
+        });
+
+        // Initially hide all FAQ answers
+        document.querySelectorAll('.faq-answer').forEach(answer => {
+            answer.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

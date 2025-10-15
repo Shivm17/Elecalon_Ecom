@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f9f9f9;
+        }
+        
+        .courses-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .course-box {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            position: relative;
+        }
+        
+        .wireless-icon {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 24px;
+            height: 24px;
+            background-color: #2980b9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .duration {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .course-title {
+            color: #2c3e50;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 5px 0 10px;
+        }
+        
+        .model {
+            color: #7f8c8d;
+            font-size: 13px;
+            margin: 5px 0;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+            color: #555;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+        
+        .rating-icon {
+            color: #f39c12;
+            margin: 0 5px;
+        }
+        
+        .know-more-btn {
+            display: inline-block;
+            background: #2980b9;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        
+        .know-more-btn:hover {
+            background: #3498db;
+        }
+        
+        @media (max-width: 900px) {
+            .courses-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .courses-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="courses-container">
+        <!-- Original Web Development Courses -->
+        <div class="course-box">
+            <div class="duration">8 weeks - G1 A, 31</div>
+            <div class="course-title">Web Development</div>
+            <div class="rating">
+                <span class="rating-icon">♦</span> 4.1 | 124,847 learners
+            </div>
+            <a href="#" class="know-more-btn">Know more ></a>
+        </div>
+        
+        <div class="course-box">
+            <div class="duration">8 weeks - G1 A, 31</div>
+            <div class="course-title">Programming with Python</div>
+            <div class="rating">
+                <span class="rating-icon">♦</span> 4.2 | 89,952 learners
+            </div>
+            <a href="#" class="know-more-btn">Know more ></a>
+        </div>
+        
+        <div class="course-box">
+            <div class="duration">8 weeks - G1 A, 31</div>
+            <div class="course-title">Programming with C and C++</div>
+            <div class="rating">
+                <span class="rating-icon">♦</span> 4.2 | 32,634 learners
+            </div>
+            <a href="#" class="know-more-btn">Know more ></a>
+        </div>
+        
+        <!-- Core Technical Courses -->
+        <div class="course-box">
+            <div class="duration">8 weeks</div>
+            <div class="course-title">Core Java</div>
+            <div class="rating">
+                <span class="rating-icon">♦</span> 4.3 | 28,473 learners
+            </div>
+            <a href="#" class="know-more-btn">Know more ></a>
+        </div>
+        
+        <div class="course-box">
+            <div class="duration">8 weeks</div>
+            <div class="course-title">Android App Development</div>
+            <div class="rating">
+                <span class="rating-icon">♦</span> 4.1 | 38,961 learners
+            </div>
+            <a href="#" class="know-more-btn">Know more ></a>
+        </div>
+        
+        <div class="course-box">
+            <div class="duration">8 weeks</div>
+            <div class="course-title">Ethical Hacking</div>
+            <div class="rating">
+                <span class="rating-icon">♦</span> 4.3 | 36,652 learners
+            </div>
+            <a href="#" class="know-more-btn">Know more ></a>
+        </div>
+        
+        <!-- Data Science Courses -->
+        <div class="course-box">
+            <div class="duration">8 weeks</div>
+            <div class="course-title">Machine Learning</div>
+            <div class="rating">
+                <span class="rating-icon">♦</span> 4.5 | 38,773 learners
+            </div>
+            <a href="#" class="know-more-btn">Know more ></a>
+        </div>
+        
+        <div class="course-box">
+            <div class="duration">4 weeks</div>
+            <div class="course-title">Advanced Excel</div>
+            <div class="rating">
+                <span class="rating-icon">♦</span> 4.4 | 46,237 learners
+            </div>
+            <a href="#" class="know-more-btn">Know more ></a>
+        </div>
+        
+        <div class="course-box">
+            <div class="duration">6 weeks</div>
+            <div class="course-title">SQL for Data Analytics</div>
+            <div class="rating">
+                <span class="rating-icon">♦</span> 4.0 | 6,459 learners
+            </div>
+            <a href="#" class="know-more-btn">Know more ></a>
+        </div>
+        
+        <!-- Wireless Courses -->
+        <div class="course-box">
+            <div class="wireless-icon">B</div>
+            <div class="course-title">VLSI Design</div>
+            <div class="rating">
+                <span class="rating-icon">♦</span> 4.0
+            </div>
+            <a href="#" class="know-more-btn">Know more ></a>
+        </div>
+        
+        <div class="course-box">
+            <div class="wireless-icon">B</div>
+            <div class="course-title">MATLAB®</div>
+            <div class="rating">
+                <span class="rating-icon">♦</span> 4.2 | 4,620 learners
+            </div>
+            <a href="#" class="know-more-btn">Know more ></a>
+        </div>
+        
+        <div class="course-box">
+            <div class="duration">8 weeks</div>
+            <div class="course-title">Data Science</div>
+            <div class="rating">
+                <span class="rating-icon">♦</span> 4.1 | 36,896 learners
+            </div>
+            <a href="#" class="know-more-btn">Know more ></a>
+        </div>
+
+        <!-- Additional Courses 1 -->
+        <div class="course-box">
+            <div class="course-title">Reset</div>
+            <div class="rating">
+                <span class="rating-icon">♦</span> 4.0 | 6,158 learners
+            </div>
+            <a href="#" class="know-more-btn">Know more ></a>
+        </div>
+        
+        <div class="course-box">
+            <div class="course-title">Data Structures & Algorithms</div>
+            <div class="rating">
+                <span class="rating-icon">♦</span> 4.1 | 5,863 learners
+            </div>
+            <a href="#" class="know-more-btn">Know more ></a>
+        </div>
+        
+        <div class="course-box">
+            <div class="course-title">Clinical Trial Analysis & Reporting</div>
+            <div class="rating">
+                <span class="rating-icon">♦</span> 4.1 | 3,885 learners
+            </div>
+            <a href="#" class="know-more-btn">Know more ></a>
+        </div>
+        
+        <!-- Additional Courses 2 -->
+        <div class="course-box">
+            <div class="course-title">Software Testing</div>
+            <div class="rating">
+                <span class="rating-icon">♦</span> 4.1 | 3,246 learners
+            </div>
+            <a href="#" class="know-more-btn">Know more ></a>
+        </div>
+        
+        <div class="course-box">
+            <div class="course-title">Cloud computing with AWS</div>
+            <div class="rating">
+                <span class="rating-icon">♦</span> 4.5
+            </div>
+            <a href="#" class="know-more-btn">Know more ></a>
+        </div>
+        
+        <div class="course-box">
+            <div class="course-title">PLC Programming</div>
+            <div class="rating">
+                <span class="rating-icon">♦</span> 4.1
+            </div>
+            <a href="#" class="know-more-btn">Know more ></a>
+        </div>
+        
+        <!-- Additional Courses 3 -->
+        <div class="course-box">
+            <div class="duration">6 weeks</div>
+            <div class="course-title">Product Management</div>
+            <div class="model">Model JS</div>
+            <a href="#" class="know-more-btn">Know more ></a>
+        </div>
+        
+        <div class="course-box">
+            <div class="course-title">Business Analytics</div>
+            <div class="rating">
+                <span class="rating-icon">♦</span> 4.2 | 10,393 learners
+            </div>
+            <a href="#" class="know-more-btn">Know more ></a>
+        </div>
+        
+        <!-- Newly Added Courses -->
+        <div class="course-box">
+            <div class="duration">6 weeks</div>
+            <div class="course-title">SAS Programming</div>
+            <div class="rating">
+                <span class="rating-icon">⭐</span> 4.3 | 1,316 learners
+            </div>
+            <a href="#" class="know-more-btn">Know more ></a>
+        </div>
+        
+        <div class="course-box">
+            <div class="duration">6 weeks</div>
+            <div class="course-title">Git & GitHub</div>
+            <a href="#" class="know-more-btn">Know more ></a>
+        </div>
+        
+        <div class="course-box">
+            <div class="duration">6 weeks</div>
+            <div class="course-title">Angular</div>
+            <div class="rating">
+                <span class="rating-icon">⭐</span> 4.2 | 2,396 learners
+            </div>
+            <a href="#" class="know-more-btn">Know more ></a>
+        </div>
+        
+        <div class="course-box">
+            <div class="duration">6 weeks</div>
+            <div class="course-title">Serverless Computing with AWS Lambda</div>
+            <a href="#" class="know-more-btn">Know more ></a>
+        </div>
+        
+        <div class="course-box">
+            <div class="duration">6 weeks</div>
+            <div class="course-title">AR/VR</div>
+            <a href="#" class="know-more-btn">Know more ></a>
+        </div>
+        
+        <div class="course-box">
+            <div class="duration">6 weeks</div>
+            <div class="course-title">How to Ace Coding Interviews</div>
+            <a href="#" class="know-more-btn">Know more ></a>
+        </div>
+    </div>
+</body>
+</html>

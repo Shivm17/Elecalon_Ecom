@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Ethical Hacking Course Enrollment</title>
+    <style>
+        /* General Body and Container Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+            color: #2d3436;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 26px;
+            text-align: center;
+            margin: 50px 0 20px;
+        }
+
+        /* Review Section Styling (originally inline/separate) */
+        .review-scroller::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Training Structure Styling */
+        .training-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .training-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        
+        .training-box {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-top: 4px solid #3498db;
+            width: 100%;
+        }
+        
+        .box-title {
+            color: #2980b9;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .box-desc {
+            color: #555;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        
+        .center-text {
+            text-align: center;
+            color: #555;
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+        
+        /* Syllabus Grid Styling */
+        .syllabus {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .syllabus-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .syllabus-count {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+            display: block;
+        }
+        
+        .syllabus-label {
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+        
+        .download-note {
+            text-align: center;
+            color: #7f8c8d;
+            font-style: italic;
+            margin-top: 30px;
+        }
+        
+        /* Media Queries */
+        @media (max-width: 900px) {
+            .training-row {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .syllabus {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div style="max-width: 800px; margin: 0 auto; font-family: 'Segoe UI', Arial, sans-serif; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+
+        <h1 style="color: #2c3e50; margin-bottom: 10px; text-align: left;">Online Ethical Hacking Course</h1>
+        <p style="color: #546e7a; font-size: 1.1rem; margin-top: 0; margin-bottom: 25px;">
+            Learn to hack and secure websites like an expert and get IIT-Madras Pravartak certificate upon completion
+        </p>
+
+        <div style="display: flex; gap: 20px; margin-bottom: 25px; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: 5px;">
+                <span style="color: #f39c12; font-weight: bold;">★ 4.3</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 5px;">
+                <span style="color: #546e7a;">👥 36,652 Students</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 5px;">
+                <span style="color: #546e7a;">💼 Placement Assistance</span>
+            </div>
+        </div>
+
+        <div style="display: flex; gap: 15px; margin-bottom: 25px; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 5px;">
+                <input type="checkbox" checked disabled style="accent-color: #2c3e50;">
+                <span style="color: #546e7a;">Mobile friendly</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 5px;">
+                <input type="checkbox" checked disabled style="accent-color: #2c3e50;">
+                <span style="color: #546e7a;">8 Weeks, 1 hr/day (flexible schedule)</span>
+            </div>
+        </div>
+
+        <form>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; color: #2c3e50; font-weight: 600;">Email Id</label>
+                <input type="email" placeholder="john@example.com" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
+            </div>
+
+            <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+                <div style="flex: 1;">
+                    <label style="display: block; margin-bottom: 8px; color: #2c3e50; font-weight: 600;">First Name</label>
+                    <input type="text" placeholder="John" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
+                </div>
+                <div style="flex: 1;">
+                    <label style="display: block; margin-bottom: 8px; color: #7f8c8d;">Last Name (Optional)</label>
+                    <input type="text" placeholder="Doe" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;">
+                </div>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; color: #2c3e50; font-weight: 600;">Mobile Number</label>
+                <div style="display: flex;">
+                    <div style="padding: 12px; background: #f8f9fa; border: 1px solid #ddd; border-radius: 4px 0 0 4px; color: #7f8c8d;">+91</div>
+                    <input type="tel" placeholder="8586080747" style="flex: 1; padding: 12px; border: 1px solid #ddd; border-left: none; border-radius: 0 4px 4px 0; box-sizing: border-box;">
+                </div>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; color: #2c3e50; font-weight: 600;">Choose batch</label>
+                <select style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; appearance: none; background: url('data:image/svg+xml;utf8,<svg fill="%237f8c8d" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;">
+                    <option>15th Aug, 2025</option>
+                    <option>1st Sep, 2025</option>
+                </select>
+            </div>
+
+            <div style="margin-bottom: 30px;">
+                <label style="display: block; margin-bottom: 8px; color: #2c3e50; font-weight: 600;">I want to learn Ethical Hacking to</label>
+                <select style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; appearance: none; background: url('data:image/svg+xml;utf8,<svg fill="%237f8c8d" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;">
+                    <option>Choose your objective</option>
+                    <option>Start a career in cybersecurity</option>
+                    <option>Enhance my IT skills</option>
+                    <option>Get certified</option>
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <div style="margin-bottom: 20px; text-align: center;">
+                <div style="display: flex; justify-content: center; align-items: baseline; gap: 10px; margin-bottom: 5px;">
+                    <span style="font-size: 1.8rem; color: #e74c3c; font-weight: bold;">₹1,349</span>
+                    <span style="text-decoration: line-through; color: #7f8c8d;">₹5,590</span>
+                </div>
+                <p style="color: #e74c3c; font-weight: 500; margin: 0;">Valid till 15th Aug</p>
+            </div>
+
+            <a href="https://payu.in/invoice/E49A8115667BEA52B2E021AABFF6E2A57E7188F585220534625FAFB9C5BA7A91/C44DA5A4756B60EF6F8A89012E5C285E" style="text-decoration: none;">
+                <button type="button" style="width: 100%; background: #1e88e5; color: white; border: none; padding: 15px; border-radius: 4px; font-weight: 600; font-size: 1.1rem; cursor: pointer;">
+                    Enroll Now
+                </button>
+            </a>
+        </form>
+    </div>
+
+    <div style="max-width: 100%; margin: 40px auto; font-family: 'Segoe UI', Arial, sans-serif; padding: 20px; overflow: hidden; position: relative;">
+
+        <h2 style="color: #2c3e50; text-align: center; margin-bottom: 40px; padding: 0 20px;">Reviews from Students</h2>
+        
+        <div style="text-align: center; margin-bottom: 40px;">
+            <div style="font-size: 1.2rem; color: #7f8c8d; margin-bottom: 10px;">AVERAGE RATINGS</div>
+            <div style="font-size: 2.5rem; color: #2c3e50; font-weight: bold; margin-bottom: 5px;">4.4 <span style="color: #f39c12;">★★★★☆</span></div>
+            <div style="color: #7f8c8d;">Based on 2,486 student reviews</div>
+        </div>
+
+        <div style="position: relative;">
+            <div class="review-scroller" style="display: flex; gap: 20px; padding: 20px 10px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none;">
+                
+                <div style="min-width: 320px; max-width: 320px; scroll-snap-align: start; padding: 25px; background: #f8f9fa; border-radius: 8px; flex-shrink: 0;">
+                    <div style="color: #f39c12; font-size: 1.2rem; margin-bottom: 15px;">5.0 ★★★★★</div>
+                    <p style="color: #546e7a; line-height: 1.6; font-style: italic; margin-bottom: 20px;">
+                        "Elecalon's Excel course transformed my data skills. The practical assignments helped me land a data analyst internship within a month of completion!"
+                    </p>
+                    <div>
+                        <div style="font-weight: 600; color: #2c3e50;">Aditya Rathi</div>
+                        <div style="color: #7f8c8d; font-size: 0.9rem;">Moti Lal Nehru College</div>
+                    </div>
+                </div>
+
+                <div style="min-width: 320px; max-width: 320px; scroll-snap-align: start; padding: 25px; background: #f8f9fa; border-radius: 8px; flex-shrink: 0;">
+                    <div style="color: #f39c12; font-size: 1.2rem; margin-bottom: 15px;">4.0 ★★★★☆</div>
+                    <p style="color: #546e7a; line-height: 1.6; font-style: italic; margin-bottom: 20px;">
+                        "The real-world business scenarios in Elecalon's training made complex concepts easy. I now automate reports that used to take me hours!"
+                    </p>
+                    <div>
+                        <div style="font-weight: 600; color: #2c3e50;">Srujana D R</div>
+                        <div style="color: #7f8c8d; font-size: 0.9rem;">Dayananda Sagar College</div>
+                    </div>
+                </div>
+
+                <div style="min-width: 320px; max-width: 320px; scroll-snap-align: start; padding: 25px; background: #f8f9fa; border-radius: 8px; flex-shrink: 0;">
+                    <div style="color: #f39c12; font-size: 1.2rem; margin-bottom: 15px;">4.0 ★★★★☆</div>
+                    <p style="color: #546e7a; line-height: 1.6; font-style: italic; margin-bottom: 20px;">
+                        "The financial modeling module alone was worth the enrollment. Elecalon's experts know exactly what the industry needs."
+                    </p>
+                    <div>
+                        <div style="font-weight: 600; color: #2c3e50;">Vishesh Kumar</div>
+                        <div style="color: #7f8c8d; font-size: 0.9rem;">Jaypee Institute</div>
+                    </div>
+                </div>
+
+                <div style="min-width: 320px; max-width: 320px; scroll-snap-align: start; padding: 25px; background: #f8f9fa; border-radius: 8px; flex-shrink: 0;">
+                    <div style="color: #f39c12; font-size: 1.2rem; margin-bottom: 15px;">4.5 ★★★★☆</div>
+                    <p style="color: #546e7a; line-height: 1.6; font-style: italic; margin-bottom: 20px;">
+                        "From beginner to creating interactive dashboards in 6 weeks! Elecalon's structured approach made all the difference."
+                    </p>
+                    <div>
+                        <div style="font-weight: 600; color: #2c3e50;">Priya Sharma</div>
+                        <div style="color: #7f8c8d; font-size: 0.9rem;">Delhi University</div>
+                    </div>
+                </div>
+
+                <div style="min-width: 320px; max-width: 320px; scroll-snap-align: start; padding: 25px; background: #f8f9fa; border-radius: 8px; flex-shrink: 0;">
+                    <div style="color: #f39c12; font-size: 1.2rem; margin-bottom: 15px;">5.0 ★★★★★</div>
+                    <p style="color: #546e7a; line-height: 1.6; font-style: italic; margin-bottom: 20px;">
+                        "The VBA automation section blew my mind. I've automated 80% of my daily tasks thanks to Elecalon's course."
+                    </p>
+                    <div>
+                        <div style="font-weight: 600; color: #2c3e50;">Rahul Mehta</div>
+                        <div style="color: #7f8c8d; font-size: 0.9rem;">IIT Bombay</div>
+                    </div>
+                </div>
+
+                <div style="min-width: 320px; max-width: 320px; scroll-snap-align: start; padding: 25px; background: #f8f9fa; border-radius: 8px; flex-shrink: 0;">
+                    <div style="color: #f39c12; font-size: 1.2rem; margin-bottom: 15px;">4.5 ★★★★☆</div>
+                    <p style="color: #546e7a; line-height: 1.6; font-style: italic; margin-bottom: 20px;">
+                        "Elecalon's Excel certification helped me stand out in my MBA applications. The case studies were incredibly practical."
+                    </p>
+                    <div>
+                        <div style="font-weight: 600; color: #2c3e50;">Ananya Reddy</div>
+                        <div style="color: #7f8c8d; font-size: 0.9rem;">Christ University</div>
+                    </div>
+                </div>
+
+                <div style="min-width: 320px; max-width: 320px; scroll-snap-align: start; padding: 25px; background: #f8f9fa; border-radius: 8px; flex-shrink: 0;">
+                    <div style="color: #f39c12; font-size: 1.2rem; margin-bottom: 15px;">4.0 ★★★★☆</div>
+                    <p style="color: #546e7a; line-height: 1.6; font-style: italic; margin-bottom: 20px;">
+                        "The pivot table mastery module revolutionized how I analyze sales data. Our team now makes decisions based on my reports."
+                    </p>
+                    <div>
+                        <div style="font-weight: 600; color: #2c3e50;">Arjun Kapoor</div>
+                        <div style="color: #7f8c8d; font-size: 0.9rem;">Symbiosis College</div>
+                    </div>
+                </div>
+
+                <div style="min-width: 320px; max-width: 320px; scroll-snap-align: start; padding: 25px; background: #f8f9fa; border-radius: 8px; flex-shrink: 0;">
+                    <div style="color: #f39c12; font-size: 1.2rem; margin-bottom: 15px;">5.0 ★★★★★</div>
+                    <p style="color: #546e7a; line-height: 1.6; font-style: italic; margin-bottom: 20px;">
+                        "Elecalon's instructors explain complex formulas with such clarity. I went from basic spreadsheets to building financial models!"
+                    </p>
+                    <div>
+                        <div style="font-weight: 600; color: #2c3e50;">Neha Gupta</div>
+                        <div style="color: #7f8c8d; font-size: 0.9rem;">NMIMS Mumbai</div>
+                    </div>
+                </div>
+
+                <div style="min-width: 320px; max-width: 320px; scroll-snap-align: start; padding: 25px; background: #f8f9fa; border-radius: 8px; flex-shrink: 0;">
+                    <div style="color: #f39c12; font-size: 1.2rem; margin-bottom: 15px;">4.5 ★★★★☆</div>
+                    <p style="color: #546e7a; line-height: 1.6; font-style: italic; margin-bottom: 20px;">
+                        "The data visualization techniques I learned at Elecalon got me promoted to team lead within 3 months of course completion."
+                    </p>
+                    <div>
+                        <div style="font-weight: 600; color: #2c3e50;">Vikram Singh</div>
+                        <div style="color: #7f8c8d; font-size: 0.9rem;">BITS Pilani</div>
+                    </div>
+                </div>
+
+                <div style="min-width: 320px; max-width: 320px; scroll-snap-align: start; padding: 25px; background: #f8f9fa; border-radius: 8px; flex-shrink: 0;">
+                    <div style="color: #f39c12; font-size: 1.2rem; margin-bottom: 15px;">5.0 ★★★★★</div>
+                    <p style="color: #546e7a; line-height: 1.6; font-style: italic; margin-bottom: 20px;">
+                        "Elecalon's course structure is perfect for working professionals. I completed it alongside my job with their flexible schedule."
+                    </p>
+                    <div>
+                        <div style="font-weight: 600; color: #2c3e50;">Divya Nair</div>
+                        <div style="color: #7f8c8d; font-size: 0.9rem;">Tata Consultancy</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: flex; justify-content: center; gap: 8px; margin-top: 20px;">
+            <span class="review-dot active" style="width: 12px; height: 12px; background: #1e88e5; border-radius: 50%; cursor: pointer;"></span>
+            <span class="review-dot" style="width: 12px; height: 12px; background: #ddd; border-radius: 50%; cursor: pointer;"></span>
+            <span class="review-dot" style="width: 12px; height: 12px; background: #ddd; border-radius: 50%; cursor: pointer;"></span>
+            <span class="review-dot" style="width: 12px; height: 12px; background: #ddd; border-radius: 50%; cursor: pointer;"></span>
+        </div>
+    </div>
+
+    <h1 style="text-align: center;">How will your training work?</h1>
+    
+    <div class="training-container">
+        <div class="training-row">
+            <div class="training-box">
+                <div class="box-title">Learn concepts</div>
+                <div class="box-desc">Go through training videos to learn concepts</div>
+            </div>
+            
+            <div class="training-box">
+                <div class="box-title">1:1 doubt solving</div>
+                <div class="box-desc">Get your doubts solved by experts through Q&A forum within 24 hours</div>
+            </div>
+            
+            <div class="training-box">
+                <div class="box-title">Test yourself</div>
+                <div class="box-desc">Test your knowledge through quizzes & module tests at regular intervals</div>
+            </div>
+        </div>
+        
+        <div class="training-row">
+            <div class="training-box">
+                <div class="box-title">Take final exam</div>
+                <div class="box-desc">Complete your training by taking the final exam</div>
+            </div>
+            
+            <div class="training-box">
+                <div class="box-title">Hands-on practice</div>
+                <div class="box-desc">Work on assignments and projects. Use our specially designed hacking lab for practice</div>
+            </div>
+            
+            <div class="training-box">
+                <div class="box-title">Get certified</div>
+                <div class="box-desc">Get certified in Ethical Hacking upon successful completion of training</div>
+            </div>
+        </div>
+    </div>
+    
+    <h2>How will you practice Hacking?</h2>
+    <div class="center-text">
+        Through a curated **Hacking Lab** to practice hands-on Hacking Challenges.
+    </div>
+    
+    <h2>Ethical Hacking Training Syllabus</h2>
+    <div class="syllabus">
+        <div class="syllabus-item">
+            <span class="syllabus-count">187</span>
+            <span class="syllabus-label">video tutorials</span>
+        </div>
+        <div class="syllabus-item">
+            <span class="syllabus-count">9</span>
+            <span class="syllabus-label">assignments</span>
+        </div>
+        <div class="syllabus-item">
+            <span class="syllabus-count">1</span>
+            <span class="syllabus-label">project</span>
+        </div>
+        <div class="syllabus-item">
+            <span class="syllabus-count">2</span>
+            <span class="syllabus-label">AI tools covered</span>
+        </div>
+    </div>
+    
+    <div class="download-note">
+        After completing the training, you can also download videos for future reference
+    </div>
+
+    <script>
+        // Auto-scrolling functionality
+        const scroller = document.querySelector('.review-scroller');
+        const dots = document.querySelectorAll('.review-dot');
+        let currentIndex = 0;
+        let autoScrollInterval;
+        const reviewWidth = 320 + 20; // width + gap
+
+        function updateScroll() {
+            scroller.scrollTo({
+                left: currentIndex * reviewWidth * 3, // Scroll by 3 reviews at a time
+                behavior: 'smooth'
+            });
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.style.background = index === Math.floor(currentIndex/3) ? '#1e88e5' : '#ddd';
+            });
+        }
+
+        function startAutoScroll() {
+            autoScrollInterval = setInterval(() => {
+                // Ensure the index calculation is based on the total number of items vs. dots
+                const totalItems = 10; // Number of reviews
+                const totalScrollPositions = Math.ceil(totalItems / 3); // Max number of dot positions
+                
+                // Advance the current dot index
+                let currentDotIndex = Math.floor(currentIndex / 3);
+                currentDotIndex = (currentDotIndex + 1) % totalScrollPositions;
+                currentIndex = currentDotIndex * 3;
+
+                updateScroll();
+            }, 3000);
+        }
+
+        // Initialize
+        startAutoScroll();
+
+        // Pause on hover
+        scroller.addEventListener('mouseenter', () => {
+            clearInterval(autoScrollInterval);
+        });
+
+        scroller.addEventListener('mouseleave', () => {
+            startAutoScroll();
+        });
+
+        // Dot navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentIndex = index * 3;
+                updateScroll();
+                // Reset auto-scroll timer after manual click
+                clearInterval(autoScrollInterval);
+                startAutoScroll();
+            });
+        });
+
+        // Update on manual scroll (Throttled/Debounced for performance in a real app)
+        scroller.addEventListener('scroll', () => {
+            const scrollPos = scroller.scrollLeft;
+            currentIndex = Math.round(scrollPos / reviewWidth);
+            
+            dots.forEach((dot, index) => {
+                dot.style.background = index === Math.floor(currentIndex/3) ? '#1e88e5' : '#ddd';
+            });
+        });
+    </script>
+
+</body>
+</html>

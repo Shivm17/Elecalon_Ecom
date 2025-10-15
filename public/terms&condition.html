@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions - Elecalon Ecom</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Font Awesome for Icons (Search, Dropdowns) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJ8gM6CqIq4k6hL8H4t+3kXb8r9+xWfI/H65Fp18qXG0a0T1D+9GgG8Vj0A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Define a custom light beige/tan background color */
+        body {
+            background-color: #fcfbf8; /* Very subtle off-white/beige */
+            font-family: 'Inter', sans-serif;
+            color: #333;
+        }
+
+        /* Custom style for the large title wrapper to create the red underline effect */
+        .title-wrapper {
+            position: relative;
+            padding-bottom: 0.5rem; /* Space for the line */
+        }
+
+        /* The red line itself */
+        .title-wrapper::after {
+            content: '';
+            display: block;
+            width: 150px; /* Width matching the image */
+            height: 3px;
+            background-color: #e53935; /* A bright red */
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            border-radius: 9999px; /* Fully rounded line ends */
+        }
+        
+        /* Custom list styling for the main numbered items */
+        .content-list > li {
+            list-style-type: none; /* Remove default list style */
+            counter-increment: section-counter;
+            margin-bottom: 2rem;
+            padding-left: 0;
+        }
+
+        /* Nested lists for bullets */
+        .content-list ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            padding-left: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        /* Mobile adjustment for navigation links */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Navbar / Header -->
+  
+
+    <!-- Page Title Section -->
+    <section class="py-16 text-center">
+        <div class="title-wrapper inline-block">
+            <h1 class="text-5xl font-extrabold tracking-tight text-gray-800">
+                Terms & Conditions
+            </h1>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8 max-w-4xl">
+        <h2 class="text-xl font-bold mb-3 text-gray-800">Terms & Conditions</h2>
+        
+        <p class="mb-4 text-gray-700">
+            Welcome to Elecalon Ecom (OPC) Private Limited.
+        </p>
+        
+        <p class="mb-8 text-gray-700">
+            By accessing this website and availing our services, you agree to comply with the following terms and conditions:
+        </p>
+        
+        <!-- Section List -->
+        <ol class="content-list text-gray-700">
+            <!-- 1. Service Usage -->
+            <li>
+                <div class="text-lg font-bold mb-2 text-gray-800">1. Service Usage</div>
+                <ul>
+                    <li>Our platform provides verified job listings and internship opportunities.</li>
+                    <li>Users must provide accurate personal information when applying.</li>
+                    <li>Misuse or false information may result in disqualification without notice.</li>
+                </ul>
+            </li>
+            
+            <!-- 2. User Responsibilities -->
+            <li>
+                <div class="text-lg font-bold mb-2 text-gray-800">2. User Responsibilities</div>
+                <ul>
+                    <li>Candidates must read all job descriptions carefully before applying.</li>
+                    <li>We do not guarantee placement; selection depends on the company's process.</li>
+                </ul>
+            </li>
+
+            <!-- 3. Fee and Payment -->
+            <li>
+                <div class="text-lg font-bold mb-2 text-gray-800">3. Fee and Payment</div>
+                <ul>
+                    <li>A refundable security deposit is required for slot confirmation as mentioned on the website.</li>
+                    <li>Payment gateways are provided for secure transactions.</li>
+                </ul>
+            </li>
+
+            <!-- 4. Intellectual Property -->
+            <li>
+                <div class="text-lg font-bold mb-2 text-gray-800">4. Intellectual Property</div>
+                <p class="text-base mt-2">
+                    All content, logos, and materials on this website belong to Elecalon Ecom (OPC) Private Limited and cannot be used without permission.
+                </p>
+            </li>
+
+            <!-- 5. Changes to Terms -->
+            <li>
+                <div class="text-lg font-bold mb-2 text-gray-800">5. Changes to Terms</div>
+                <ul>
+                    <li>We reserve the right to update these terms at any time without prior notice.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <!-- Contact Information -->
+        <p class="mt-10 text-gray-700">
+            For any questions, contact us at <a href="mailto:support@elecalon.in" class="text-red-500 font-medium hover:underline">support@elecalon.in</a>.
+        </p>
+    </main>
+    
+    <!-- Footer Placeholder (Simulating the small icon in the bottom left) -->
+    <div class="fixed bottom-3 left-3 text-gray-400">
+        <i class="fas fa-circle text-xs"></i>
+    </div>
+
+</body>
+</html>

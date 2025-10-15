@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Platform</title>
+    <style>
+      body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+      }
+
+      /* Styles for all carousels to enable swiping */
+      .swipe-container {
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        cursor: grab;
+        user-select: none; /* Prevent text selection while dragging */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+      }
+      
+      /* Hide scrollbars cleanly */
+      .swipe-container::-webkit-scrollbar {
+        display: none;
+      }
+      .swipe-container {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+      }
+
+      /* Job container specific styles */
+      .job-container {
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        gap: 20px;
+        padding: 10px 0;
+      }
+      .job-box {
+        min-width: 280px;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 15px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        flex-shrink: 0;
+      }
+      .hiring-badge {
+        background: #e3f2fd;
+        color: #1976d2;
+        padding: 3px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+      .job-title { margin: 5px 0; font-size: 16px; }
+      .job-company, .job-location { margin: 5px 0; color: #666; font-size: 14px; }
+      .job-salary { margin: 10px 0 5px; font-size: 15px; color: #333; font-weight: 500; }
+      .job-link {
+        display: inline-block;
+        background: #2c3e50;
+        color: white;
+        padding: 8px 15px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-size: 14px;
+        margin-top: 10px;
+      }
+
+      /* Responsive adjustments for smaller cards */
+      @media (max-width: 600px) {
+        div[style*="width: 280px"] { 
+          width: 85vw; 
+          margin-right: 15px;
+        }
+      }
+    </style>
+     <style>
+      /* --- Global & Body Styles --- */
+      body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        margin: 0;
+        background-color: #fff;
+      }
+
+      /* --- Header & Navigation Styles --- */
+      .site-header {
+          font-family: 'Times New Roman', Times, serif;
+          border-bottom: 1px solid #eee;
+          padding: 10px 0;
+          width: 100%;
+          background-color: #fff;
+          position: sticky;
+          top: 0;
+          z-index: 1000;
+      }
+      .header-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+      }
+      .logo {
+          font-size: 24px;
+          color: #333;
+      }
+      .main-nav {
+          display: flex;
+      }
+      .main-nav ul {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          display: flex;
+          align-items: center;
+          gap: 25px;
+      }
+      .main-nav a {
+          text-decoration: none;
+          color: #333;
+          font-size: 16px;
+          padding: 8px 12px;
+          display: block;
+          transition: background-color 0.3s;
+      }
+      .main-nav a.active {
+          background-color: #222;
+          color: #fff;
+      }
+
+      /* --- Mega Menu Dropdown Styles (Desktop) --- */
+      .dropdown {
+          position: static; /* Important for full-width dropdown */
+      }
+      .dropdown > a::after {
+          content: '▾';
+          font-size: 12px;
+          margin-left: 5px;
+      }
+      .dropdown-menu {
+          display: none;
+          position: absolute;
+          top: 60px; /* Adjust to be below header */
+          left: 0;
+          width: 100%;
+          background-color: white;
+          border-top: 1px solid #eee;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+          list-style: none;
+          padding: 15px 0;
+          text-align: center; /* Center the links within the mega menu */
+      }
+      .dropdown:hover .dropdown-menu {
+          display: block;
+      }
+      .dropdown-menu li {
+          display: inline-block; /* Display items horizontally */
+      }
+      .dropdown-menu a {
+          padding: 10px 20px;
+          white-space: nowrap;
+      }
+       .dropdown-menu a:hover {
+          background-color: #f5f5f5;
+      }
+      .hamburger {
+          display: none;
+          font-size: 28px;
+          cursor: pointer;
+          border: none;
+          background: none;
+      }
+
+      /* --- Responsive Header & Navigation (Mobile) --- */
+      @media (max-width: 992px) {
+          .main-nav {
+              display: none;
+              position: absolute;
+              top: 100%;
+              left: 0;
+              width: 100%;
+              background-color: white;
+              box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+          }
+          .main-nav.active {
+              display: block;
+          }
+          .main-nav ul {
+              flex-direction: column;
+              align-items: flex-start;
+              gap: 0;
+          }
+           .main-nav li {
+              width: 100%;
+              border-bottom: 1px solid #f0f0f0;
+           }
+          .main-nav a {
+              padding: 15px 20px;
+              width: 100%;
+              box-sizing: border-box;
+          }
+          .hamburger {
+              display: block;
+          }
+          .dropdown > a::after {
+              float: right;
+              margin-left: 20px;
+          }
+          .dropdown {
+              position: relative; /* Back to relative for mobile */
+          }
+          .dropdown-menu {
+              position: static;
+              display: none; /* Controlled by JS */
+              border: none;
+              box-shadow: none;
+              background-color: #f9f9f9;
+              margin: 0;
+              width: 100%;
+              padding: 0;
+              text-align: left;
+          }
+          .dropdown-menu li {
+              display: block;
+          }
+           .dropdown-menu a {
+               padding-left: 30px;
+               border-bottom: 1px solid #eee;
+           }
+          /* .open class will be toggled by JS to show menu */
+          .dropdown.open > .dropdown-menu {
+            display: block;
+          }
+      }
+
+      /* --- Carousel Global Styles --- */
+      .swipe-container {
+        overflow-x: auto;
+        cursor: grab;
+        user-select: none;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+      }
+      .swipe-container::-webkit-scrollbar { display: none; }
+      .swipe-container { -ms-overflow-style: none; scrollbar-width: none; }
+      .snap-container { scroll-snap-type: x mandatory; }
+      .snap-container > div { scroll-snap-align: start; }
+      
+      /* --- Content Sections & Responsive Adjustments --- */
+      .job-container {
+        max-width: 1200px; margin: auto; display: flex; gap: 20px; padding: 10px 20px;
+      }
+      .job-box { min-width: 280px; border: 1px solid #e0e0e0; border-radius: 8px; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); flex-shrink: 0; }
+      .hiring-badge { background: #e3f2fd; color: #1976d2; padding: 3px 8px; border-radius: 4px; font-size: 12px; display: inline-block; margin-bottom: 10px; }
+      .job-title { margin: 5px 0; font-size: 16px; }
+      .job-company, .job-location { margin: 5px 0; color: #666; font-size: 14px; }
+      .job-salary { margin: 10px 0 5px; font-size: 15px; color: #333; font-weight: 500; }
+      .job-link { display: inline-block; background: #2c3e50; color: white; padding: 8px 15px; text-decoration: none; border-radius: 4px; font-size: 14px; margin-top: 10px; }
+
+      @media (max-width: 600px) {
+        .course-card, div[style*="width: 280px"], .job-box { 
+          width: 85vw !important; 
+          min-width: 85vw !important;
+          margin-right: 15px;
+        }
+      }
+    </style>
+</head>
+<body>
+          <header class="site-header">
+        <div class="header-container">
+            <div class="logo">Elecalon Ecom</div>
+            <nav class="main-nav" id="main-nav">
+                <ul>
+                    <li><a href="#" class="active">home</a></li>
+                    <li><a href="#">Web Scraping Services</a></li>
+                    <li class="dropdown">
+                        <a href="#">Apply Now</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Email Marketing Assistant</a></li>
+                            <li><a href="#">Data Verification Assistant</a></li>
+                            <li><a href="#">Web Scraping Executive</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">courses</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Full Stack Development</a></li>
+                            <li><a href="#">Data Science</a></li>
+                            <li><a href="#">Digital Marketing</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Terms & Conditions</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Refund Policy</a></li>
+                            <li><a href="#">User Agreement</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <button class="hamburger" id="hamburger">&#9776;</button>
+        </div>
+    </header>
+    <!-- Section 1: Hero Section -->
+    <div style="max-width: 1200px; margin: 0 auto; text-align: center; padding: 60px 20px; background: #ffffff;">
+      <div style="background: #f0f7ff; display: inline-block; padding: 8px 20px; border-radius: 50px; margin-bottom: 30px; font-size: 14px; color: #2a5a8f; font-weight: 600;">
+        <span style="color: #1e88e5;">✓</span> Fastest Growing Career Platform
+      </div>
+      <h1 style="color: #0d47a1; font-size: 2.8rem; margin-bottom: 15px; font-weight: 700; line-height: 1.2;">
+        Launch Your Career <span style="color: #42a5f5;">The Right Way</span>
+      </h1>
+      <p style="color: #546e7a; font-size: 1.3rem; max-width: 700px; margin: 0 auto 40px; line-height: 1.5;">
+        Join 5,000+ professionals who found their path through our platform
+      </p>
+      <div style="margin-top: 30px;">
+        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+          <a href="https://www.elecalon.in/apply-now" style="background: #1e88e5; color: white; text-decoration: none; padding: 16px 40px; border-radius: 4px; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease; border: 1px solid #1e88e5;">Browse Jobs</a>
+          <a href="https://www.elecalon.in/courses" style="background: white; color: #0d47a1; text-decoration: none; padding: 16px 40px; border-radius: 4px; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease; border: 1px solid #0d47a1;">Explore Courses</a>
+        </div>
+        <p style="color: #78909c; font-size: 0.9rem; margin-top: 20px;">
+          Start exploring opportunities - no registration required
+        </p>
+      </div>
+
+      <!-- Testimonials Section -->
+      <div style="margin: 80px auto 0; max-width: 100%; position: relative; overflow: hidden;">
+        <h3 style="color: #1565c0; margin-bottom: 30px;">Success Stories</h3>
+        <div id="hero-testimonials" class="swipe-container" style="display: flex; gap: 30px; padding: 20px 0;">
+          <div style="min-width: 350px; padding: 30px; background: #f5faff; border-radius: 8px; text-align: left; flex-shrink: 0; border: 1px solid #e3f2fd;">
+            <p style="font-style: italic; color: #37474f; font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px;">"Landing my first job through this platform was effortless. Within 2 weeks of joining, I had 3 interview calls!"</p>
+            <div style="display: flex; align-items: center;"><img src="https://randomuser.me/api/portraits/women/32.jpg" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; margin-right: 15px;"><div><div style="font-weight: 600; color: #0d47a1;">Neha Patel</div><div style="color: #607d8b; font-size: 0.9rem;">Marketing Executive at BrandWave</div></div></div>
+          </div>
+          <div style="min-width: 350px; padding: 30px; background: #f5faff; border-radius: 8px; text-align: left; flex-shrink: 0; border: 1px solid #e3f2fd;">
+            <p style="font-style: italic; color: #37474f; font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px;">"The interview preparation resources helped me crack my Amazon interview. 100% worth it!"</p>
+            <div style="display: flex; align-items: center;"><img src="https://randomuser.me/api/portraits/men/45.jpg" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; margin-right: 15px;"><div><div style="font-weight: 600; color: #0d47a1;">Rahul Verma</div><div style="color: #607d8b; font-size: 0.9rem;">SDE at Amazon</div></div></div>
+          </div>
+          <div style="min-width: 350px; padding: 30px; background: #f5faff; border-radius: 8px; text-align: left; flex-shrink: 0; border: 1px solid #e3f2fd;">
+            <p style="font-style: italic; color: #37474f; font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px;">"Transitioned from hospitality to tech with their courses. Life-changing decision!"</p>
+            <div style="display: flex; align-items: center;"><img src="https://randomuser.me/api/portraits/women/68.jpg" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; margin-right: 15px;"><div><div style="font-weight: 600; color: #0d47a1;">Priya Joshi</div><div style="color: #607d8b; font-size: 0.9rem;">Frontend Developer</div></div></div>
+          </div>
+          <div style="min-width: 350px; padding: 30px; background: #f5faff; border-radius: 8px; text-align: left; flex-shrink: 0; border: 1px solid #e3f2fd;">
+            <p style="font-style: italic; color: #37474f; font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px;">"Got 3 internship offers before graduation. The platform connects you directly to recruiters."</p>
+            <div style="display: flex; align-items: center;"><img src="https://randomuser.me/api/portraits/men/22.jpg" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; margin-right: 15px;"><div><div style="font-weight: 600; color: #0d47a1;">Arjun Mehta</div><div style="color: #607d8b; font-size: 0.9rem;">Final Year Student at IIT Delhi</div></div></div>
+          </div>
+          <div style="min-width: 350px; padding: 30px; background: #f5faff; border-radius: 8px; text-align: left; flex-shrink: 0; border: 1px solid #e3f2fd;">
+            <p style="font-style: italic; color: #37474f; font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px;">"Their resume builder helped me get noticed. Went from 0 to 5 interview calls in a week!"</p>
+            <div style="display: flex; align-items: center;"><img src="https://randomuser.me/api/portraits/women/51.jpg" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; margin-right: 15px;"><div><div style="font-weight: 600; color: #0d47a1;">Ananya Reddy</div><div style="color: #607d8b; font-size: 0.9rem;">Content Strategist</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: Job Listings -->
+    <div id="jobContainer" class="job-container swipe-container">
+        <div class="job-box"><div class="hiring-badge">Actively hiring</div><h3 class="job-title">Email Marketing Assistant</h3><p class="job-company">Elecalon Ecom (OPC) Pvt. Ltd.</p><p class="job-location">Remote</p><p class="job-salary">₹21,000 – ₹30,000 / month</p><a href="https://www.elecalon.in/apply-now/email-marketing-assistant" class="job-link">View details</a></div>
+        <div class="job-box"><div class="hiring-badge">Actively hiring</div><h3 class="job-title">Data Verification Assistant</h3><p class="job-company">Elecalon Ecom (OPC) Pvt. Ltd.</p><p class="job-location">Remote</p><p class="job-salary">₹18,500 – ₹25,000 / month</p><a href="https://www.elecalon.in/apply-now/data-verification-assistant" class="job-link">View details</a></div>
+        <div class="job-box"><div class="hiring-badge">Actively hiring</div><h3 class="job-title">Web Scraping Executive</h3><p class="job-company">Elecalon Ecom (OPC) Pvt. Ltd.</p><p class="job-location">Remote</p><p class="job-salary">₹18,000 – ₹23,000 / month</p><a href="https://www.elecalon.in/apply-now/web-scraping-speciallist" class="job-link">View details</a></div>
+        <div class="job-box"><div class="hiring-badge">Actively hiring</div><h3 class="job-title">Product Listing Executive</h3><p class="job-company">Elecalon Ecom (OPC) Pvt. Ltd.</p><p class="job-location">Remote</p><p class="job-salary">₹18,000 – ₹23,000 / month</p><a href="https://www.elecalon.in/apply-now/product-listing-management-remote" class="job-link">View details</a></div>
+        <div class="job-box"><div class="hiring-badge">Actively hiring</div><h3 class="job-title">Social Media Executive</h3><p class="job-company">Elecalon Ecom (OPC) Pvt. Ltd.</p><p class="job-location">Remote</p><p class="job-salary">₹21,500 / month</p><a href="https://www.elecalon.in/apply-now/social-media-ececultive" class="job-link">Apply Now</a></div>
+        <div class="job-box"><div class="hiring-badge">Actively hiring</div><h3 class="job-title">Automation Executive</h3><p class="job-company">Elecalon Ecom (OPC) Pvt. Ltd.</p><p class="job-location">Remote</p><p class="job-salary">₹17,000 / month</p><a href="https://www.elecalon.in/apply-now/automation-executive" class="job-link">Apply Now</a></div>
+        <div class="job-box"><div class="hiring-badge">Actively hiring</div><h3 class="job-title">Catalog Coordinator</h3><p class="job-company">Elecalon Ecom (OPC) Pvt. Ltd.</p><p class="job-location">Remote</p><p class="job-salary">₹21,000 / month</p><a href="https://www.elecalon.in/apply-now/catalog-coordinator" class="job-link">Apply Now</a></div>
+        <div class="job-box"><div class="hiring-badge">Actively hiring</div><h3 class="job-title">Client Onboarding Intern</h3><p class="job-company">Elecalon Ecom (OPC) Pvt. Ltd.</p><p class="job-location">Remote</p><p class="job-salary">₹21,000 / month</p><a href="https://www.elecalon.in/apply-now/client-onboarding-intern" class="job-link">Apply Now</a></div>
+        <div class="job-box"><div class="hiring-badge">Actively hiring</div><h3 class="job-title">Marketplace Assistant</h3><p class="job-company">Elecalon Ecom (OPC) Pvt. Ltd.</p><p class="job-location">Remote</p><p class="job-salary">₹19,000 / month</p><a href="https://www.elecalon.in/apply-now/marketplace-assistant" class="job-link">Apply Now</a></div>
+        <div class="job-box"><div class="hiring-badge">Actively hiring</div><h3 class="job-title">Data Entry Executive</h3><p class="job-company">Elecalon Ecom (OPC) Pvt. Ltd.</p><p class="job-location">Remote</p><p class="job-salary">₹20,000 / month</p><a href="https://www.elecalon.in/apply-now/data-entry-executive" class="job-link">Apply Now</a></div>
+    </div>
+
+    <!-- Section 3: Popular Certification Courses -->
+    <div style="max-width: 100%; margin: 0 auto; padding: 20px; background: #f9fafb;">
+      <div style="text-align: center; margin-bottom: 30px;">
+        <h1 style="color: #2c3e50; margin-bottom: 10px; font-size: 24px;">Popular Certification Courses</h1>
+        <p style="color: #64748b; margin-top: 0; font-size: 16px;">Fastest way to build your CV</p>
+      </div>
+      <div id="courses-carousel1" class="swipe-container" style="white-space: nowrap; padding: 15px 0;">
+        <div style="display: inline-block; width: 280px; border-radius: 12px; padding: 20px; margin-right: 20px; background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.05); vertical-align: top;"><div style="color: #64748b; font-size: 14px; margin-bottom: 10px;">6 weeks</div><h3 style="margin: 0 0 10px; font-size: 20px; color: #2c3e50;">AutoCAD</h3><div style="display: flex; align-items: center; margin-bottom: 20px;"><span style="color: #f59e0b; margin-right: 5px;">★★★★★</span><span style="color: #64748b; font-size: 14px;">4.3 | 31,673 learners</span></div><a href="https://example.com/autocad" style="display: inline-block; background: #3b82f6; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: 500;">Know more →</a></div>
+        <div style="display: inline-block; width: 280px; border-radius: 12px; padding: 20px; margin-right: 20px; background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.05); vertical-align: top;"><div style="color: #64748b; font-size: 14px; margin-bottom: 10px;">6 weeks</div><h3 style="margin: 0 0 10px; font-size: 20px; color: #2c3e50;">Data Science</h3><div style="display: flex; align-items: center; margin-bottom: 20px;"><span style="color: #f59e0b; margin-right: 5px;">★★★★★</span><span style="color: #64748b; font-size: 14px;">4.1 | 27,182 learners</span></div><a href="https://example.com/datascience" style="display: inline-block; background: #3b82f6; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: 500;">Know more →</a></div>
+        <div style="display: inline-block; width: 280px; border-radius: 12px; padding: 20px; margin-right: 20px; background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.05); vertical-align: top;"><div style="color: #64748b; font-size: 14px; margin-bottom: 10px;">8 weeks</div><h3 style="margin: 0 0 10px; font-size: 20px; color: #2c3e50;">Programming with C and C++</h3><div style="display: flex; align-items: center; margin-bottom: 20px;"><span style="color: #f59e0b; margin-right: 5px;">★★★★★</span><span style="color: #64748b; font-size: 14px;">4.2 | 28,541 learners</span></div><a href="https://example.com/cpp" style="display: inline-block; background: #3b82f6; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: 500;">Know more →</a></div>
+      </div>
+      <div style="text-align: center; margin-top: 20px;">
+        <span style="display: inline-block; width: 10px; height: 10px; background: #cbd5e1; border-radius: 50%; margin: 0 5px;"></span><span style="display: inline-block; width: 10px; height: 10px; background: #cbd5e1; border-radius: 50%; margin: 0 5px;"></span><span style="display: inline-block; width: 10px; height: 10px; background: #3b82f6; border-radius: 50%; margin: 0 5px;"></span>
+      </div>
+    </div>
+
+    <!-- Section 4: Placement Stories -->
+    <div style="max-width: 100%; margin: 0 auto; padding: 15px; box-sizing: border-box; overflow: hidden;">
+      <div style="text-align: center; margin-bottom: 25px; padding: 0 10px;">
+        <h2 style="color: #2c3e50; font-size: min(6vw, 32px); margin-bottom: 8px; line-height: 1.3;">2854+ successful placements - Read their stories</h2>
+        <p style="color: #666; font-size: min(4vw, 18px); margin: 0;">Go-to platform for students and freshers</p>
+      </div>
+      <div id="testimonial-scroll" class="swipe-container" style="display: flex; gap: 15px; padding: 10px 15px; scroll-snap-type: x mandatory;">
+        <div class="testimonial-card" style="min-width: calc(100vw - 50px); max-width: 400px; scroll-snap-align: start; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); flex-shrink: 0; box-sizing: border-box;"><div style="display: flex; align-items: center; margin-bottom: 12px;"><img src="https://randomuser.me/api/portraits/men/1.jpg" style="width: 45px; height: 45px; border-radius: 50%; margin-right: 12px; object-fit: cover;"><div><h4 style="margin: 0; color: #2c3e50; font-size: min(5vw, 18px);">Amit Joshi</h4><p style="margin: 2px 0 0; color: #666; font-size: min(3.5vw, 14px);">Placed in IBM</p></div></div><p style="color: #444; line-height: 1.5; font-size: min(4vw, 15px); margin: 0;">"I was about to give up on my job search when I found Elecalon. Their personalized job recommendations matched me with perfect opportunities I wouldn't have found otherwise."</p></div>
+        <div class="testimonial-card" style="min-width: calc(100vw - 50px); max-width: 400px; scroll-snap-align: start; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); flex-shrink: 0; box-sizing: border-box;"><div style="display: flex; align-items: center; margin-bottom: 12px;"><img src="https://randomuser.me/api/portraits/women/2.jpg" style="width: 45px; height: 45px; border-radius: 50%; margin-right: 12px; object-fit: cover;"><div><h4 style="margin: 0; color: #2c3e50; font-size: min(5vw, 18px);">Priya Gupta</h4><p style="margin: 2px 0 0; color: #666; font-size: min(3.5vw, 14px);">Placed in Star Health</p></div></div><p style="color: #444; line-height: 1.5; font-size: min(4vw, 15px); margin: 0;">"Elecalon guided me through the entire process when I had no idea about the corporate world. Their support helped me secure a great job offer."</p></div>
+        <div class="testimonial-card" style="min-width: calc(100vw - 50px); max-width: 400px; scroll-snap-align: start; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); flex-shrink: 0; box-sizing: border-box;"><div style="display: flex; align-items: center; margin-bottom: 12px;"><img src="https://randomuser.me/api/portraits/men/3.jpg" style="width: 45px; height: 45px; border-radius: 50%; margin-right: 12px; object-fit: cover;"><div><h4 style="margin: 0; color: #2c3e50; font-size: min(5vw, 18px);">Rahul Sharma</h4><p style="margin: 2px 0 0; color: #666; font-size: min(3.5vw, 14px);">Placed in Flipkart</p></div></div><p style="color: #444; line-height: 1.5; font-size: min(4vw, 15px); margin: 0;">"I landed my first internship from Elecalon. This platform has opportunities for every student and is a must-have for anyone looking to build their career."</p></div>
+        <div class="testimonial-card" style="min-width: calc(100vw - 50px); max-width: 400px; scroll-snap-align: start; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); flex-shrink: 0; box-sizing: border-box;"><div style="display: flex; align-items: center; margin-bottom: 12px;"><img src="https://randomuser.me/api/portraits/women/4.jpg" style="width: 45px; height: 45px; border-radius: 50%; margin-right: 12px; object-fit: cover;"><div><h4 style="margin: 0; color: #2c3e50; font-size: min(5vw, 18px);">Neha Kapoor</h4><p style="margin: 2px 0 0; color: #666; font-size: min(3.5vw, 14px);">Placed in Amazon</p></div></div><p style="color: #444; line-height: 1.5; font-size: min(4vw, 15px); margin: 0;">"Got my dream job at Amazon through Elecalon! I was from a non-tech background but their resources helped me learn the right skills and ace my interviews."</p></div>
+        <div class="testimonial-card" style="min-width: calc(100vw - 50px); max-width: 400px; scroll-snap-align: start; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); flex-shrink: 0; box-sizing: border-box;"><div style="display: flex; align-items: center; margin-bottom: 12px;"><img src="https://randomuser.me/api/portraits/men/5.jpg" style="width: 45px; height: 45px; border-radius: 50%; margin-right: 12px; object-fit: cover;"><div><h4 style="margin: 0; color: #2c3e50; font-size: min(5vw, 18px);">Vikram Patel</h4><p style="margin: 2px 0 0; color: #666; font-size: min(3.5vw, 14px);">Placed in TCS</p></div></div><p style="color: #444; line-height: 1.5; font-size: min(4vw, 15px); margin: 0;">"Elecalon's career guidance was invaluable. They helped me identify my strengths and match them with the right opportunities in the tech industry."</p></div>
+        <div class="testimonial-card" style="min-width: calc(100vw - 50px); max-width: 400px; scroll-snap-align: start; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); flex-shrink: 0; box-sizing: border-box;"><div style="display: flex; align-items: center; margin-bottom: 12px;"><img src="https://randomuser.me/api/portraits/women/6.jpg" style="width: 45px; height: 45px; border-radius: 50%; margin-right: 12px; object-fit: cover;"><div><h4 style="margin: 0; color: #2c3e50; font-size: min(5vw, 18px);">Ananya Reddy</h4><p style="margin: 2px 0 0; color: #666; font-size: min(3.5vw, 14px);">Placed in Wipro</p></div></div><p style="color: #444; line-height: 1.5; font-size: min(4vw, 15px); margin: 0;">"The interview preparation materials on Elecalon were exactly what I needed. I could practice real interview questions and gain confidence."</p></div>
+        <div class="testimonial-card" style="min-width: calc(100vw - 50px); max-width: 400px; scroll-snap-align: start; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); flex-shrink: 0; box-sizing: border-box;"><div style="display: flex; align-items: center; margin-bottom: 12px;"><img src="https://randomuser.me/api/portraits/men/7.jpg" style="width: 45px; height: 45px; border-radius: 50%; margin-right: 12px; object-fit: cover;"><div><h4 style="margin: 0; color: #2c3e50; font-size: min(5vw, 18px);">Arjun Mehta</h4><p style="margin: 2px 0 0; color: #666; font-size: min(3.5vw, 14px);">Placed in Infosys</p></div></div><p style="color: #444; line-height: 1.5; font-size: min(4vw, 15px); margin: 0;">"As a fresher with no experience, I was struggling to get noticed. Elecalon's profile-building tools helped me showcase my skills effectively."</p></div>
+        <div class="testimonial-card" style="min-width: calc(100vw - 50px); max-width: 400px; scroll-snap-align: start; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); flex-shrink: 0; box-sizing: border-box;"><div style="display: flex; align-items: center; margin-bottom: 12px;"><img src="https://randomuser.me/api/portraits/women/8.jpg" style="width: 45px; height: 45px; border-radius: 50%; margin-right: 12px; object-fit: cover;"><div><h4 style="margin: 0; color: #2c3e50; font-size: min(5vw, 18px);">Divya Nair</h4><p style="margin: 2px 0 0; color: #666; font-size: min(3.5vw, 14px);">Placed in HCL</p></div></div><p style="color: #444; line-height: 1.5; font-size: min(4vw, 15px); margin: 0;">"Elecalon's skill assessment tests helped me identify my weak areas. I could then focus my learning and eventually land a job at a top IT company."</p></div>
+        <div class="testimonial-card" style="min-width: calc(100vw - 50px); max-width: 400px; scroll-snap-align: start; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); flex-shrink: 0; box-sizing: border-box;"><div style="display: flex; align-items: center; margin-bottom: 12px;"><img src="https://randomuser.me/api/portraits/men/9.jpg" style="width: 45px; height: 45px; border-radius: 50%; margin-right: 12px; object-fit: cover;"><div><h4 style="margin: 0; color: #2c3e50; font-size: min(5vw, 18px);">Rohit Verma</h4><p style="margin: 2px 0 0; color: #666; font-size: min(3.5vw, 14px);">Placed in Accenture</p></div></div><p style="color: #444; line-height: 1.5; font-size: min(4vw, 15px); margin: 0;">"The resume builder on Elecalon is fantastic! It helped me create a professional resume that got me multiple interview calls within weeks."</p></div>
+        <div class="testimonial-card" style="min-width: calc(100vw - 50px); max-width: 400px; scroll-snap-align: start; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); flex-shrink: 0; box-sizing: border-box;"><div style="display: flex; align-items: center; margin-bottom: 12px;"><img src="https://randomuser.me/api/portraits/women/10.jpg" style="width: 45px; height: 45px; border-radius: 50%; margin-right: 12px; object-fit: cover;"><div><h4 style="margin: 0; color: #2c3e50; font-size: min(5vw, 18px);">Shreya Malhotra</h4><p style="margin: 2px 0 0; color: #666; font-size: min(3.5vw, 14px);">Placed in Cognizant</p></div></div><p style="color: #444; line-height: 1.5; font-size: min(4vw, 15px); margin: 0;">"Elecalon's mock interview feature was a game-changer for me. Practicing with their AI tool helped me overcome my nervousness."</p></div>
+      </div>
+      <div id="testimonial-dots" style="display: flex; justify-content: center; gap: 8px; margin-top: 20px; padding: 0 15px;">
+        <span class="dot" style="width: min(3vw, 12px); height: min(3vw, 12px); background: #2c3e50; border-radius: 50%; cursor: pointer;"></span><span class="dot" style="width: min(3vw, 12px); height: min(3vw, 12px); background: #ccc; border-radius: 50%; cursor: pointer;"></span><span class="dot" style="width: min(3vw, 12px); height: min(3vw, 12px); background: #ccc; border-radius: 50%; cursor: pointer;"></span><span class="dot" style="width: min(3vw, 12px); height: min(3vw, 12px); background: #ccc; border-radius: 50%; cursor: pointer;"></span><span class="dot" style="width: min(3vw, 12px); height: min(3vw, 12px); background: #ccc; border-radius: 50%; cursor: pointer;"></span><span class="dot" style="width: min(3vw, 12px); height: min(3vw, 12px); background: #ccc; border-radius: 50%; cursor: pointer;"></span><span class="dot" style="width: min(3vw, 12px); height: min(3vw, 12px); background: #ccc; border-radius: 50%; cursor: pointer;"></span><span class="dot" style="width: min(3vw, 12px); height: min(3vw, 12px); background: #ccc; border-radius: 50%; cursor: pointer;"></span><span class="dot" style="width: min(3vw, 12px); height: min(3vw, 12px); background: #ccc; border-radius: 50%; cursor: pointer;"></span><span class="dot" style="width: min(3vw, 12px); height: min(3vw, 12px); background: #ccc; border-radius: 50%; cursor: pointer;"></span>
+      </div>
+    </div>
+
+    <!-- Section 5: Placement Guarantee Courses -->
+    <div style="max-width: 100%; margin: 0 auto; padding: 15px;">
+      <div style="text-align: center; margin-bottom: 20px;">
+        <h1 style="color: #2c3e50; margin-bottom: 5px;">EIecalon Ecom Private Limited</h1>
+        <h2 style="color: #4f46e5; margin-top: 0;">Placement Guarantee Courses</h2>
+      </div>
+      <div style="background: linear-gradient(135deg, #4f46e5, #7c3aed); color: white; padding: 20px; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 4px 12px rgba(79,70,229,0.2);">
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
+          <div style="display: flex; align-items: center; font-size: 15px;"><span style="background: white; color: #4f46e5; width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-right: 8px; font-weight: bold;">✓</span>Get 100% refund if not hired</div>
+          <div style="display: flex; align-items: center; font-size: 15px;"><span style="background: white; color: #4f46e5; width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-right: 8px; font-weight: bold;">✓</span>Become job ready in 3-6 months</div>
+          <div style="display: flex; align-items: center; font-size: 15px;"><span style="background: white; color: #4f46e5; width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-right: 8px; font-weight: bold;">✓</span>1000+ hiring partners</div>
+        </div>
+      </div>
+      <div id="courses-carousel2" class="swipe-container" style="white-space: nowrap; padding: 15px 0;">
+        <div style="display: inline-block; width: 280px; border: 1px solid #e0e0e0; border-radius: 12px; padding: 20px; margin-right: 20px; vertical-align: top; background: white; box-shadow: 0 4px 8px rgba(0,0,0,0.05);"><div style="background: #4CAF50; color: white; padding: 4px 10px; border-radius: 20px; font-size: 12px; display: inline-block; margin-bottom: 15px;">✓ Placement Guarantee</div><h3 style="margin: 10px 0; font-size: 18px; color: #2c3e50;">Full Stack Development</h3><ul style="padding-left: 20px; margin: 15px 0; white-space: normal;"><li style="margin-bottom: 8px; list-style-type: none; position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; color: #4CAF50;">✓</span> 6 months intensive training</li><li style="margin-bottom: 8px; list-style-type: none; position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; color: #4CAF50;">✓</span> ₹3-10 LPA placement</li><li style="margin-bottom: 8px; list-style-type: none; position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; color: #4CAF50;">✓</span> 1.08L+ opportunities</li></ul><div style="border-top: 1px dashed #eee; padding-top: 15px;"><a href="https://example.com/fullstack" style="display: inline-block; background: #2c3e50; color: white; padding: 8px 20px; text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: 500;">Know more →</a></div></div>
+        <div style="display: inline-block; width: 280px; border: 1px solid #e0e0e0; border-radius: 12px; padding: 20px; margin-right: 20px; vertical-align: top; background: white; box-shadow: 0 4px 8px rgba(0,0,0,0.05);"><div style="background: #6366f1; color: white; padding: 4px 10px; border-radius: 20px; font-size: 12px; display: inline-block; margin-bottom: 15px;">✓ Internship Guarantee</div><h3 style="margin: 10px 0; font-size: 18px; color: #2c3e50;">Financial Modelling</h3><ul style="padding-left: 20px; margin: 15px 0; white-space: normal;"><li style="margin-bottom: 8px; list-style-type: none; position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; color: #6366f1;">✓</span> 4 months course</li><li style="margin-bottom: 8px; list-style-type: none; position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; color: #6366f1;">✓</span> ₹40,000 total stipend</li><li style="margin-bottom: 8px; list-style-type: none; position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; color: #6366f1;">✓</span> 7.4K+ opportunities</li></ul><div style="border-top: 1px dashed #eee; padding-top: 15px;"><a href="https://example.com/financial" style="display: inline-block; background: #6366f1; color: white; padding: 8px 20px; text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: 500;">Know more →</a></div></div>
+        <div style="display: inline-block; width: 280px; border: 1px solid #e0e0e0; border-radius: 12px; padding: 20px; margin-right: 20px; vertical-align: top; background: white; box-shadow: 0 4px 8px rgba(0,0,0,0.05);"><div style="background: #ec4899; color: white; padding: 4px 10px; border-radius: 20px; font-size: 12px; display: inline-block; margin-bottom: 15px;">✓ Job Guarantee</div><h3 style="margin: 10px 0; font-size: 18px; color: #2c3e50;">HR Management</h3><ul style="padding-left: 20px; margin: 15px 0; white-space: normal;"><li style="margin-bottom: 8px; list-style-type: none; position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; color: #ec4899;">✓</span> 3 months course</li><li style="margin-bottom: 8px; list-style-type: none; position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; color: #ec4899;">✓</span> ₹3-10 LPA salary</li><li style="margin-bottom: 8px; list-style-type: none; position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; color: #ec4899;">✓</span> 2.91L+ opportunities</li></ul><div style="border-top: 1px dashed #eee; padding-top: 15px;"><a href="https://example.com/hr" style="display: inline-block; background: #ec4899; color: white; padding: 8px 20px; text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: 500;">Know more →</a></div></div>
+        <div style="display: inline-block; width: 280px; border: 1px solid #e0e0e0; border-radius: 12px; padding: 20px; margin-right: 20px; vertical-align: top; background: white; box-shadow: 0 4px 8px rgba(0,0,0,0.05);"><div style="background: #10b981; color: white; padding: 4px 10px; border-radius: 20px; font-size: 12px; display: inline-block; margin-bottom: 15px;">✓ Job Guarantee</div><h3 style="margin: 10px 0; font-size: 18px; color: #2c3e50;">Digital Marketing</h3><ul style="padding-left: 20px; margin: 15px 0; white-space: normal;"><li style="margin-bottom: 8px; list-style-type: none; position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; color: #10b981;">✓</span> 5 months course</li><li style="margin-bottom: 8px; list-style-type: none; position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; color: #10b981;">✓</span> ₹3-10 LPA salary</li><li style="margin-bottom: 8px; list-style-type: none; position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; color: #10b981;">✓</span> 6.25L+ opportunities</li></ul><div style="border-top: 1px dashed #eee; padding-top: 15px;"><a href="https://example.com/digital" style="display: inline-block; background: #10b981; color: white; padding: 8px 20px; text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: 500;">Know more →</a></div></div>
+        <div style="display: inline-block; width: 280px; border: 1px solid #e0e0e0; border-radius: 12px; padding: 20px; margin-right: 20px; vertical-align: top; background: white; box-shadow: 0 4px 8px rgba(0,0,0,0.05);"><div style="background: #4f46e5; color: white; padding: 4px 10px; border-radius: 20px; font-size: 12px; display: inline-block; margin-bottom: 15px;">✓ Internship Guarantee</div><h3 style="margin: 10px 0; font-size: 18px; color: #2c3e50;">UI/UX Design</h3><ul style="padding-left: 20px; margin: 15px 0; white-space: normal;"><li style="margin-bottom: 8px; list-style-type: none; position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; color: #4f46e5;">✓</span> 5 months course</li><li style="margin-bottom: 8px; list-style-type: none; position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; color: #4f46e5;">✓</span> ₹35,000 stipend</li><li style="margin-bottom: 8px; list-style-type: none; position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; color: #4f46e5;">✓</span> 10K+ opportunities</li></ul><div style="border-top: 1px dashed #eee; padding-top: 15px;"><a href="https://example.com/uiux" style="display: inline-block; background: #4f46e5; color: white; padding: 8px 20px; text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: 500;">Know more →</a></div></div>
+        <div style="display: inline-block; width: 280px; border: 1px solid #e0e0e0; border-radius: 12px; padding: 20px; margin-right: 20px; vertical-align: top; background: white; box-shadow: 0 4px 8px rgba(0,0,0,0.05);"><div style="background: #06b6d4; color: white; padding: 4px 10px; border-radius: 20px; font-size: 12px; display: inline-block; margin-bottom: 15px;">✓ Internship Guarantee</div><h3 style="margin: 10px 0; font-size: 18px; color: #2c3e50;">Product Management</h3><ul style="padding-left: 20px; margin: 15px 0; white-space: normal;"><li style="margin-bottom: 8px; list-style-type: none; position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; color: #06b6d4;">✓</span> 5 months course</li><li style="margin-bottom: 8px; list-style-type: none; position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; color: #06b6d4;">✓</span> ₹35,000 stipend</li><li style="margin-bottom: 8px; list-style-type: none; position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; color: #06b6d4;">✓</span> 31K+ opportunities</li></ul><div style="border-top: 1px dashed #eee; padding-top: 15px;"><a href="https://example.com/product" style="display: inline-block; background: #06b6d4; color: white; padding: 8px 20px; text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: 500;">Know more →</a></div></div>
+        <div style="display: inline-block; width: 280px; border: 1px solid #e0e0e0; border-radius: 12px; padding: 20px; margin-right: 20px; vertical-align: top; background: white; box-shadow: 0 4px 8px rgba(0,0,0,0.05);"><div style="background: #10b981; color: white; padding: 4px 10px; border-radius: 20px; font-size: 12px; display: inline-block; margin-bottom: 15px;">✓ Job Guarantee</div><h3 style="margin: 10px 0; font-size: 18px; color: #2c3e50;">Supply Chain Logistics</h3><ul style="padding-left: 20px; margin: 15px 0; white-space: normal;"><li style="margin-bottom: 8px; list-style-type: none; position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; color: #10b981;">✓</span> 2 months course</li><li style="margin-bottom: 8px; list-style-type: none; position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; color: #10b981;">✓</span> Upto ₹4.5 LPA salary</li><li style="margin-bottom: 8px; list-style-type: none; position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; color: #10b981;">✓</span> Amazon, Swiggy, Zepio etc.</li></ul><div style="border-top: 1px dashed #eee; padding-top: 15px;"><a href="https://example.com/supplychain" style="display: inline-block; background: #10b981; color: white; padding: 8px 20px; text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: 500;">Know more →</a></div></div>
+        <div style="display: inline-block; width: 280px; border: 1px solid #e0e0e0; border-radius: 12px; padding: 20px; margin-right: 20px; vertical-align: top; background: white; box-shadow: 0 4px 8px rgba(0,0,0,0.05);"><div style="background: #ef4444; color: white; padding: 4px 10px; border-radius: 20px; font-size: 12px; display: inline-block; margin-bottom: 15px;">✓ Job Guarantee</div><h3 style="margin: 10px 0; font-size: 18px; color: #2c3e50;">Banking Sales</h3><ul style="padding-left: 20px; margin: 15px 0; white-space: normal;"><li style="margin-bottom: 8px; list-style-type: none; position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; color: #ef4444;">✓</span> 2 months course</li><li style="margin-bottom: 8px; list-style-type: none; position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; color: #ef4444;">✓</span> Kotak, Axis, IDFC First etc.</li><li style="margin-bottom: 8px; list-style-type: none; position: relative; padding-left: 25px;"><span style="position: absolute; left: 0; color: #ef4444;">✓</span> 4.1K+ opportunities</li></ul><div style="border-top: 1px dashed #eee; padding-top: 15px;"><a href="https://example.com/banking" style="display: inline-block; background: #ef4444; color: white; padding: 8px 20px; text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: 500;">Know more →</a></div></div>
+      </div>
+    </div>
+
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      /**
+       * GENERIC CAROUSEL HANDLER
+       * This function adds auto-scroll and manual drag-to-swipe functionality to any carousel.
+       * @param {string} containerId - The ID of the carousel container element.
+       * @param {number} scrollSpeed - The speed of the auto-scroll (e.g., 1).
+       * @param {number} autoScrollInterval - The time in ms between scroll steps (e.g., 50).
+       */
+       const hamburger = document.getElementById('hamburger');
+        const mainNav = document.getElementById('main-nav');
+        if (hamburger && mainNav) {
+            const dropdownLinks = mainNav.querySelectorAll('.dropdown > a');
+            
+            hamburger.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
+            });
+
+            dropdownLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 992) {
+                        e.preventDefault();
+                        link.parentElement.classList.toggle('open');
+                    }
+                });
+            });
+        }
+
+      const setupCarousel = (containerId, scrollSpeed = 1, autoScrollInterval = 50) => {
+        const carousel = document.getElementById(containerId);
+        if (!carousel) return;
+
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        let autoScrollTimer;
+        let inactivityTimer;
+
+        const startAutoScroll = () => {
+          stopAutoScroll(); // Ensure no multiple intervals are running
+          autoScrollTimer = setInterval(() => {
+            if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 1) {
+              carousel.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+              carousel.scrollBy({ left: scrollSpeed, behavior: 'smooth' });
+            }
+          }, autoScrollInterval);
+        };
+
+        const stopAutoScroll = () => {
+          clearInterval(autoScrollTimer);
+          clearTimeout(inactivityTimer);
+        };
+        
+        const restartAutoScrollAfterDelay = () => {
+            clearTimeout(inactivityTimer);
+            inactivityTimer = setTimeout(startAutoScroll, 3000); // Wait 3 seconds before resuming
+        };
+
+        const startDrag = (e) => {
+          isDown = true;
+          stopAutoScroll();
+          carousel.style.cursor = 'grabbing';
+          startX = (e.pageX || e.touches[0].pageX) - carousel.offsetLeft;
+          scrollLeft = carousel.scrollLeft;
+        };
+
+        const endDrag = () => {
+          isDown = false;
+          carousel.style.cursor = 'grab';
+          restartAutoScrollAfterDelay();
+        };
+
+        const drag = (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = (e.pageX || e.touches[0].pageX) - carousel.offsetLeft;
+          const walk = (x - startX) * 2; // The multiplier makes scrolling faster
+          carousel.scrollLeft = scrollLeft - walk;
+        };
+        
+        // Desktop Mouse Events
+        carousel.addEventListener('mousedown', startDrag);
+        carousel.addEventListener('mouseleave', endDrag);
+        carousel.addEventListener('mouseup', endDrag);
+        carousel.addEventListener('mousemove', drag);
+        
+        // Mobile Touch Events
+        carousel.addEventListener('touchstart', startDrag);
+        carousel.addEventListener('touchend', endDrag);
+        carousel.addEventListener('touchmove', drag);
+
+        startAutoScroll();
+      };
+
+      /**
+       * TESTIMONIAL CAROUSEL WITH DOTS
+       * This is a special handler for the testimonial section with navigation dots.
+       */
+      const setupTestimonialDotsCarousel = () => {
+        const container = document.getElementById('testimonial-scroll');
+        const dotsContainer = document.getElementById('testimonial-dots');
+        if (!container || !dotsContainer) return;
+
+        const dots = dotsContainer.querySelectorAll('.dot');
+        const cards = container.querySelectorAll('.testimonial-card');
+        if (cards.length === 0 || dots.length === 0) return;
+        
+        let autoScrollTimer;
+        let inactivityTimer;
+
+        const updateDots = () => {
+          const cardWidth = cards[0].offsetWidth + 15; // card width + gap
+          let currentIndex = Math.round(container.scrollLeft / cardWidth);
+          dots.forEach((dot, index) => {
+            dot.style.background = index === currentIndex ? '#2c3e50' : '#ccc';
+          });
+        };
+        
+        const startAutoScroll = () => {
+            stopAutoScroll();
+            autoScrollTimer = setInterval(() => {
+                const cardWidth = cards[0].offsetWidth + 15;
+                let nextScroll = container.scrollLeft + cardWidth;
+                if (nextScroll + container.clientWidth > container.scrollWidth) {
+                    nextScroll = 0;
+                }
+                container.scrollTo({ left: nextScroll, behavior: 'smooth' });
+            }, 3000);
+        };
+        
+        const stopAutoScroll = () => {
+            clearInterval(autoScrollTimer);
+            clearTimeout(inactivityTimer);
+        };
+        
+        const restartAutoScrollAfterDelay = () => {
+            clearTimeout(inactivityTimer);
+            inactivityTimer = setTimeout(startAutoScroll, 4000); // Wait 4 seconds
+        };
+
+        // Use the same drag logic from the generic carousel
+        let isDown = false, startX, scrollLeft;
+        const startDrag = (e) => { isDown = true; stopAutoScroll(); container.style.cursor = 'grabbing'; startX = (e.pageX || e.touches[0].pageX) - container.offsetLeft; scrollLeft = container.scrollLeft; };
+        const endDrag = () => { isDown = false; container.style.cursor = 'grab'; restartAutoScrollAfterDelay(); };
+        const drag = (e) => { if (!isDown) return; e.preventDefault(); const x = (e.pageX || e.touches[0].pageX) - container.offsetLeft; const walk = (x - startX) * 2; container.scrollLeft = scrollLeft - walk; };
+        
+        container.addEventListener('mousedown', startDrag);
+        container.addEventListener('mouseleave', endDrag);
+        container.addEventListener('mouseup', endDrag);
+        container.addEventListener('mousemove', drag);
+        container.addEventListener('touchstart', startDrag);
+        container.addEventListener('touchend', endDrag);
+        container.addEventListener('touchmove', drag);
+        
+        // Update dots on scroll
+        container.addEventListener('scroll', updateDots);
+        
+        // Allow clicking on dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                stopAutoScroll();
+                const cardWidth = cards[0].offsetWidth + 15;
+                container.scrollTo({ left: index * cardWidth, behavior: 'smooth' });
+                restartAutoScrollAfterDelay();
+            });
+        });
+        
+        startAutoScroll();
+      };
+
+
+      // --- INITIALIZE ALL CAROUSELS ---
+      setupCarousel('hero-testimonials');
+      setupCarousel('jobContainer');
+      setupCarousel('courses-carousel1');
+      setupCarousel('courses-carousel2');
+      setupTestimonialDotsCarousel();
+
+    });
+    </script>
+
+</body>
+</html>

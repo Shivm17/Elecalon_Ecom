@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Entry Executive - Remote Job | Elecalon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #27ae60;
+            --light: #f9f9f9;
+            --dark: #333;
+            --warning: #e74c3c;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0;
+            background-color: var(--light);
+        }
+        
+        .header-container {
+            background: linear-gradient(135deg, var(--primary), #1a2530);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--secondary));
+        }
+        
+        .job-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            padding: 30px;
+            margin: 20px;
+            margin-top: -10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .trust-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .badge {
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 10px 15px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .badge i {
+            color: var(--accent);
+        }
+        
+        .salary-highlight {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border-left: 5px solid var(--secondary);
+            text-align: center;
+        }
+        
+        .urgency-banner {
+            background-color: #fff8e1;
+            border: 1px solid #ffd54f;
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #5d4037;
+        }
+        
+        .urgency-banner i {
+            color: var(--warning);
+            margin-right: 8px;
+        }
+        
+        .enroll-section {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .enroll-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent), #219653);
+            color: white;
+            text-align: center;
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .enroll-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+        }
+        
+        .enroll-btn:active {
+            transform: translateY(1px);
+        }
+        
+        .enroll-btn::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .enroll-btn:hover::after {
+            left: 100%;
+        }
+        
+        .deposit-info {
+            background-color: #e8f5e9;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border-left: 5px solid var(--accent);
+        }
+        
+        .refund-policy {
+            background-color: #e3f2fd;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border-left: 5px solid var(--secondary);
+        }
+        
+        .testimonials {
+            margin: 40px 0;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--secondary);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .responsibilities, .requirements {
+            margin: 30px 0;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        li::before {
+            content: "•";
+            color: var(--secondary);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        .tools-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .tools-table td {
+            border: 1px solid #e0e0e0;
+            padding: 12px;
+            text-align: center;
+            background-color: white;
+        }
+        
+        .perks-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .perk {
+            background-color: #f0f7ff;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #d1e7ff;
+        }
+        
+        .faq-section {
+            margin-top: 40px;
+        }
+        
+        .faq-item {
+            margin-bottom: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            border-color: var(--secondary);
+        }
+        
+        .faq-question {
+            background-color: #f8f9fa;
+            padding: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 18px;
+            max-height: 1000px;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .contact-section {
+            background-color: var(--primary);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .email-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #ea4335;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .email-btn:hover {
+            background-color: #d33426;
+            transform: translateY(-2px);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .job-container {
+                margin: 10px;
+                padding: 20px;
+            }
+            
+            .trust-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .perks-container {
+                justify-content: center;
+            }
+            
+            .enroll-btn {
+                padding: 14px 30px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <h1>Data Entry Executive</h1>
+        <p style="opacity: 0.9; font-size: 18px;">Remote Position • 100% Flexible Hours • Immediate Start</p>
+        
+        <div class="trust-badges">
+            <div class="badge">
+                <i class="fas fa-shield-alt"></i>
+                <span>Secure Payment</span>
+            </div>
+            <div class="badge">
+                <i class="fas fa-building"></i>
+                <span>Official Company</span>
+            </div>
+            <div class="badge">
+                <i class="fas fa-user-check"></i>
+                <span>Verified Candidates</span>
+            </div>
+            <div class="badge">
+                <i class="fas fa-lock"></i>
+                <span>Refund Guarantee</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="job-container">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <span style="background-color: #e3f2fd; color: #1976d2; padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: 500;">
+                <i class="fas fa-briefcase"></i> Employment Type: Full-time/Part-time
+            </span>
+        </div>
+        
+        <div class="salary-highlight">
+            <h2 style="margin-top: 0; color: #1565c0;">Salary: ₹18,000 - ₹23,000/month</h2>
+            <p style="font-size: 16px; margin-bottom: 0;">(Starting salary ₹18,000 + performance bonuses up to ₹5,000/month)</p>
+        </div>
+        
+        <div class="urgency-banner">
+            <i class="fas fa-exclamation-circle"></i>
+            Limited Seats Available! Only 12 spots left for this batch.
+        </div>
+        
+        <div style="text-align: center; margin: 25px 0;">
+            <span class="training-badge" style="background-color: #e8f5e9; color: #2e7d32; padding: 10px 20px; border-radius: 25px; display: inline-block; font-weight: bold; font-size: 16px;">
+                <i class="fas fa-graduation-cap"></i> Complete Training Provided | 
+                <i class="fas fa-tools"></i> Tools Supplied
+            </span>
+        </div>
+        
+        <h2>About the Role</h2>
+        <p>You will be responsible for managing business data by entering it into spreadsheets, databases, and tools. <strong>No prior experience needed</strong> - we provide comprehensive training with 24/7 support!</p>
+        
+        <div class="enroll-section">
+            <h2 style="color: var(--primary); margin-top: 0;">Ready to Start Your Remote Career?</h2>
+            <p style="font-size: 18px; margin-bottom: 25px;">Join 500+ successful candidates who started with no experience</p>
+            <a href="https://rzp.io/rzp/nHaEVX4" class="enroll-btn" id="enrollBtn" target="_blank">
+                <i class="fas fa-rocket"></i> Apply Now - Limited Seats
+            </a>
+            <p style="margin-top: 15px; font-size: 14px; color: #666;">
+                <i class="fas fa-lock"></i> Secure payment processed by Razorpay
+            </p>
+        </div>
+        
+        <div class="deposit-info">
+            <h3 style="color: var(--accent); margin-top: 0;"><i class="fas fa-hand-holding-usd"></i> Why We Require a Refundable Deposit</h3>
+            <p>To ensure a committed and productive working relationship, we require a fully refundable deposit of ₹899 for:</p>
+            <ul>
+                <li>Ensuring serious commitment from candidates</li>
+                <li>Covering the cost of training materials and premium software licenses</li>
+                <li>Preventing misuse of our proprietary resources and systems</li>
+                <li>Maintaining a professional work environment</li>
+            </ul>
+        </div>
+        
+        <div class="refund-policy">
+            <h3 style="color: var(--secondary); margin-top: 0;"><i class="fas fa-file-contract"></i> Refund Policy</h3>
+            <p>Your ₹899 deposit is <strong>100% refundable</strong> under these conditions:</p>
+            <ul>
+                <li>Complete the 3-month work commitment as per agreement</li>
+                <li>Maintain a 95%+ work accuracy rate</li>
+                <li>Submit all weekly reports on time</li>
+                <li>Follow all company guidelines and policies</li>
+            </ul>
+            <p><strong>Refund Timeline:</strong> Deposits are refunded within 7 working days after completing the 3-month commitment period.</p>
+        </div>
+        
+        <div class="testimonials">
+            <h2 style="text-align: center; border-bottom: 2px solid #eee; padding-bottom: 10px;">Success Stories</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "I was skeptical about the deposit at first, but it was fully refunded after 3 months. The training was excellent and now I earn ₹22,000/month working from home!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">PS</div>
+                        <div>
+                            <strong>Priya Sharma</strong>
+                            <div style="font-size: 14px; color: #666;">Data Entry Executive</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "As a recent graduate with no experience, this opportunity changed my life. The deposit ensured I took the training seriously. Now I have a stable remote job."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RS</div>
+                        <div>
+                            <strong>Rahul Singh</strong>
+                            <div style="font-size: 14px; color: #666;">Data Quality Analyst</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "The flexible hours let me balance work and family. The deposit was a small investment that paid off quickly. I received my full refund after 3 months."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AM</div>
+                        <div>
+                            <strong>Anita Mehta</strong>
+                            <div style="font-size: 14px; color: #666;">Remote Data Specialist</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="responsibilities">
+            <h3><i class="fas fa-tasks"></i> Key Responsibilities:</h3>
+            <ul>
+                <li>Enter data from various sources accurately into designated systems</li>
+                <li>Organize and format data as per provided guidelines</li>
+                <li>Verify data by comparing it to source documents</li>
+                <li>Update existing data and maintain data integrity</li>
+                <li>Submit work reports on a weekly basis</li>
+                <li>Perform regular backups to ensure data preservation</li>
+            </ul>
+        </div>
+        
+        <div class="requirements">
+            <h3><i class="fas fa-clipboard-check"></i> Requirements:</h3>
+            <ul>
+                <li>Basic computer skills (we'll train you on the rest)</li>
+                <li>Smartphone for verification and communication</li>
+                <li>Reliable internet connection</li>
+                <li>Ability to commit 4-8 hours daily</li>
+                <li>No minimum education required</li>
+                <li>Willingness to learn and follow instructions</li>
+            </ul>
+        </div>
+        
+        <h3><i class="fas fa-toolbox"></i> Tools We Provide:</h3>
+        <table class="tools-table">
+            <tr>
+                <td><i class="fas fa-table"></i> Google Workspace</td>
+                <td><i class="fas fa-database"></i> Data Entry Software</td>
+            </tr>
+            <tr>
+                <td><i class="fas fa-cloud"></i> Cloud Storage</td>
+                <td><i class="fas fa-clock"></i> Time Tracking Tools</td>
+            </tr>
+            <tr>
+                <td><i class="fas fa-video"></i> Training Videos</td>
+                <td><i class="fas fa-headset"></i> 24/7 Support Access</td>
+            </tr>
+        </table>
+        
+        <h3><i class="fas fa-star"></i> Why Choose Us?</h3>
+        <div class="perks-container">
+            <div class="perk"><i class="fas fa-clock"></i> 100% Flexible Hours</div>
+            <div class="perk"><i class="fas fa-graduation-cap"></i> Free Training</div>
+            <div class="perk"><i class="fas fa-tools"></i> Tools Provided</div>
+            <div class="perk"><i class="fas fa-chart-line"></i> Performance Bonuses</div>
+            <div class="perk"><i class="fas fa-certificate"></i> Certificate</div>
+            <div class="perk"><i class="fas fa-envelope"></i> Recommendation Letter</div>
+            <div class="perk"><i class="fas fa-money-bill-wave"></i> Refundable Deposit</div>
+            <div class="perk"><i class="fas fa-users"></i> Support Community</div>
+        </div>
+        
+        <div class="faq-section">
+            <h2 style="text-align: center; border-bottom: 2px solid #eee; padding-bottom: 10px;">Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Is the deposit really refundable?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <strong>Yes, absolutely!</strong> The ₹899 deposit is 100% refundable after you complete the 3-month work commitment. We've refunded deposits for over 400 candidates who successfully completed their commitment period. The deposit ensures both parties are serious about the working relationship.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What happens if I don't complete 3 months?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    If you're unable to complete the 3-month commitment due to valid reasons (health issues, family emergencies, etc.), we offer partial refunds on a case-by-case basis. For voluntary withdrawals without valid reasons, the deposit is used to cover training and administrative costs incurred.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Is any training provided for beginners?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <strong>Yes!</strong> We provide complete training including:
+                    <ul>
+                        <li>Step-by-step video tutorials</li>
+                        <li>Live Q&A sessions</li>
+                        <li>Practice datasets</li>
+                        <li>Dedicated trainer support</li>
+                    </ul>
+                    Most trainees become productive within 3 days.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How quickly will I receive payment?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Payments are processed on a monthly basis, between the 1st and 5th of each month. Your first payment will be issued after completing your first full month of work. We use secure payment gateways like Bank Transfer, UPI, or Paytm for all transactions.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What is the selection process?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Our selection process is straightforward:
+                    <ol>
+                        <li>Complete the enrollment form and payment</li>
+                        <li>Receive training materials within 24 hours</li>
+                        <li>Complete the 2-day training program</li>
+                        <li>Pass a simple assessment test</li>
+                        <li>Start working on real projects</li>
+                    </ol>
+                    Over 90% of candidates who complete training are selected.
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-section">
+            <h2 style="margin-top: 0;">Still Have Questions?</h2>
+            <p>Our support team is available to help you with any queries about the position, deposit, or application process.</p>
+            <a href="mailto:elecalonecom@gmail.com" class="email-btn">
+                <i class="fas fa-envelope"></i> Email Us: elecalonecom@gmail.com
+            </a>
+            <p style="margin-top: 20px; font-size: 14px; opacity: 0.8;">
+                <i class="fas fa-envelope"></i> Email: elecalonecom@gmail.com
+            </p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Elecalon Pvt. Ltd.</p>
+        <p>GSTIN: 09AABCU9603R1ZM • CIN: U72900UP2019PTC123456</p>
+        <p>© 2023 Elecalon. All rights reserved.</p>
+    </div>
+
+    <script>
+        // FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+        
+        // Add click event to the enroll button
+        document.getElementById('enrollBtn').addEventListener('click', function(e) {
+            // Optional: Add tracking or confirmation here
+            console.log('Enrollment process initiated');
+        });
+        
+        // Add smooth scrolling for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
