@@ -179,10 +179,10 @@ export default function Header() {
                             </React.Fragment>
                         ))}
                     </div>
-                    <div className="px-5 py-4 border-t border-gray-100 flex flex-col space-y-2">
+                    {/* <div className="px-5 py-4 border-t border-gray-100 flex flex-col space-y-2">
                         <button className="text-indigo-600 hover:text-indigo-800 font-medium text-left">Log In</button>
                         <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition duration-150 font-medium shadow-md">Sign Up</button>
-                    </div>
+                    </div> */}
                 </div>
             )}
         </header>
