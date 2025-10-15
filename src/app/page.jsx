@@ -707,37 +707,36 @@ const CourseCard = ({ course }) => (
 );
 
 const TestimonialCard = ({ testimonial }) => (
-  // Adjusted width to be slightly larger for better presentation of the new content
-  <div className="bg-white p-6 rounded-xl shadow-xl border border-gray-100 min-w-[320px] w-full md:w-[450px] mx-auto flex flex-col justify-between h-full">
+  // Optimized width for mobile: Using mx-auto and specific width constraints for perfect centering
+  <div className="bg-white p-5 sm:p-6 rounded-xl shadow-xl border border-gray-100 w-[calc(100vw-3rem)] max-w-[340px] sm:max-w-[380px] md:max-w-[450px] mx-auto flex flex-col justify-between h-full">
     {/* Quote Icon and Text */}
     <div>
       {/* Removed the Star icon as it wasn't in the new structure */}
-      <p className="text-gray-700 text-base italic leading-relaxed mb-6">
+      <p className="text-gray-700 text-sm sm:text-base italic leading-relaxed mb-4 sm:mb-6">
         "{testimonial.text}"
       </p>
     </div>
 
     {/* Profile Info */}
-    <div className="flex items-center mt-4 pt-4 border-t border-gray-100">
+    <div className="flex items-center mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-100">
       <img
         src={testimonial.avatarUrl}
         alt={testimonial.name}
-        className="w-12 h-12 rounded-full object-cover mr-4 shadow-md"
+        className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover mr-3 sm:mr-4 shadow-md flex-shrink-0"
         onError={(e) =>
           (e.target.src = "https://placehold.co/48x48/9ca3af/ffffff?text=U")
         }
       />
-      <div>
-        <p className="font-bold text-gray-800">{testimonial.name}</p>
+      <div className="min-w-0">
+        <p className="font-bold text-gray-800 text-sm sm:text-base truncate">{testimonial.name}</p>
         {/* Updated role/placement line styling */}
-        <p className="text-sm text-indigo-600 font-medium">
+        <p className="text-xs sm:text-sm text-indigo-600 font-medium truncate">
           {testimonial.role}
         </p>
       </div>
     </div>
   </div>
 );
-
 // --- NEW PLACEMENT COURSE CARD COMPONENT ---
 const PlacementCourseCard = ({ course }) => (
   <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 min-w-[280px] w-72 md:w-80 overflow-hidden border border-gray-100 p-5 flex flex-col justify-between">
