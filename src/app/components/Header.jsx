@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 import { Menu, X, ChevronDown } from "lucide-react";
 
-const NAV_ITEMS = [
+export const NAV_ITEMS = [
   { name: "Home", href: "/" },
   {
     name: "Web Scraping Services",

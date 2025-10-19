@@ -15,10 +15,65 @@ import {
   ArrowLeft,
   ChevronDown,
 } from "lucide-react";
-import Link from "next/link";
+import Header from "./components/Header";
+
+// --- Navigation Items (Shared between Header and Footer) ---
+const NAV_ITEMS = [
+  { name: "Home", href: "/" },
+  {
+    name: "Web Scraping Services",
+    href: "/webScrap",
+  },
+  {
+    name: "Apply Now",
+    href: "/ApplyNow",
+    submenu: [
+      { name: "Data entry Executive", href: "/Job/data_entry" },
+      { name: "Automation executive", href: "/Job/automation" },
+      {
+        name: "Product Listing & Management (Remote)",
+        href: "/Job/product_listing",
+      },
+      { name: "Email Marketing Assistant", href: "/Job/email_marketing" },
+      { name: "Web Scraping Executive", href: "/Job/web_scrap" },
+      { name: "Data Verification Assistant", href: "/Job/data_verification" },
+      { name: "Marketplace Assistant", href: "/Job/market_place" },
+      { name: "Client Onboarding Intern", href: "/Job/client_onboard" },
+      { name: "Catalog Coordinator", href: "/Job/catalog" },
+      { name: "Social Media Executive", href: "/Job/social_media" },
+    ],
+  },
+  {
+    name: "Courses",
+    href: "/cources/all_courses",
+    submenu: [
+      {
+        name: "Online Ethical Hacking",
+        href: "/cources/online_ethical_hacking",
+      },
+      { name: "Full Stack Development", href: "/cources/full-stake" },
+    ],
+  },
+  { name: "About Us", href: "#about" },
+  {
+    name: "T&C",
+    href: "/terms&condition/terms&condition",
+    submenu: [
+      { name: "Contact Us", href: "/terms&condition/contact-us" },
+      {
+        name: "Cancel and Refund Policy",
+        href: "/terms&condition/cancle-refund-policy",
+      },
+      {
+        name: "Shipping And Delivery",
+        href: "/terms&condition/shiping_delivery",
+      },
+      { name: "Privacy Policy", href: "/terms&condition/privacy-policy" },
+    ],
+  },
+];
 
 // --- Static Data Structure ---
-
 const jobBoxes = [
   {
     type: "Actively hiring",
@@ -37,8 +92,7 @@ const jobBoxes = [
     location: "Remote",
     salary: "₹18,500 – ₹25,000 / month",
     linkText: "View details",
-    detailsLink:
-      "/Job/data_verification",
+    detailsLink: "/Job/data_verification",
     imgUrl: "https://placehold.co/50x50/ef4444/ffffff?text=E",
   },
   {
@@ -58,8 +112,7 @@ const jobBoxes = [
     location: "Remote",
     salary: "₹18,000 – ₹23,000 / month",
     linkText: "View details",
-    detailsLink:
-      "/Job/product_listing",
+    detailsLink: "/Job/product_listing",
     imgUrl: "https://placehold.co/50x50/6366f1/ffffff?text=E",
   },
   {
@@ -125,59 +178,61 @@ const jobBoxes = [
 ];
 
 const courseCards = [
-    {
-        id: 1,
-        title: "Modern JavaScript Masterclass",
-        duration: "40 hours",
-        students: "12,500 enrolled",
-        imgUrl: "/Gemini_Generated_Image_7fqwjr7fqwjr7fqw.png", // Tech Desk Setup
-        link: "#js",
-        themeColor: "text-purple-600",
-        buttonClass: "bg-purple-600 hover:bg-purple-700",
-    },
-    {
-        id: 2,
-        title: "React & Next.js Development",
-        duration: "65 hours",
-        students: "9,800 enrolled",
-        imgUrl: "/Gemini_Generated_Image_7uft9w7uft9w7uft.png", // React logo on screen
-        link: "#react",
-        themeColor: "text-sky-500",
-        buttonClass: "bg-sky-600 hover:bg-sky-700",
-    },
-    {
-        id: 3,
-        title: "AWS Certified Developer - Associate",
-        duration: "50 hours",
-        students: "15,200 enrolled",
-        imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2yeVqYt3l8EHC5HpqOrF8yT13ssL_nJGjDQ&s", // Cloud infrastructure/Data centers
-        link: "#aws",
-        themeColor: "text-amber-500",
-        buttonClass: "bg-amber-600 hover:bg-amber-700",
-    },
-    {
-        id: 4,
-        title: "Advanced Python for Data Science",
-        duration: "70 hours",
-        students: "11,000 enrolled",
-        imgUrl: "https://img.freepik.com/free-vector/data-concept-illustration-idea-collecting-analysing-using_613284-1574.jpg?ga=GA1.1.2060234000.1760858669&semt=ais_hybrid&w=740&q=80", // Data visualization/Code screen
-        link: "#python",
-        themeColor: "text-emerald-500",
-        buttonClass: "bg-emerald-600 hover:bg-emerald-700",
-    },
-    {
-        id: 5,
-        title: "UI/UX Design with Figma",
-        duration: "30 hours",
-        students: "8,900 enrolled",
-        imgUrl: "https://img.freepik.com/free-vector/gradient-ui-ux-landing-page_52683-69534.jpg?ga=GA1.1.2060234000.1760858669&semt=ais_hybrid&w=740&q=80", // Designer working on Figma
-        link: "#figma",
-        themeColor: "text-pink-500",
-        buttonClass: "bg-pink-600 hover:bg-pink-700",
-    },
+  {
+    id: 1,
+    title: "Modern JavaScript Masterclass",
+    duration: "40 hours",
+    students: "12,500 enrolled",
+    imgUrl: "/Gemini_Generated_Image_7fqwjr7fqwjr7fqw.png",
+    link: "#js",
+    themeColor: "text-purple-600",
+    buttonClass: "bg-purple-600 hover:bg-purple-700",
+  },
+  {
+    id: 2,
+    title: "React & Next.js Development",
+    duration: "65 hours",
+    students: "9,800 enrolled",
+    imgUrl: "/Gemini_Generated_Image_7uft9w7uft9w7uft.png",
+    link: "#react",
+    themeColor: "text-sky-500",
+    buttonClass: "bg-sky-600 hover:bg-sky-700",
+  },
+  {
+    id: 3,
+    title: "AWS Certified Developer - Associate",
+    duration: "50 hours",
+    students: "15,200 enrolled",
+    imgUrl:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2yeVqYt3l8EHC5HpqOrF8yT13ssL_nJGjDQ&s",
+    link: "#aws",
+    themeColor: "text-amber-500",
+    buttonClass: "bg-amber-600 hover:bg-amber-700",
+  },
+  {
+    id: 4,
+    title: "Advanced Python for Data Science",
+    duration: "70 hours",
+    students: "11,000 enrolled",
+    imgUrl:
+      "https://img.freepik.com/free-vector/data-concept-illustration-idea-collecting-analysing-using_613284-1574.jpg",
+    link: "#python",
+    themeColor: "text-emerald-500",
+    buttonClass: "bg-emerald-600 hover:bg-emerald-700",
+  },
+  {
+    id: 5,
+    title: "UI/UX Design with Figma",
+    duration: "30 hours",
+    students: "8,900 enrolled",
+    imgUrl:
+      "https://img.freepik.com/free-vector/gradient-ui-ux-landing-page_52683-69534.jpg",
+    link: "#figma",
+    themeColor: "text-pink-500",
+    buttonClass: "bg-pink-600 hover:bg-pink-700",
+  },
 ];
 
-// --- NEW DATA STRUCTURE FOR PLACEMENT COURSES ---
 const placementCourses = [
   {
     title: "Full Stack Development",
@@ -261,73 +316,96 @@ const placementCourses = [
   },
 ];
 
-// --- UPDATED TESTIMONIALS DATA ---
 const testimonials = [
   {
     name: "Amit Joshi",
     role: "Placed in IBM",
     text: "I was about to give up on my job search when I found Elecalon. Their personalized job recommendations matched me with perfect opportunities I wouldn't have found otherwise.",
-    avatarUrl: "https://img.freepik.com/free-photo/smiley-man-posing-medium-shot_23-2149915893.jpg?semt=ais_hybrid&w=740&q=80",
+    avatarUrl:
+      "https://img.freepik.com/free-photo/smiley-man-posing-medium-shot_23-2149915893.jpg",
   },
   {
     name: "Priya Gupta",
     role: "Placed in Star Health",
     text: "Elecalon guided me through the entire process when I had no idea about the corporate world. Their support helped me secure a great job offer.",
-    avatarUrl: "https://img.freepik.com/free-photo/woman_53876-71214.jpg?semt=ais_hybrid&w=740&q=80",
+    avatarUrl:
+      "https://img.freepik.com/free-photo/woman_53876-71214.jpg",
   },
   {
     name: "Rahul Sharma",
     role: "Placed in Flipkart",
     text: "I landed my first internship from Elecalon. This platform has opportunities for every student and is a must-have for anyone looking to build their career.",
-    avatarUrl: "https://img.freepik.com/free-photo/indian-business-man-with-crossed-arm-dark-wall_231208-2668.jpg?ga=GA1.1.2060234000.1760858669&semt=ais_hybrid&w=740&q=80",
+    avatarUrl:
+      "https://img.freepik.com/free-photo/indian-business-man-with-crossed-arm-dark-wall_231208-2668.jpg",
   },
   {
     name: "Neha Kapoor",
     role: "Placed in Amazon",
     text: "Got my dream job at Amazon through Elecalon! I was from a non-tech background but their resources helped me learn the right skills and ace my interviews.",
-    avatarUrl: "https://img.freepik.com/free-photo/happy-pretty-young-woman-posing-camera-park_1262-20239.jpg?ga=GA1.1.2060234000.1760858669&semt=ais_hybrid&w=740&q=80",
+    avatarUrl:
+      "https://img.freepik.com/free-photo/happy-pretty-young-woman-posing-camera-park_1262-20239.jpg",
   },
   {
     name: "Vikram Patel",
     role: "Placed in TCS",
     text: "Elecalon's career guidance was invaluable. They helped me identify my strengths and match them with the right opportunities in the tech industry.",
-    avatarUrl: "https://img.freepik.com/free-photo/worldface-pakistani-guy-white-background_53876-14466.jpg?ga=GA1.1.2060234000.1760858669&semt=ais_hybrid&w=740&q=80",
+    avatarUrl:
+      "https://img.freepik.com/free-photo/worldface-pakistani-guy-white-background_53876-14466.jpg",
   },
   {
     name: "Ananya Reddy",
     role: "Placed in Wipro",
     text: "The interview preparation materials on Elecalon were exactly what I needed. I could practice real interview questions and gain confidence.",
-    avatarUrl: "https://img.freepik.com/free-photo/close-up-portrait-indian-hindu-girl-traditional-violet-saree-posed-street_627829-12971.jpg?ga=GA1.1.2060234000.1760858669&semt=ais_hybrid&w=740&q=80",
+    avatarUrl:
+      "https://img.freepik.com/free-photo/close-up-portrait-indian-hindu-girl-traditional-violet-saree-posed-street_627829-12971.jpg",
   },
   {
     name: "Arjun Mehta",
     role: "Placed in Infosys",
     text: "As a fresher with no experience, I was struggling to get noticed. Elecalon's profile-building tools helped me showcase my skills effectively.",
-    avatarUrl: "https://img.freepik.com/free-photo/front-view-indian-man-posing-studio_23-2150692695.jpg?ga=GA1.1.2060234000.1760858669&semt=ais_hybrid&w=740&q=80",
+    avatarUrl:
+      "https://img.freepik.com/free-photo/front-view-indian-man-posing-studio_23-2150692695.jpg",
   },
   {
     name: "Divya Nair",
     role: "Placed in HCL",
     text: "Elecalon's skill assessment tests helped me identify my weak areas. I could then focus my learning and eventually land a job at a top IT company.",
-    avatarUrl: "https://img.freepik.com/free-photo/close-up-cheerful-young-woman-looking-camera_1262-4777.jpg?ga=GA1.1.2060234000.1760858669&semt=ais_hybrid&w=740&q=80",
+    avatarUrl:
+      "https://img.freepik.com/free-photo/close-up-cheerful-young-woman-looking-camera_1262-4777.jpg",
   },
   {
     name: "Rohit Verma",
     role: "Placed in Accenture",
     text: "The resume builder on Elecalon is fantastic! It helped me create a professional resume that got me multiple interview calls within weeks.",
-    avatarUrl: "https://img.freepik.com/free-photo/portrait-young-indian-businessman-student-sitting-with-pen_1262-17490.jpg?ga=GA1.1.2060234000.1760858669&semt=ais_hybrid&w=740&q=80",
+    avatarUrl:
+      "https://img.freepik.com/free-photo/portrait-young-indian-businessman-student-sitting-with-pen_1262-17490.jpg",
   },
   {
     name: "Shreya Malhotra",
     role: "Placed in Cognizant",
     text: "Elecalon's mock interview feature was a game-changer for me. Practicing with their AI tool helped me overcome my nervousness.",
-    avatarUrl: "https://img.freepik.com/free-photo/young-girl-smiling-close-up_1187-1999.jpg?ga=GA1.1.2060234000.1760858669&semt=ais_hybrid&w=740&q=80",
+    avatarUrl:
+      "https://img.freepik.com/free-photo/young-girl-smiling-close-up_1187-1999.jpg",
   },
 ];
 
+// --- Reusable Link Component ---
+const NavLink = ({ href, children, className = "", onClick }) => {
+  if (href.startsWith("#")) {
+    return (
+      <a href={href} className={className} onClick={onClick}>
+        {children}
+      </a>
+    );
+  }
+  return (
+    <a href={href} className={className} onClick={onClick}>
+      {children}
+    </a>
+  );
+};
 
-// --- Reusable Carousel Component with Drag and Dot Logic (omitted for brevity, assume content is the same) ---
-
+// --- Carousel Component ---
 const Carousel = ({
   items,
   renderItem,
@@ -343,46 +421,32 @@ const Carousel = ({
   const intervalRef = useRef(null);
   const timeoutRef = useRef(null);
 
-  // Define consistent gap value (24px for Tailwind gap-x-6)
   const GAP_X_PX = 24;
 
   const cards = containerRef.current
     ? Array.from(containerRef.current.children)
     : [];
-  // Calculate card width including the gap for accurate scrolling/snapping
-  // Card width for JobBox/CourseCard/PlacementCard is min-w-[280px] or min-w-[320px] + GAP_X_PX
-  // Determine card width dynamically or use a fallback based on the component type
   const cardWidth =
     cards.length > 0 ? cards[0].offsetWidth + GAP_X_PX : 280 + GAP_X_PX;
 
   const totalItems = items.length;
-  // const totalPages = totalItems; // Not strictly needed
 
-  // Calculate the current active index based on scroll position
   const updateActiveIndex = useCallback(() => {
     if (containerRef.current && cardWidth > 0) {
       const currentScroll = containerRef.current.scrollLeft;
-
-      // Determine which card is most visible / centered
       let index = Math.round(currentScroll / cardWidth);
-
-      // Special handling for the non-testimonial carousels on desktop where multiple items are visible
       if (!isTestimonialDots) {
         index = Math.floor(currentScroll / cardWidth);
       }
-
       setActiveIndex(Math.max(0, Math.min(index, totalItems - 1)));
     }
   }, [cardWidth, totalItems, isTestimonialDots]);
 
-  // Handle manual scroll (for touch/mouse drag)
   const handleScroll = () => {
     updateActiveIndex();
   };
 
-  // Auto-Scroll Logic (only for the hero testimonials and main testimonials)
   const startAutoScroll = useCallback(() => {
-    // Only auto-scroll the designated carousels
     if (id !== "hero-testimonials" && id !== "testimonial-dots-carousel")
       return;
 
@@ -396,7 +460,6 @@ const Carousel = ({
 
         let targetScroll;
         if (nextScroll >= maxScroll) {
-          // Loop back to the start (smoothly)
           targetScroll = 0;
         } else {
           targetScroll = currentScroll + cardWidth;
@@ -417,20 +480,17 @@ const Carousel = ({
 
   const restartAutoScrollAfterDelay = useCallback(() => {
     stopAutoScroll();
-    // Only restart auto-scroll for designated carousels
     if (id === "hero-testimonials" || id === "testimonial-dots-carousel") {
-      timeoutRef.current = setTimeout(startAutoScroll, 5000); // 5 seconds delay before restarting
+      timeoutRef.current = setTimeout(startAutoScroll, 5000);
     }
   }, [stopAutoScroll, startAutoScroll, id]);
 
-  // Mouse/Touch Drag Handlers
   const startDrag = (e) => {
     const pageX = e.pageX || e.touches?.[0]?.pageX;
     if (!pageX || !containerRef.current) return;
 
     setIsDown(true);
     containerRef.current.classList.add("active-drag");
-    // Subtract the padding of the container to get relative position
     const rect = containerRef.current.getBoundingClientRect();
     setStartX(pageX - rect.left);
     setScrollLeft(containerRef.current.scrollLeft);
@@ -441,7 +501,6 @@ const Carousel = ({
     setIsDown(false);
     if (containerRef.current) {
       containerRef.current.classList.remove("active-drag");
-      // Allow the inertia of native scroll to finish before restarting auto-scroll
       restartAutoScrollAfterDelay();
     }
   };
@@ -454,16 +513,14 @@ const Carousel = ({
 
     const rect = containerRef.current.getBoundingClientRect();
     const x = pageX - rect.left;
-    const walk = (x - startX) * 1.5; // Drag sensitivity
+    const walk = (x - startX) * 1.5;
     containerRef.current.scrollLeft = scrollLeft - walk;
     updateActiveIndex();
   };
 
-  // Dot Click Handler
   const handleDotClick = (index) => {
     stopAutoScroll();
     if (containerRef.current && cardWidth > 0) {
-      // Scroll to the exact position of the item (index * cardWidth, where cardWidth includes the gap)
       containerRef.current.scrollTo({
         left: index * cardWidth,
         behavior: "smooth",
@@ -473,7 +530,6 @@ const Carousel = ({
     }
   };
 
-  // Effect for setup and cleanup
   useEffect(() => {
     if (containerRef.current) {
       containerRef.current.addEventListener("scroll", handleScroll);
@@ -488,7 +544,6 @@ const Carousel = ({
     };
   }, [handleScroll, startAutoScroll, stopAutoScroll]);
 
-  // Navigation Buttons
   const scroll = (direction) => {
     stopAutoScroll();
     if (containerRef.current && cardWidth > 0) {
@@ -498,23 +553,19 @@ const Carousel = ({
         currentScroll +
         (direction === "next" ? scrollDistance : -scrollDistance);
 
-      // Ensure we don't scroll past boundaries
       const maxScroll =
         containerRef.current.scrollWidth - containerRef.current.clientWidth;
       targetScroll = Math.max(0, Math.min(targetScroll, maxScroll));
 
       containerRef.current.scrollTo({ left: targetScroll, behavior: "smooth" });
-      // updateActiveIndex will be called by the 'scroll' event listener
       restartAutoScrollAfterDelay();
     }
   };
 
-  // Determine the number of dots needed. For full carousels, it's total items.
   const dotCount = totalItems;
   const dotsArray = Array.from({ length: dotCount }, (_, i) => i);
 
   return (
-    // Wrapper div for arrow visibility on hover
     <div
       className={`relative group ${
         id === "jobContainer" ||
@@ -527,7 +578,6 @@ const Carousel = ({
       <div
         id={id}
         ref={containerRef}
-        // *** Retained: Added gap-x-6 and responsive padding (px-4) to prevent items sticking to the edge ***
         className="flex overflow-x-scroll no-scrollbar swipe-container touch-pan-x cursor-grab gap-x-6 px-4 md:px-0"
         onMouseDown={startDrag}
         onMouseLeave={endDrag}
@@ -537,7 +587,6 @@ const Carousel = ({
         onTouchEnd={endDrag}
         onTouchMove={drag}
       >
-        {/* Custom styling for drag feedback */}
         <style jsx="true">{`
           .swipe-container {
             scrollbar-width: none;
@@ -549,32 +598,21 @@ const Carousel = ({
           }
           .active-drag {
             cursor: grabbing;
-            scroll-snap-type: none; /* Disable snap while dragging */
+            scroll-snap-type: none;
           }
-          /* Ensure items snap correctly */
           .carousel-item-snap {
             scroll-snap-align: start;
             flex-shrink: 0;
           }
-          /* Ensure the parent sections don't apply padding that overlaps the new carousel padding */
-          #jobs > div,
-          #courses-1 > div,
-          #courses-2 > div,
-          #placement-courses > div {
-            padding-left: 0;
-            padding-right: 0;
-          }
         `}</style>
 
         {items.map((item, index) => (
-          // Card wrapper to ensure flex-shrink and snap works correctly
           <div key={index} className="carousel-item-snap">
             {renderItem(item, index)}
           </div>
         ))}
       </div>
 
-      {/* Navigation Arrows for non-hero carousels - Ensuring they are present */}
       {id !== "hero-testimonials" && (
         <>
           <button
@@ -594,15 +632,12 @@ const Carousel = ({
         </>
       )}
 
-      {/* Dots Pagination */}
       <div className="flex justify-center mt-6 space-x-2">
         {dotsArray.map((_, index) => (
           <button
             key={index}
-            // Scroll to the start of the item (index * cardWidth)
             onClick={() => handleDotClick(index)}
             className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-              // Check if the current scroll position is close enough to the card's starting position
               activeIndex === index
                 ? "bg-indigo-600"
                 : "bg-gray-300 hover:bg-gray-400"
@@ -615,13 +650,10 @@ const Carousel = ({
   );
 };
 
-// --- Reusable Card Components (Updated TestimonialCard) ---
+// --- Card Components ---
 const JobBox = ({ job }) => (
-  // Card width fixed to prevent issues with carousel calculation. Using flex-col justify-between for link positioning.
   <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 min-w-[280px] w-72 md:w-80 border border-gray-100 flex flex-col justify-between">
-    {/* Badge & Logo (using the company initial 'E' for Elecalon) */}
     <div className="flex justify-between items-start mb-4">
-      {/* Actively hiring badge */}
       <span className="text-xs font-semibold px-3 py-1 rounded-full bg-red-100 text-red-700">
         {job.type}
       </span>
@@ -635,28 +667,22 @@ const JobBox = ({ job }) => (
       />
     </div>
 
-    {/* Job Details */}
     <div>
       <h3 className="text-xl font-bold text-gray-800 mb-1">{job.title}</h3>
       <p className="text-sm text-gray-500 mb-1">{job.company}</p>
 
-      {/* Location */}
       <div className="flex items-center text-sm text-gray-700 font-medium mb-3">
         <MapPin className="w-4 h-4 mr-1 text-indigo-500" />
         <span>{job.location}</span>
       </div>
 
-      {/* Salary - Styled similarly to the original HTML snippet */}
       <div className="bg-gray-50 p-3 rounded-lg border border-gray-100 mb-5">
-        {/* <DollarSign className="w-5 h-5 text-green-600 inline mr-2" /> */}
         <span className="font-bold text-lg text-gray-700">{job.salary}</span>
       </div>
     </div>
 
-    {/* Link Button - Ensuring the correct text is used */}
     <a
       href={job.detailsLink}
-      // target="_blank"
       rel="noopener noreferrer"
       className="job-link w-full text-center bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition duration-300 font-semibold shadow-md mt-auto"
     >
@@ -665,72 +691,63 @@ const JobBox = ({ job }) => (
   </div>
 );
 
-// --- CourseCard Component (Modernized) ---
 const CourseCard = ({ course }) => (
-    <div className="flex-shrink-0 min-w-[280px] w-[90vw] sm:w-[320px] md:w-80 h-full">
-        <div className="bg-white rounded-2xl shadow-xl overflow-hidden transform hover:scale-[1.02] transition duration-500 ease-in-out h-full flex flex-col border border-gray-100">
-            {/* Image Section */}
-            <div className="relative h-44 overflow-hidden">
-                <img
-                    src={course.imgUrl}
-                    alt={course.title}
-                    className="w-full h-full object-cover transition duration-500 group-hover:opacity-90"
-                    onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.src = "https://placehold.co/320x176/6366f1/ffffff?text=Course+Image";
-                    }}
-                />
-                {/* Overlay for subtle effect */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent"></div>
-            </div>
+  <div className="flex-shrink-0 min-w-[280px] w-[90vw] sm:w-[320px] md:w-80 h-full">
+    <div className="bg-white rounded-2xl shadow-xl overflow-hidden transform hover:scale-[1.02] transition duration-500 ease-in-out h-full flex flex-col border border-gray-100">
+      <div className="relative h-44 overflow-hidden">
+        <img
+          src={course.imgUrl}
+          alt={course.title}
+          className="w-full h-full object-cover transition duration-500 group-hover:opacity-90"
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src =
+              "https://placehold.co/320x176/6366f1/ffffff?text=Course+Image";
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent"></div>
+      </div>
 
-            <div className="p-6 flex flex-col flex-grow">
-                {/* Title */}
-                <h3 className="text-xl font-extrabold text-gray-900 mb-2 leading-snug">
-                    {course.title}
-                </h3>
+      <div className="p-6 flex flex-col flex-grow">
+        <h3 className="text-xl font-extrabold text-gray-900 mb-2 leading-snug">
+          {course.title}
+        </h3>
 
-                {/* Metadata */}
-                <div className="flex items-center text-sm text-gray-500 mb-5 space-x-6">
-                    <div className="flex items-center font-medium">
-                        <Clock className={`w-4 h-4 mr-2 ${course.themeColor}`} />
-                        <span>{course.duration}</span>
-                    </div>
-                    <div className="flex items-center font-medium">
-                        <User className={`w-4 h-4 mr-2 ${course.themeColor}`} />
-                        <span>{course.students}</span>
-                    </div>
-                </div>
-
-                {/* Action Button */}
-                <div className="mt-auto pt-4 border-t border-gray-100">
-                    <a
-                        href={course.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`w-full text-center inline-flex justify-center items-center text-white px-6 py-3 rounded-xl transition duration-300 font-bold shadow-lg ${course.buttonClass} transform active:scale-95`}
-                    >
-                        Enroll Now
-                        <ArrowRight className="w-5 h-5 ml-2" />
-                    </a>
-                </div>
-            </div>
+        <div className="flex items-center text-sm text-gray-500 mb-5 space-x-6">
+          <div className="flex items-center font-medium">
+            <Clock className={`w-4 h-4 mr-2 ${course.themeColor}`} />
+            <span>{course.duration}</span>
+          </div>
+          <div className="flex items-center font-medium">
+            <User className={`w-4 h-4 mr-2 ${course.themeColor}`} />
+            <span>{course.students}</span>
+          </div>
         </div>
+
+        <div className="mt-auto pt-4 border-t border-gray-100">
+          <a
+            href={course.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`w-full text-center inline-flex justify-center items-center text-white px-6 py-3 rounded-xl transition duration-300 font-bold shadow-lg ${course.buttonClass} transform active:scale-95`}
+          >
+            Enroll Now
+            <ArrowRight className="w-5 h-5 ml-2" />
+          </a>
+        </div>
+      </div>
     </div>
+  </div>
 );
 
 const TestimonialCard = ({ testimonial }) => (
-  // Optimized width for mobile: Using mx-auto and specific width constraints for perfect centering
   <div className="bg-white p-5 sm:p-6 rounded-xl shadow-xl border border-gray-100 w-[calc(100vw-3rem)] max-w-[340px] sm:max-w-[380px] md:max-w-[450px] mx-auto flex flex-col justify-between h-full">
-    {/* Quote Icon and Text */}
     <div>
-      {/* Removed the Star icon as it wasn't in the new structure */}
       <p className="text-gray-700 text-sm sm:text-base italic leading-relaxed mb-4 sm:mb-6">
         "{testimonial.text}"
       </p>
     </div>
 
-    {/* Profile Info */}
     <div className="flex items-center mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-100">
       <img
         src={testimonial.avatarUrl}
@@ -741,8 +758,9 @@ const TestimonialCard = ({ testimonial }) => (
         }
       />
       <div className="min-w-0">
-        <p className="font-bold text-gray-800 text-sm sm:text-base truncate">{testimonial.name}</p>
-        {/* Updated role/placement line styling */}
+        <p className="font-bold text-gray-800 text-sm sm:text-base truncate">
+          {testimonial.name}
+        </p>
         <p className="text-xs sm:text-sm text-indigo-600 font-medium truncate">
           {testimonial.role}
         </p>
@@ -750,11 +768,10 @@ const TestimonialCard = ({ testimonial }) => (
     </div>
   </div>
 );
-// --- NEW PLACEMENT COURSE CARD COMPONENT ---
+
 const PlacementCourseCard = ({ course }) => (
   <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 min-w-[280px] w-72 md:w-80 overflow-hidden border border-gray-100 p-5 flex flex-col justify-between">
     <div>
-      {/* Guarantee Badge */}
       <span
         className={`text-xs font-semibold px-3 py-1 rounded-full text-white ${course.color} inline-block mb-4`}
       >
@@ -763,7 +780,6 @@ const PlacementCourseCard = ({ course }) => (
 
       <h3 className="text-xl font-bold text-gray-800 mb-4">{course.title}</h3>
 
-      {/* Feature List */}
       <ul className="space-y-3 mb-6">
         {course.features.map((feature, index) => (
           <li key={index} className="flex items-start text-gray-600 text-sm">
@@ -789,7 +805,6 @@ const PlacementCourseCard = ({ course }) => (
       </ul>
     </div>
 
-    {/* Link Button */}
     <div className="pt-4 border-t border-gray-100 border-dashed mt-auto">
       <a
         href={course.link}
@@ -803,18 +818,17 @@ const PlacementCourseCard = ({ course }) => (
   </div>
 );
 
+// --- Header Component ---
+
+
 // --- Main Application Component ---
-
 const App = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // State to manage which mobile submenu is open (stores the name of the menu item)
-  const [openSubmenu, setOpenSubmenu] = useState(null);
-
-  // Use a slice of the NEW testimonials array for the hero section
   const heroTestimonials = testimonials.slice(0, 2);
 
   return (
     <div className="min-h-screen bg-gray-50 font-inter">
+      {/* <Header /> */}
+
       <main>
         {/* Hero Section */}
         <section id="home" className="pt-16 pb-20 bg-white">
@@ -848,7 +862,9 @@ const App = () => {
                 </button>
               </form>
               <div className="flex items-center space-x-4">
-                <p className="text-sm font-medium text-gray-700">Trusted by:</p>
+                <p className="text-sm font-medium text-gray-700">
+                  Trusted by:
+                </p>
                 <div className="flex -space-x-2">
                   {["G", "N", "A"].map((text, i) => (
                     <img
@@ -865,7 +881,6 @@ const App = () => {
               </div>
             </div>
 
-            {/* Hero Testimonials Carousel */}
             <div className="relative p-6 bg-indigo-50 rounded-2xl shadow-inner md:ml-12 overflow-hidden">
               <h3 className="text-xl font-bold text-gray-800 mb-4">
                 Success Stories
@@ -892,7 +907,6 @@ const App = () => {
               explore.
             </p>
           </div>
-          {/* Carousel is now outside the padded container to use full width and its own padding */}
           <Carousel
             items={jobBoxes}
             renderItem={(job) => <JobBox job={job} />}
@@ -926,8 +940,8 @@ const App = () => {
                 </h2>
                 <p className="text-gray-600 text-lg mb-6">
                   We provide comprehensive resources, cutting-edge courses, and
-                  direct connections to top-tier employers, ensuring your career
-                  progression is seamless and rapid.
+                  direct connections to top-tier employers, ensuring your
+                  career progression is seamless and rapid.
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-start">
@@ -959,52 +973,50 @@ const App = () => {
                     </div>
                   </div>
                 </div>
-                <Link href="/ApplyNow">
+                <a href="/ApplyNow">
                   <button className="mt-8 bg-indigo-600 cursor-pointer text-white px-8 py-3 rounded-xl font-semibold hover:bg-indigo-700 transition duration-300 shadow-lg">
                     Start Learning Now
                   </button>
-                </Link>
+                </a>
               </div>
             </div>
           </div>
         </section>
 
         {/* Course Carousel 1 */}
- <section id="courses-1" className="py-20">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-5xl font-extrabold text-gray-900 text-center mb-4 tracking-tight">
-                        Popular Development Courses
-                    </h2>
-                    <p className="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">
-                        Master the skills in demand. Explore our most enrolled, job-ready technology courses for 2024.
-                    </p>
-                </div>
-                {/* Carousel is now outside the padded container to use full width and its own padding */}
-                <Carousel
-                    items={courseCards}
-                    renderItem={(course) => <CourseCard course={course} />}
-                    id="courses-carousel1"
-                    autoScrollInterval={0}
-                />
-                
-                {/* Mobile Scroll Indicator */}
-                <div className="mt-8 text-center text-gray-500 text-sm md:hidden">
-                    ← Scroll horizontally to see more →
-                </div>
-            </section>
+        <section id="courses-1" className="py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-5xl font-extrabold text-gray-900 text-center mb-4 tracking-tight">
+              Popular Development Courses
+            </h2>
+            <p className="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">
+              Master the skills in demand. Explore our most enrolled, job-ready
+              technology courses for 2024.
+            </p>
+          </div>
+          <Carousel
+            items={courseCards}
+            renderItem={(course) => <CourseCard course={course} />}
+            id="courses-carousel1"
+            autoScrollInterval={0}
+          />
 
-        {/* NEW PLACEMENT GUARANTEE SECTION */}
+          <div className="mt-8 text-center text-gray-500 text-sm md:hidden">
+            ← Scroll horizontally to see more →
+          </div>
+        </section>
+
+        {/* Placement Guarantee Section */}
         <section id="courses-2" className="pt-0 pb-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-extrabold text-gray-900 mb-1">
-                EIecalon Ecom Private Limited
+                Elecalon Ecom Private Limited
               </h2>
               <p className="text-xl font-semibold text-indigo-600 mt-0">
                 Placement Guarantee Courses
               </p>
             </div>
-            {/* Guarantee Banner */}
             <div className="bg-indigo-600 text-white p-6 rounded-xl mb-12 mx-auto max-w-6xl shadow-xl">
               <div className="flex flex-wrap justify-center gap-6">
                 <div className="flex items-center text-sm sm:text-base font-medium">
@@ -1029,7 +1041,6 @@ const App = () => {
             </div>
           </div>
 
-          {/* Placement Courses Carousel */}
           <Carousel
             items={placementCourses}
             renderItem={(course) => <PlacementCourseCard course={course} />}
@@ -1041,7 +1052,6 @@ const App = () => {
         {/* Main Testimonials Section */}
         <section id="testimonials" className="py-20 bg-indigo-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* New Title and Subtitle */}
             <h2 className="text-4xl font-extrabold text-gray-900 text-center mb-4">
               2854+ successful placements - Read their stories
             </h2>
@@ -1055,8 +1065,8 @@ const App = () => {
               <TestimonialCard testimonial={testimonial} />
             )}
             id="testimonial-dots-carousel"
-            autoScrollInterval={5000} // Custom interval for this one
-            isTestimonialDots={true} // Single item per slide
+            autoScrollInterval={5000}
+            isTestimonialDots={true}
           />
         </section>
       </main>
@@ -1065,57 +1075,136 @@ const App = () => {
       <footer className="bg-gray-900 text-white mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8 border-b border-gray-800 pb-8">
+            {/* Company Info */}
             <div className="col-span-2 md:col-span-1">
-              <span className="text-2xl font-extrabold text-indigo-400">
-                Elecalon<span className="text-white"> Ecom</span>
-              </span>
+              <a href="/">
+                <span className="text-2xl font-extrabold text-indigo-400 cursor-pointer">
+                  Elecalon<span className="text-white"> Ecom</span>
+                </span>
+              </a>
               <p className="text-sm text-gray-400 mt-4">
                 Elevating careers, one step at a time.
               </p>
             </div>
+
+            {/* Quick Links - Main Navigation */}
             <div>
               <h4 className="font-semibold text-gray-200 mb-4">Quick Links</h4>
               <ul className="space-y-2">
-                {["Jobs", "Courses", "Pricing", "Blog"].map((link) => (
-                  <li key={link}>
-                    <a
-                      href={`#${link.toLowerCase()}`}
+                {NAV_ITEMS.filter((item) => !item.submenu).map((item) => (
+                  <li key={item.name}>
+                    <NavLink
+                      href={item.href}
                       className="text-sm text-gray-400 hover:text-indigo-400 transition"
                     >
-                      {link}
-                    </a>
+                      {item.name}
+                    </NavLink>
                   </li>
                 ))}
               </ul>
             </div>
+
+            {/* Apply For Jobs - From Apply Now Submenu */}
             <div>
-              <h4 className="font-semibold text-gray-200 mb-4">Support</h4>
+              <h4 className="font-semibold text-gray-200 mb-4">
+                Apply For Jobs
+              </h4>
               <ul className="space-y-2">
-                {["FAQ", "Help Center", "Contact Us", "Privacy Policy"].map(
-                  (link) => (
-                    <li key={link}>
-                      <a
-                        href={`${link.toLowerCase().replace(" ", "-")}`}
+                {NAV_ITEMS.find((item) => item.name === "Apply Now")
+                  ?.submenu?.slice(0, 5)
+                  .map((subItem) => (
+                    <li key={subItem.name}>
+                      <NavLink
+                        href={subItem.href}
                         className="text-sm text-gray-400 hover:text-indigo-400 transition"
                       >
-                        {link}
-                      </a>
+                        {subItem.name}
+                      </NavLink>
+                    </li>
+                  ))}
+              </ul>
+            </div>
+
+            {/* Courses - From Courses Submenu */}
+            <div>
+              <h4 className="font-semibold text-gray-200 mb-4">Our Courses</h4>
+              <ul className="space-y-2">
+                <li>
+                  <NavLink
+                    href={
+                      NAV_ITEMS.find((item) => item.name === "Courses")?.href ||
+                      "/cources/all_courses"
+                    }
+                    className="text-sm text-gray-400 hover:text-indigo-400 transition"
+                  >
+                    All Courses
+                  </NavLink>
+                </li>
+                {NAV_ITEMS.find((item) => item.name === "Courses")?.submenu?.map(
+                  (subItem) => (
+                    <li key={subItem.name}>
+                      <NavLink
+                        href={subItem.href}
+                        className="text-sm text-gray-400 hover:text-indigo-400 transition"
+                      >
+                        {subItem.name}
+                      </NavLink>
                     </li>
                   )
                 )}
               </ul>
             </div>
+
+            {/* Legal & Support - From T&C Submenu */}
             <div className="col-span-2 md:col-span-1">
-              <h4 className="font-semibold text-gray-200 mb-4">Contact</h4>
+              <h4 className="font-semibold text-gray-200 mb-4">
+                Legal & Support
+              </h4>
+              <ul className="space-y-2">
+                <li>
+                  <NavLink
+                    href={
+                      NAV_ITEMS.find((item) => item.name === "T&C")?.href ||
+                      "/terms&condition/terms&condition"
+                    }
+                    className="text-sm text-gray-400 hover:text-indigo-400 transition"
+                  >
+                    Terms & Conditions
+                  </NavLink>
+                </li>
+                {NAV_ITEMS.find((item) => item.name === "T&C")?.submenu?.map(
+                  (subItem) => (
+                    <li key={subItem.name}>
+                      <NavLink
+                        href={subItem.href}
+                        className="text-sm text-gray-400 hover:text-indigo-400 transition"
+                      >
+                        {subItem.name}
+                      </NavLink>
+                    </li>
+                  )
+                )}
+              </ul>
+            </div>
+          </div>
+
+          {/* Bottom Section - Contact & Copyright */}
+          <div className="mt-8 grid md:grid-cols-2 gap-6 items-center">
+            <div>
+              <h4 className="font-semibold text-gray-200 mb-2">Contact Us</h4>
               <p className="text-sm text-gray-400">
-                {" "}
-                Af 12 Gallops Arcade, Krishnanagar Patan , Gujarat, India,
-                384265.{" "}
+                Af 12 Gallops Arcade, Krishnanagar Patan, Gujarat, India,
+                384265
               </p>
-              <p className="text-sm text-gray-400">elecalonecom@gmail.com</p>
+              <p className="text-sm text-gray-400 mt-1">
+                Email: elecalonecom@gmail.com
+              </p>
               <div className="flex space-x-3 mt-4">
-                {/* Placeholder for social media icons */}
-                <a href="#" className="text-gray-400 hover:text-indigo-400">
+                <a
+                  href="#"
+                  className="text-gray-400 hover:text-indigo-400 transition"
+                  aria-label="Facebook"
+                >
                   <svg
                     className="w-5 h-5"
                     fill="currentColor"
@@ -1124,7 +1213,11 @@ const App = () => {
                     <path d="M12 2C6.477 2 2 6.477 2 12c0 4.238 2.585 7.893 6.305 9.475v-6.79h-2.31v-2.685h2.31v-2.03c0-2.28 1.365-3.538 3.468-3.538 1.002 0 2.05.178 2.05.178v2.26h-1.146c-1.135 0-1.488.704-1.488 1.428v1.71h2.553l-.407 2.685h-2.146v6.79C19.415 19.893 22 16.238 22 12c0-5.523-4.477-10-10-10z" />
                   </svg>
                 </a>
-                <a href="#" className="text-gray-400 hover:text-indigo-400">
+                <a
+                  href="#"
+                  className="text-gray-400 hover:text-indigo-400 transition"
+                  aria-label="Twitter"
+                >
                   <svg
                     className="w-5 h-5"
                     fill="currentColor"
@@ -1135,10 +1228,11 @@ const App = () => {
                 </a>
               </div>
             </div>
-          </div>
-          <div className="mt-8 text-center text-sm text-gray-500">
-            &copy; 2024 Elecalon Ecom. All rights reserved. Designed for the
-            immersive editor.
+            <div className="text-center md:text-right">
+              <p className="text-sm text-gray-500">
+                &copy; 2024 Elecalon Ecom. All rights reserved.
+              </p>
+            </div>
           </div>
         </div>
       </footer>
