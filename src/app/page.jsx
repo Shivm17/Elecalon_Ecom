@@ -15,6 +15,7 @@ import {
   ArrowLeft,
   ChevronDown,
 } from "lucide-react";
+import Link from "next/link";
 
 // --- Static Data Structure ---
 
@@ -124,54 +125,56 @@ const jobBoxes = [
 ];
 
 const courseCards = [
-  {
-    title: "Full Stack Web Development",
-    duration: "8 Weeks",
-    students: "15,000+",
-    price: "99",
-    rating: 4.9,
-    imgUrl: "https://placehold.co/300x180/10b981/ffffff?text=FullStack",
-  },
-  {
-    title: "Data Science Bootcamp",
-    duration: "12 Weeks",
-    students: "12,000+",
-    price: "149",
-    rating: 4.7,
-    imgUrl: "https://placehold.co/300x180/3b82f6/ffffff?text=DataScience",
-  },
-  {
-    title: "Advanced React & Next.js",
-    duration: "4 Weeks",
-    students: "8,000+",
-    price: "79",
-    rating: 4.8,
-    imgUrl: "https://placehold.co/300x180/ef4444/ffffff?text=NextJS",
-  },
-  {
-    title: "Cloud Engineering with AWS",
-    duration: "6 Weeks",
-    students: "10,000+",
-    price: "119",
-    rating: 4.6,
-    imgUrl: "https://placehold.co/300x180/f97316/ffffff?text=AWS",
-  },
-  {
-    title: "UX/UI Design Masterclass",
-    duration: "10 Weeks",
-    students: "9,500+",
-    price: "109",
-    rating: 4.9,
-    imgUrl: "https://placehold.co/300x180/6366f1/ffffff?text=UX/UI",
-  },
-  {
-    title: "Python for Beginners",
-    duration: "3 Weeks",
-    students: "20,000+",
-    price: "49",
-    rating: 4.5,
-    imgUrl: "https://placehold.co/300x180/14b8a6/ffffff?text=Python",
-  },
+    {
+        id: 1,
+        title: "Modern JavaScript Masterclass",
+        duration: "40 hours",
+        students: "12,500 enrolled",
+        imgUrl: "/Gemini_Generated_Image_7fqwjr7fqwjr7fqw.png", // Tech Desk Setup
+        link: "#js",
+        themeColor: "text-purple-600",
+        buttonClass: "bg-purple-600 hover:bg-purple-700",
+    },
+    {
+        id: 2,
+        title: "React & Next.js Development",
+        duration: "65 hours",
+        students: "9,800 enrolled",
+        imgUrl: "/Gemini_Generated_Image_7uft9w7uft9w7uft.png", // React logo on screen
+        link: "#react",
+        themeColor: "text-sky-500",
+        buttonClass: "bg-sky-600 hover:bg-sky-700",
+    },
+    {
+        id: 3,
+        title: "AWS Certified Developer - Associate",
+        duration: "50 hours",
+        students: "15,200 enrolled",
+        imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2yeVqYt3l8EHC5HpqOrF8yT13ssL_nJGjDQ&s", // Cloud infrastructure/Data centers
+        link: "#aws",
+        themeColor: "text-amber-500",
+        buttonClass: "bg-amber-600 hover:bg-amber-700",
+    },
+    {
+        id: 4,
+        title: "Advanced Python for Data Science",
+        duration: "70 hours",
+        students: "11,000 enrolled",
+        imgUrl: "https://img.freepik.com/free-vector/data-concept-illustration-idea-collecting-analysing-using_613284-1574.jpg?ga=GA1.1.2060234000.1760858669&semt=ais_hybrid&w=740&q=80", // Data visualization/Code screen
+        link: "#python",
+        themeColor: "text-emerald-500",
+        buttonClass: "bg-emerald-600 hover:bg-emerald-700",
+    },
+    {
+        id: 5,
+        title: "UI/UX Design with Figma",
+        duration: "30 hours",
+        students: "8,900 enrolled",
+        imgUrl: "https://img.freepik.com/free-vector/gradient-ui-ux-landing-page_52683-69534.jpg?ga=GA1.1.2060234000.1760858669&semt=ais_hybrid&w=740&q=80", // Designer working on Figma
+        link: "#figma",
+        themeColor: "text-pink-500",
+        buttonClass: "bg-pink-600 hover:bg-pink-700",
+    },
 ];
 
 // --- NEW DATA STRUCTURE FOR PLACEMENT COURSES ---
@@ -264,63 +267,64 @@ const testimonials = [
     name: "Amit Joshi",
     role: "Placed in IBM",
     text: "I was about to give up on my job search when I found Elecalon. Their personalized job recommendations matched me with perfect opportunities I wouldn't have found otherwise.",
-    avatarUrl: "https://randomuser.me/api/portraits/men/1.jpg",
+    avatarUrl: "https://img.freepik.com/free-photo/smiley-man-posing-medium-shot_23-2149915893.jpg?semt=ais_hybrid&w=740&q=80",
   },
   {
     name: "Priya Gupta",
     role: "Placed in Star Health",
     text: "Elecalon guided me through the entire process when I had no idea about the corporate world. Their support helped me secure a great job offer.",
-    avatarUrl: "https://randomuser.me/api/portraits/women/2.jpg",
+    avatarUrl: "https://img.freepik.com/free-photo/woman_53876-71214.jpg?semt=ais_hybrid&w=740&q=80",
   },
   {
     name: "Rahul Sharma",
     role: "Placed in Flipkart",
     text: "I landed my first internship from Elecalon. This platform has opportunities for every student and is a must-have for anyone looking to build their career.",
-    avatarUrl: "https://randomuser.me/api/portraits/men/3.jpg",
+    avatarUrl: "https://img.freepik.com/free-photo/indian-business-man-with-crossed-arm-dark-wall_231208-2668.jpg?ga=GA1.1.2060234000.1760858669&semt=ais_hybrid&w=740&q=80",
   },
   {
     name: "Neha Kapoor",
     role: "Placed in Amazon",
     text: "Got my dream job at Amazon through Elecalon! I was from a non-tech background but their resources helped me learn the right skills and ace my interviews.",
-    avatarUrl: "https://randomuser.me/api/portraits/women/4.jpg",
+    avatarUrl: "https://img.freepik.com/free-photo/happy-pretty-young-woman-posing-camera-park_1262-20239.jpg?ga=GA1.1.2060234000.1760858669&semt=ais_hybrid&w=740&q=80",
   },
   {
     name: "Vikram Patel",
     role: "Placed in TCS",
     text: "Elecalon's career guidance was invaluable. They helped me identify my strengths and match them with the right opportunities in the tech industry.",
-    avatarUrl: "https://randomuser.me/api/portraits/men/5.jpg",
+    avatarUrl: "https://img.freepik.com/free-photo/worldface-pakistani-guy-white-background_53876-14466.jpg?ga=GA1.1.2060234000.1760858669&semt=ais_hybrid&w=740&q=80",
   },
   {
     name: "Ananya Reddy",
     role: "Placed in Wipro",
     text: "The interview preparation materials on Elecalon were exactly what I needed. I could practice real interview questions and gain confidence.",
-    avatarUrl: "https://randomuser.me/api/portraits/women/6.jpg",
+    avatarUrl: "https://img.freepik.com/free-photo/close-up-portrait-indian-hindu-girl-traditional-violet-saree-posed-street_627829-12971.jpg?ga=GA1.1.2060234000.1760858669&semt=ais_hybrid&w=740&q=80",
   },
   {
     name: "Arjun Mehta",
     role: "Placed in Infosys",
     text: "As a fresher with no experience, I was struggling to get noticed. Elecalon's profile-building tools helped me showcase my skills effectively.",
-    avatarUrl: "https://randomuser.me/api/portraits/men/7.jpg",
+    avatarUrl: "https://img.freepik.com/free-photo/front-view-indian-man-posing-studio_23-2150692695.jpg?ga=GA1.1.2060234000.1760858669&semt=ais_hybrid&w=740&q=80",
   },
   {
     name: "Divya Nair",
     role: "Placed in HCL",
     text: "Elecalon's skill assessment tests helped me identify my weak areas. I could then focus my learning and eventually land a job at a top IT company.",
-    avatarUrl: "https://randomuser.me/api/portraits/women/8.jpg",
+    avatarUrl: "https://img.freepik.com/free-photo/close-up-cheerful-young-woman-looking-camera_1262-4777.jpg?ga=GA1.1.2060234000.1760858669&semt=ais_hybrid&w=740&q=80",
   },
   {
     name: "Rohit Verma",
     role: "Placed in Accenture",
     text: "The resume builder on Elecalon is fantastic! It helped me create a professional resume that got me multiple interview calls within weeks.",
-    avatarUrl: "https://randomuser.me/api/portraits/men/9.jpg",
+    avatarUrl: "https://img.freepik.com/free-photo/portrait-young-indian-businessman-student-sitting-with-pen_1262-17490.jpg?ga=GA1.1.2060234000.1760858669&semt=ais_hybrid&w=740&q=80",
   },
   {
     name: "Shreya Malhotra",
     role: "Placed in Cognizant",
     text: "Elecalon's mock interview feature was a game-changer for me. Practicing with their AI tool helped me overcome my nervousness.",
-    avatarUrl: "https://randomuser.me/api/portraits/women/10.jpg",
+    avatarUrl: "https://img.freepik.com/free-photo/young-girl-smiling-close-up_1187-1999.jpg?ga=GA1.1.2060234000.1760858669&semt=ais_hybrid&w=740&q=80",
   },
 ];
+
 
 // --- Reusable Carousel Component with Drag and Dot Logic (omitted for brevity, assume content is the same) ---
 
@@ -661,49 +665,58 @@ const JobBox = ({ job }) => (
   </div>
 );
 
+// --- CourseCard Component (Modernized) ---
 const CourseCard = ({ course }) => (
-  // Card width fixed to prevent issues with carousel calculation
-  <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 min-w-[280px] w-full md:w-80 overflow-hidden border border-gray-100">
-    <img
-      src={course.imgUrl}
-      alt={course.title}
-      className="w-full h-40 object-cover"
-      onError={(e) =>
-        (e.target.src =
-          "https://placehold.co/300x160/cccccc/333333?text=Course+Image")
-      }
-    />
-    <div className="p-5">
-      <h3 className="text-lg font-bold text-gray-800 mb-3">{course.title}</h3>
-      <div className="flex items-center text-sm text-gray-500 mb-4 space-x-4">
-        <div className="flex items-center">
-          <Clock className="w-4 h-4 mr-1 text-indigo-500" />
-          <span>{course.duration}</span>
-        </div>
-        <div className="flex items-center">
-          <User className="w-4 h-4 mr-1 text-indigo-500" />
-          <span>{course.students}</span>
-        </div>
-      </div>
-      {/* <div className="flex justify-between items-center pt-3 border-t border-gray-100">
-                <div className="text-2xl font-extrabold text-indigo-600">${course.price}</div>
-                <div className="flex items-center text-yellow-500">
-                    <Star className="w-4 h-4 fill-yellow-500 mr-1" />
-                    <span className="text-sm font-semibold text-gray-600">{course.rating}</span>
+    <div className="flex-shrink-0 min-w-[280px] w-[90vw] sm:w-[320px] md:w-80 h-full">
+        <div className="bg-white rounded-2xl shadow-xl overflow-hidden transform hover:scale-[1.02] transition duration-500 ease-in-out h-full flex flex-col border border-gray-100">
+            {/* Image Section */}
+            <div className="relative h-44 overflow-hidden">
+                <img
+                    src={course.imgUrl}
+                    alt={course.title}
+                    className="w-full h-full object-cover transition duration-500 group-hover:opacity-90"
+                    onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = "https://placehold.co/320x176/6366f1/ffffff?text=Course+Image";
+                    }}
+                />
+                {/* Overlay for subtle effect */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent"></div>
+            </div>
+
+            <div className="p-6 flex flex-col flex-grow">
+                {/* Title */}
+                <h3 className="text-xl font-extrabold text-gray-900 mb-2 leading-snug">
+                    {course.title}
+                </h3>
+
+                {/* Metadata */}
+                <div className="flex items-center text-sm text-gray-500 mb-5 space-x-6">
+                    <div className="flex items-center font-medium">
+                        <Clock className={`w-4 h-4 mr-2 ${course.themeColor}`} />
+                        <span>{course.duration}</span>
+                    </div>
+                    <div className="flex items-center font-medium">
+                        <User className={`w-4 h-4 mr-2 ${course.themeColor}`} />
+                        <span>{course.students}</span>
+                    </div>
                 </div>
-            </div> */}
-      <div className="pt-4 border-t border-gray-100 border-dashed mt-auto">
-        <a
-          href={course.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`w-full text-center inline-block text-white px-5 py-2 rounded-lg transition duration-300 font-semibold shadow-md text-sm bg-blue-600 hover:opacity-90`}
-        >
-          Know more →
-        </a>
-      </div>
+
+                {/* Action Button */}
+                <div className="mt-auto pt-4 border-t border-gray-100">
+                    <a
+                        href={course.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`w-full text-center inline-flex justify-center items-center text-white px-6 py-3 rounded-xl transition duration-300 font-bold shadow-lg ${course.buttonClass} transform active:scale-95`}
+                    >
+                        Enroll Now
+                        <ArrowRight className="w-5 h-5 ml-2" />
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 );
 
 const TestimonialCard = ({ testimonial }) => (
@@ -895,7 +908,7 @@ const App = () => {
               <div className="relative">
                 <div className="w-full h-80 bg-indigo-100 rounded-2xl shadow-xl overflow-hidden">
                   <img
-                    src="https://placehold.co/600x400/818cf8/ffffff?text=Professional+Training"
+                    src="/Gemini_Generated_Image_qbps7yqbps7yqbps.png"
                     alt="Team working"
                     className="w-full h-full object-cover opacity-80"
                   />
@@ -946,33 +959,39 @@ const App = () => {
                     </div>
                   </div>
                 </div>
-                <button className="mt-8 bg-indigo-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-indigo-700 transition duration-300 shadow-lg">
-                  Start Learning Now
-                </button>
+                <Link href="/ApplyNow">
+                  <button className="mt-8 bg-indigo-600 cursor-pointer text-white px-8 py-3 rounded-xl font-semibold hover:bg-indigo-700 transition duration-300 shadow-lg">
+                    Start Learning Now
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
         </section>
 
         {/* Course Carousel 1 */}
-        <section id="courses-1" className="py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-extrabold text-gray-900 text-center mb-4">
-              Popular Development Courses
-            </h2>
-            <p className="text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-              Master the skills in demand with our most enrolled technology
-              courses.
-            </p>
-          </div>
-          {/* Carousel is now outside the padded container to use full width and its own padding */}
-          <Carousel
-            items={courseCards}
-            renderItem={(course) => <CourseCard course={course} />}
-            id="courses-carousel1"
-            autoScrollInterval={0}
-          />
-        </section>
+ <section id="courses-1" className="py-20">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 className="text-5xl font-extrabold text-gray-900 text-center mb-4 tracking-tight">
+                        Popular Development Courses
+                    </h2>
+                    <p className="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">
+                        Master the skills in demand. Explore our most enrolled, job-ready technology courses for 2024.
+                    </p>
+                </div>
+                {/* Carousel is now outside the padded container to use full width and its own padding */}
+                <Carousel
+                    items={courseCards}
+                    renderItem={(course) => <CourseCard course={course} />}
+                    id="courses-carousel1"
+                    autoScrollInterval={0}
+                />
+                
+                {/* Mobile Scroll Indicator */}
+                <div className="mt-8 text-center text-gray-500 text-sm md:hidden">
+                    ← Scroll horizontally to see more →
+                </div>
+            </section>
 
         {/* NEW PLACEMENT GUARANTEE SECTION */}
         <section id="courses-2" className="pt-0 pb-20">
