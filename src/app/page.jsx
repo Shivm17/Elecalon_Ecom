@@ -45,13 +45,15 @@ const NAV_ITEMS = [
   },
   {
     name: "Courses",
-    href: "/cources/all_courses",
+    href: "/courses/all_courses",
     submenu: [
-      {
-        name: "Online Ethical Hacking",
-        href: "/cources/online_ethical_hacking",
-      },
-      { name: "Full Stack Development", href: "/cources/full-stake" },
+      { name: "Online Ethical Hacking", href: "/courses/online_ethical_hacking" },
+      { name: "Full Stack Development", href: "/courses/full-stake" },
+      { name: "JavaScript Master Course", href: "/courses/javascript_master" },
+      { name: "React.JS & Next.JS Course", href: "/courses/react_nextjs" },
+      { name: "AWS Certified Developer ", href: "/courses/amazon" },
+      { name: "Advanced Python for Data Science", href: "/courses/python_course" },
+      { name: "UI/UX Design with Figma", href: "/courses/ui_ux_course" },
     ],
   },
   { name: "About Us", href: "#about" },
@@ -184,7 +186,7 @@ const courseCards = [
     duration: "40 hours",
     students: "12,500 enrolled",
     imgUrl: "/Gemini_Generated_Image_7fqwjr7fqwjr7fqw.png",
-    link: "#js",
+    link: "/courses/javascript_master",
     themeColor: "text-purple-600",
     buttonClass: "bg-purple-600 hover:bg-purple-700",
   },
@@ -194,7 +196,7 @@ const courseCards = [
     duration: "65 hours",
     students: "9,800 enrolled",
     imgUrl: "/Gemini_Generated_Image_7uft9w7uft9w7uft.png",
-    link: "#react",
+    link: "/courses/react_nextjs",
     themeColor: "text-sky-500",
     buttonClass: "bg-sky-600 hover:bg-sky-700",
   },
@@ -205,7 +207,7 @@ const courseCards = [
     students: "15,200 enrolled",
     imgUrl:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2yeVqYt3l8EHC5HpqOrF8yT13ssL_nJGjDQ&s",
-    link: "#aws",
+    link: "/courses/amazon",
     themeColor: "text-amber-500",
     buttonClass: "bg-amber-600 hover:bg-amber-700",
   },
@@ -216,7 +218,7 @@ const courseCards = [
     students: "11,000 enrolled",
     imgUrl:
       "https://img.freepik.com/free-vector/data-concept-illustration-idea-collecting-analysing-using_613284-1574.jpg",
-    link: "#python",
+    link: "/courses/python_course",
     themeColor: "text-emerald-500",
     buttonClass: "bg-emerald-600 hover:bg-emerald-700",
   },
@@ -227,7 +229,7 @@ const courseCards = [
     students: "8,900 enrolled",
     imgUrl:
       "https://img.freepik.com/free-vector/gradient-ui-ux-landing-page_52683-69534.jpg",
-    link: "#figma",
+    link: "/courses/ui_ux_course",
     themeColor: "text-pink-500",
     buttonClass: "bg-pink-600 hover:bg-pink-700",
   },
@@ -727,7 +729,7 @@ const CourseCard = ({ course }) => (
         <div className="mt-auto pt-4 border-t border-gray-100">
           <a
             href={course.link}
-            target="_blank"
+            // target="_blank"
             rel="noopener noreferrer"
             className={`w-full text-center inline-flex justify-center items-center text-white px-6 py-3 rounded-xl transition duration-300 font-bold shadow-lg ${course.buttonClass} transform active:scale-95`}
           >
@@ -1133,7 +1135,7 @@ const App = () => {
                   <NavLink
                     href={
                       NAV_ITEMS.find((item) => item.name === "Courses")?.href ||
-                      "/cources/all_courses"
+                      "/courses/all_courses"
                     }
                     className="text-sm text-gray-400 hover:text-indigo-400 transition"
                   >

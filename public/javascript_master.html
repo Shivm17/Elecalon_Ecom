@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Modern JavaScript Masterclass | 2025 Edition</title>
+    <!-- Load Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind for custom colors and use Inter font -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#06B6D4', // Cyan 500
+                        'secondary': '#F97316', // Orange 500
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Custom scrollbar for a sleek light theme look */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f0f0f0; } /* Light track */
+        ::-webkit-scrollbar-thumb { background: #94A3B8; border-radius: 4px; } /* Slate 400 */
+        ::-webkit-scrollbar-thumb:hover { background: #06B6D4; }
+
+        /* General styling for smooth transitions */
+        .transition-all {
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Target the Razorpay button container to ensure it matches the layout */
+        /* Note: Razorpay injects its own styling, but we ensure the form element takes full width */
+        .razorpay-payment-button {
+            display: block !important;
+            width: 100% !important;
+        }
+        form.razorpay-form {
+            width: 100%;
+        }
+    </style>
+</head>
+<!-- Body uses light background and dark text -->
+<body class="bg-gray-50 text-gray-900 font-sans antialiased">
+
+    <main>
+        <!-- Hero Section - Adjusted padding since header is removed (pt-16) -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24 text-center">
+            <span class="inline-block bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-widest mb-4 border border-primary/30">
+                2025 EDITION: ES2024 READY
+            </span>
+            <h1 class="text-5xl sm:text-7xl font-extrabold leading-tight mb-6">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-cyan-600">Master Modern JavaScript</span>
+                & Build Next-Gen Web Apps.
+            </h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-10">
+                Go from zero to professional developer. Learn core principles, advanced asynchronous patterns, functional programming, and **TypeScript**—the future of web development.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="#enroll" class="w-full sm:w-auto bg-primary text-white font-bold py-3 px-10 rounded-xl shadow-lg hover:bg-cyan-600 transition-all transform hover:scale-105 text-lg">
+                    Start Learning Today
+                </a>
+                <a href="#modules" class="w-full sm:w-auto bg-gray-100 border border-gray-300 text-gray-800 font-medium py-3 px-10 rounded-xl hover:bg-gray-200 transition-all text-lg shadow-md">
+                    View Full Curriculum
+                </a>
+            </div>
+            <div class="mt-12">
+                <p class="text-gray-400 text-sm">Trusted by 15,000+ developers globally.</p>
+            </div>
+        </section>
+        
+        <!-- Key Features Section -->
+        <section id="features" class="bg-gray-100 py-20 border-t border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center mb-16">
+                    What You Will <span class="text-primary">Master</span>
+                </h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Feature Card 1 -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-primary/20 transition-all transform hover:-translate-y-1">
+                        <div class="text-primary mb-4 text-3xl">
+                            <!-- Icon: Code -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code-2"><polyline points="18 16 22 12 18 8"/><polyline points="6 8 2 12 6 16"/><line x1="10" x2="14" y1="4" y2="20"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900">Core Language & ES2024</h3>
+                        <p class="text-gray-600 text-sm">
+                            Deep dive into modern syntax: Arrow Functions, Destructuring, Spread/Rest Operators, and the latest ES features. Write clean, efficient code.
+                        </p>
+                    </div>
+
+                    <!-- Feature Card 2 -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-primary/20 transition-all transform hover:-translate-y-1">
+                        <div class="text-primary mb-4 text-3xl">
+                            <!-- Icon: Bolt -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900">Async & Promises Mastery</h3>
+                        <p class="text-gray-600 text-sm">
+                            Tackle asynchronous JavaScript with confidence. Master Promises, `async/await`, error handling, and parallel execution for fast, reliable applications.
+                        </p>
+                    </div>
+
+                    <!-- Feature Card 3 -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-primary/20 transition-all transform hover:-translate-y-1">
+                        <div class="text-primary mb-4 text-3xl">
+                            <!-- Icon: Type -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-type"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" x2="15" y1="20" y2="20"/><line x1="12" x2="12" y1="4" y2="20"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900">TypeScript Fundamentals</h3>
+                        <p class="text-gray-600 text-sm">
+                            Seamlessly integrate TypeScript for scalability. Learn types, interfaces, generics, and configuration to build robust, maintainable codebases.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Modules Section -->
+        <section id="modules" class="py-20">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center mb-16">
+                    Detailed <span class="text-secondary">Curriculum</span> Breakdown
+                </h2>
+                
+                <div id="module-list" class="space-y-4">
+                    <!-- Module Item 1 -->
+                    <div class="module-item bg-white p-5 rounded-xl border border-gray-300 shadow-md cursor-pointer hover:border-primary transition-all">
+                        <h4 class="flex justify-between items-center font-semibold text-lg text-gray-800">
+                            <span>01. Foundations & ES6 Refresher</span>
+                            <span class="text-primary text-sm">8 Lectures / 4 Hrs</span>
+                        </h4>
+                        <p class="module-content text-gray-600 text-sm mt-2 hidden">Variables (let/const), Hoisting, Scopes, Template Literals, and essential Array/Object methods.</p>
+                    </div>
+
+                    <!-- Module Item 2 -->
+                    <div class="module-item bg-white p-5 rounded-xl border border-gray-300 shadow-md cursor-pointer hover:border-primary transition-all">
+                        <h4 class="flex justify-between items-center font-semibold text-lg text-gray-800">
+                            <span>02. Advanced Functions & Closure</span>
+                            <span class="text-primary text-sm">10 Lectures / 5.5 Hrs</span>
+                        </h4>
+                        <p class="module-content text-gray-600 text-sm mt-2 hidden">Understanding execution context, the `this` keyword, Closure deep dive, Currying, and IIFE patterns.</p>
+                    </div>
+
+                    <!-- Module Item 3 -->
+                    <div class="module-item bg-white p-5 rounded-xl border border-gray-300 shadow-md cursor-pointer hover:border-primary transition-all">
+                        <h4 class="flex justify-between items-center font-semibold text-lg text-gray-800">
+                            <span>03. Asynchronous JavaScript (Promises & Async/Await)</span>
+                            <span class="text-primary text-sm">12 Lectures / 7 Hrs</span>
+                        </h4>
+                        <p class="module-content text-gray-600 text-sm mt-2 hidden">The Event Loop, Microtask Queue, Promise chaining, `Promise.all()`, and writing clean, modern `async/await` code.</p>
+                    </div>
+
+                    <!-- Module Item 4 -->
+                    <div class="module-item bg-white p-5 rounded-xl border border-gray-300 shadow-md cursor-pointer hover:border-primary transition-all">
+                        <h4 class="flex justify-between items-center font-semibold text-lg text-gray-800">
+                            <span>04. Object-Oriented & Functional Programming</span>
+                            <span class="text-primary text-sm">9 Lectures / 6 Hrs</span>
+                        </h4>
+                        <p class="module-content text-gray-600 text-sm mt-2 hidden">Classes, Inheritance, Mixins vs. Functional Composition, Immutability, and higher-order functions.</p>
+                    </div>
+
+                    <!-- Module Item 5 -->
+                    <div class="module-item bg-white p-5 rounded-xl border border-gray-300 shadow-md cursor-pointer hover:border-primary transition-all">
+                        <h4 class="flex justify-between items-center font-semibold text-lg text-gray-800">
+                            <span>05. TypeScript Integration</span>
+                            <span class="text-primary text-sm">15 Lectures / 8.5 Hrs</span>
+                        </h4>
+                        <p class="module-content text-gray-600 text-sm mt-2 hidden">Setting up the environment, basic and advanced types, interfaces, generics, type assertions, and configuring `tsconfig.json`.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="bg-gray-100 py-20 border-t border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center mb-16">
+                    Hear From Our <span class="text-primary">Alumni</span>
+                </h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    
+                    <!-- Testimonial 1 -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-primary">
+                        <blockquote class="text-gray-700 italic mb-4">
+                            "The deep dive into Promises and async/await completely changed how I write backend code. It's the most practical JavaScript course I've ever taken. Highly recommend for intermediate devs!"
+                        </blockquote>
+                        <div class="flex items-center">
+                            <!-- Using a placeholder image with primary color text -->
+                            <img src="https://placehold.co/40x40/06B6D4/FFFFFF/png?text=L" alt="Avatar" class="w-10 h-10 rounded-full mr-4 border-2 border-primary">
+                            <div>
+                                <p class="font-semibold text-gray-900">Liam K.</p>
+                                <p class="text-sm text-gray-500">Senior Fullstack Engineer</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-secondary">
+                        <blockquote class="text-gray-700 italic mb-4">
+                            "I was intimidated by TypeScript, but the dedicated module made the transition seamless. My code is now far more robust and scalable. Worth every penny."
+                        </blockquote>
+                        <div class="flex items-center">
+                             <!-- Using a placeholder image with secondary color text -->
+                            <img src="https://placehold.co/40x40/F97316/FFFFFF/png?text=S" alt="Avatar" class="w-10 h-10 rounded-full mr-4 border-2 border-secondary">
+                            <div>
+                                <p class="font-semibold text-gray-900">Sarah T.</p>
+                                <p class="text-sm text-gray-500">Frontend Developer</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-cyan-400">
+                        <blockquote class="text-gray-700 italic mb-4">
+                            "The instructor's explanations on the Event Loop and closures were crystal clear. It's not just 'what' to do, but 'why' the language behaves the way it does."
+                        </blockquote>
+                        <div class="flex items-center">
+                            <!-- Using a placeholder image with a cyan tint text -->
+                            <img src="https://placehold.co/40x40/22D3EE/FFFFFF/png?text=M" alt="Avatar" class="w-10 h-10 rounded-full mr-4 border-2 border-cyan-400">
+                            <div>
+                                <p class="font-semibold text-gray-900">Marcus H.</p>
+                                <p class="text-sm text-gray-500">Junior Developer</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA / Enrollment Section -->
+        <section id="enroll" class="py-24">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 bg-white p-10 rounded-3xl shadow-2xl text-center border border-primary/30">
+                <h2 class="text-4xl font-extrabold text-gray-900 mb-4">
+                    Ready to Level Up?
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">
+                    Enroll today to get lifetime access, all future updates, and a private community invite.
+                </p>
+                
+                <div class="flex flex-col space-y-4">
+                    <div class="bg-gray-100 p-6 rounded-xl text-left border-l-4 border-secondary shadow-md">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-2xl font-bold text-gray-900">Masterclass Access</span>
+                            <span class="text-3xl font-extrabold text-secondary">₹1999</span>
+                        </div>
+                        <ul class="text-gray-700 space-y-2 text-sm">
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>30+ Hours of HD Content</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Code & Starter Files for every module</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Private Discord Community Access</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Lifetime Access & Free Updates</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 
+                        RAZORPAY INTEGRATION START
+                        This form contains the script tag which automatically renders the payment button.
+                        The 'w-full' class ensures it takes the full width, mimicking the original button's layout.
+                    -->
+                    <form class="w-full razorpay-form">
+                        <script 
+                            src="https://checkout.razorpay.com/v1/payment-button.js" 
+                            data-payment_button_id="pl_RYmlalKwelooGs" 
+                            async
+                        ></script> 
+                    </form>
+                    <!-- RAZORPAY INTEGRATION END -->
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-10 border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
+            <p>&copy; 2025 JS Masterclass. All rights reserved.</p>
+            <div class="mt-2 space-x-4">
+                <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
+                <span class="text-gray-300">|</span>
+                <a href="#" class="hover:text-primary transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for module collapse -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const moduleItems = document.querySelectorAll('.module-item');
+
+            moduleItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const content = item.querySelector('.module-content');
+                    
+                    // Close all other open modules
+                    moduleItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.querySelector('.module-content').classList.add('hidden');
+                        }
+                    });
+
+                    // Toggle the current module content
+                    content.classList.toggle('hidden');
+                });
+            });
+        });
+        
+        // Removed the simulateEnrollment() function as the Razorpay script now handles the payment action.
+    </script>
+</body>
+</html>

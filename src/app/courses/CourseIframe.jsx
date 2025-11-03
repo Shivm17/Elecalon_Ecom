@@ -2,12 +2,11 @@
 
 import { useParams } from "next/navigation";
 
-export default function Courses() {
+export default function CourseIframe() {
   const { slug } = useParams();
 
   return (
-    <div style={{ height: "100vh" , backgroundColor: "#ffffff" }}>
-      {/* Header will already show because it's in layout */}
+    <div style={{ height: "100vh", backgroundColor: "#ffffff" }}>
       <iframe
         src={`/${slug}.html`}
         width="100%"

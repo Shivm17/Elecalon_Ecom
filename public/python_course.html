@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Python for Data Science & Machine Learning | 70 Hours</title>
+    <!-- Load Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind for custom colors and use Inter font -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#1F2937', // Deep Slate/Blue (Data Focus)
+                        'accent': '#10B981', // Vibrant Emerald Green (Action/Highlight)
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Custom scrollbar for a sleek look */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f0f0f0; }
+        ::-webkit-scrollbar-thumb { background: #94A3B8; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #10B981; }
+
+        /* General styling for smooth transitions */
+        .transition-all {
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<!-- Body uses light background and dark text -->
+<body class="bg-gray-50 text-gray-900 font-sans antialiased">
+
+    <main>
+        <!-- Hero Section -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24 text-center">
+            <span class="inline-block bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-widest mb-4 border border-primary/30">
+                70 HOURS OF IN-DEPTH TRAINING
+            </span>
+            <h1 class="text-5xl sm:text-7xl font-extrabold leading-tight mb-6">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">Advanced Python</span>
+                for Data Science & AI.
+            </h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-10">
+                Move beyond the basics. Master performance-critical libraries, advanced statistics, and production-grade Machine Learning workflows with Python.
+            </p>
+            <div class="mt-12">
+                <p class="text-lg text-gray-700 font-semibold">Trusted by <span class="text-accent font-extrabold">11,000+</span> Enrolled Data Professionals.</p>
+            </div>
+        </section>
+        
+        <!-- Key Features Section -->
+        <section id="features" class="bg-gray-100 py-20 border-t border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center mb-16">
+                    What You Will <span class="text-accent">Master</span>
+                </h2>
+                <div class="grid md:grid-cols-4 gap-8">
+                    <!-- Feature Card 1: Advanced Pandas -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-accent/20 transition-all transform hover:-translate-y-1">
+                        <div class="text-accent mb-4 text-3xl">
+                            <!-- Icon: Database -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/><path d="M3 19a9 3 0 0 0 18 0"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900">High-Performance Pandas</h3>
+                        <p class="text-gray-600 text-sm">
+                            Optimize data processing with vectorization, Dask, and advanced indexing for massive datasets.
+                        </p>
+                    </div>
+
+                    <!-- Feature Card 2: ML & Deep Learning -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-accent/20 transition-all transform hover:-translate-y-1">
+                        <div class="text-primary mb-4 text-3xl">
+                            <!-- Icon: Brain -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brain"><path d="M12 5a3 3 0 1 0-3 3"/><path d="M12 5a3 3 0 1 1 3 3"/><path d="M12 8a2 2 0 1 0 0-4"/><path d="M12 8a2 2 0 1 1 0-4"/><path d="M16 17a2 2 0 0 0 0 4"/><path d="M16 17a2 2 0 1 1 0 4"/><path d="M8 21a2 2 0 1 0 0-4"/><path d="M8 21a2 2 0 1 1 0-4"/><path d="M14.5 14h-5C8.1 14 7 13.1 7 12V7.5A4.5 4.5 0 0 1 11.5 3c2.4 0 4.5 2.1 4.5 4.5V12c0 .9-.9 2-2.5 2z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900">Production ML Pipelines</h3>
+                        <p class="text-gray-600 text-sm">
+                            Build, train, and deploy robust models using Scikit-learn, TensorFlow, and cloud environments.
+                        </p>
+                    </div>
+
+                    <!-- Feature Card 3: Scientific Computing -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-accent/20 transition-all transform hover:-translate-y-1">
+                        <div class="text-accent mb-4 text-3xl">
+                            <!-- Icon: Calculator -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calculator"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="10" y2="18"/><line x1="8" x2="8" y1="10" y2="18"/><line x1="12" x2="12" y1="10" y2="18"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900">Numerical Optimization</h3>
+                        <p class="text-gray-600 text-sm">
+                            Deep dive into NumPy, SciPy, and efficient C/C++ integration (Cython) for performance gains.
+                        </p>
+                    </div>
+
+                    <!-- Feature Card 4: Visualization -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-accent/20 transition-all transform hover:-translate-y-1">
+                        <div class="text-primary mb-4 text-3xl">
+                            <!-- Icon: Chart Line -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-line-chart"><path d="M3 3v18h18"/><path d="m18 8-6 6-4-4-5 4"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900">Interactive Visualization</h3>
+                        <p class="text-gray-600 text-sm">
+                            Build compelling, interactive dashboards and reports using Plotly, Dash, and Bokeh for storytelling.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Modules Section (Accordion) -->
+        <section id="modules" class="py-20">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center mb-16">
+                    Structured <span class="text-primary">Curriculum</span>
+                </h2>
+                
+                <div id="module-list" class="space-y-4">
+                    <!-- Module Item 1 -->
+                    <div class="module-item bg-white p-5 rounded-xl border border-gray-300 shadow-md cursor-pointer hover:border-accent transition-all">
+                        <h4 class="flex justify-between items-center font-semibold text-lg text-gray-800">
+                            <span>01. Python Optimization & Memory Management</span>
+                            <span class="text-accent text-sm">10 Hrs</span>
+                        </h4>
+                        <p class="module-content text-gray-600 text-sm mt-2 hidden">Generators, iterators, memory views, Cython for native performance, and profiling code with `cProfile`.</p>
+                    </div>
+
+                    <!-- Module Item 2 -->
+                    <div class="module-item bg-white p-5 rounded-xl border border-gray-300 shadow-md cursor-pointer hover:border-accent transition-all">
+                        <h4 class="flex justify-between items-center font-semibold text-lg text-gray-800">
+                            <span>02. Advanced Data Manipulation (Pandas & Dask)</span>
+                            <span class="text-accent text-sm">15 Hrs</span>
+                        </h4>
+                        <p class="module-content text-gray-600 text-sm mt-2 hidden">Time series analysis, window functions, parallel processing with Dask, and advanced data cleaning techniques (imputation, outliers).</p>
+                    </div>
+
+                    <!-- Module Item 3 -->
+                    <div class="module-item bg-white p-5 rounded-xl border border-gray-300 shadow-md cursor-pointer hover:border-accent transition-all">
+                        <h4 class="flex justify-between items-center font-semibold text-lg text-gray-800">
+                            <span>03. Statistical Modeling and Hypothesis Testing</span>
+                            <span class="text-accent text-sm">15 Hrs</span>
+                        </h4>
+                        <p class="module-content text-gray-600 text-sm mt-2 hidden">Regression modeling with `statsmodels`, ANOVA, time-series forecasting, and Bayesian methods introduction.</p>
+                    </div>
+
+                    <!-- Module Item 4 -->
+                    <div class="module-item bg-white p-5 rounded-xl border border-gray-300 shadow-md cursor-pointer hover:border-accent transition-all">
+                        <h4 class="flex justify-between items-center font-semibold text-lg text-gray-800">
+                            <span>04. Production-Grade Machine Learning</span>
+                            <span class="text-accent text-sm">20 Hrs</span>
+                        </h4>
+                        <p class="module-content text-gray-600 text-sm mt-2 hidden">Advanced Scikit-learn (pipelines, custom transformers), Model deployment (Flask/Streamlit), MLOps basics, and model monitoring.</p>
+                    </div>
+
+                    <!-- Module Item 5 -->
+                    <div class="module-item bg-white p-5 rounded-xl border border-gray-300 shadow-md cursor-pointer hover:border-accent transition-all">
+                        <h4 class="flex justify-between items-center font-semibold text-lg text-gray-800">
+                            <span>05. Big Data Integration & Cloud Tools</span>
+                            <span class="text-accent text-sm">10 Hrs</span>
+                        </h4>
+                        <p class="module-content text-gray-600 text-sm mt-2 hidden">Interfacing Python with Spark, connecting to S3/Cloud Storage, and utilizing cloud APIs for large-scale data ingestion and processing.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA / Enrollment Form Section (Mandatory Form) -->
+         <section id="enroll" class="py-24 bg-gray-100">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 bg-white p-8 sm:p-10 rounded-3xl shadow-2xl text-center border border-gray-200">
+                <h2 class="text-4xl font-extrabold text-primary mb-4">
+                    Secure Your Spot and Master in Python.
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">
+                    Enroll today to gain lifetime access, all future course updates, and exclusive access to our private code community.
+                </p>
+                
+                <div class="flex flex-col space-y-6">
+                    <!-- Pricing/Inclusion Box -->
+                    <div class="bg-gray-50 p-6 rounded-xl text-left border-l-4 border-accent shadow-md">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-2xl font-bold text-gray-900">Complete Course Access</span>
+                            <span class="text-4xl font-extrabold text-accent">₹1999</span>
+                        </div>
+                        <ul class="text-gray-700 space-y-2 text-base">
+                            <li class="flex items-start">
+                                <!-- Checkmark Icon -->
+                                <svg class="w-5 h-5 mr-3 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span>30 Hours of Practical, Hands-on Python Projects.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <!-- Checkmark Icon -->
+                                <svg class="w-5 h-5 mr-3 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span>Full, Editable Python Project Files for Portfolio Use.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <!-- Checkmark Icon -->
+                                <svg class="w-5 h-5 mr-3 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span>Certificate of Completion (30-Hour Python).</span>
+                            </li>
+                            <li class="flex items-start">
+                                <!-- Checkmark Icon -->
+                                <svg class="w-5 h-5 mr-3 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span>Lifetime Access & Free Updates to all course content.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Simulated Payment Button -->
+                    <form class="w-full razorpay-form">
+                        <script 
+                            src="https://checkout.razorpay.com/v1/payment-button.js" 
+                            data-payment_button_id="pl_RYmlalKwelooGs" 
+                            async
+                        >
+                        /* NOTE: This script tag is a placeholder structure based on your request. 
+                           In a real environment, it would render a dynamic button. Here, we simulate 
+                           the button's look using custom CSS for the best aesthetic outcome.
+                        */
+                        </script>
+                        <!-- Simulated button for visual representation in the editor -->
+                       
+                    </form>
+
+                    <p id="enroll-message" class="mt-4 text-sm text-primary font-medium hidden">
+                        <!-- Message for simulated click will appear here -->
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-10 border-t border-gray-800 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 text-sm">
+            <p>&copy; 2025 Advanced Data Science Bootcamp. All Python and ML rights reserved.</p>
+            <div class="mt-2 space-x-4">
+                <a href="#" class="hover:text-accent transition-colors">Course FAQ</a>
+                <span class="text-gray-600">|</span>
+                <a href="#" class="hover:text-accent transition-colors">Syllabus Download</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for module collapse and form submission -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const moduleItems = document.querySelectorAll('.module-item');
+
+            moduleItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const content = item.querySelector('.module-content');
+                    
+                    // Close all other open modules
+                    moduleItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.querySelector('.module-content').classList.add('hidden');
+                        }
+                    });
+
+                    // Toggle the current module content
+                    content.classList.toggle('hidden');
+                });
+            });
+        });
+
+        // Function to handle form submission
+        function handleFormSubmission(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const form = document.getElementById('enrollment-form');
+            const submitButton = document.getElementById('submit-button');
+            const messageElement = document.getElementById('form-message');
+            
+            // Collect form data
+            const formData = {
+                name: document.getElementById('full_name').value,
+                email: document.getElementById('email').value,
+                experience: document.getElementById('experience').value,
+                timestamp: new Date().toISOString()
+            };
+
+            // Display loading state
+            submitButton.disabled = true;
+            submitButton.textContent = 'Processing Data...';
+            submitButton.classList.remove('bg-accent', 'hover:bg-emerald-600');
+            submitButton.classList.add('bg-gray-400', 'cursor-not-allowed'); 
+            messageElement.classList.remove('hidden', 'text-red-600', 'text-green-600');
+            messageElement.textContent = 'Sending enrollment request...';
+            messageElement.classList.add('text-primary');
+
+            // --- Simulate Data Handling (In a real app, you'd send this to an API) ---
+            console.log('--- FORM DATA CAPTURED ---');
+            console.log(JSON.stringify(formData, null, 2));
+            // In a real application, this data would be sent to a server/database (e.g., Firestore)
+
+            setTimeout(() => {
+                // Restore button state
+                submitButton.disabled = false;
+                submitButton.textContent = 'Finalize Enrollment';
+                submitButton.classList.add('bg-accent', 'hover:bg-emerald-600');
+                submitButton.classList.remove('bg-gray-400', 'cursor-not-allowed');
+
+                // Show success message
+                messageElement.textContent = `Success! Thank you, ${formData.name}. We have captured your data and will send enrollment details to ${formData.email}.`;
+                messageElement.classList.remove('text-primary');
+                messageElement.classList.add('text-green-600');
+                
+                // Optionally clear the form
+                form.reset();
+            }, 2000); // Simulate network delay
+        }
+    </script>
+</body>
+</html>

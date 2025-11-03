@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Certified Developer - Associate Bootcamp (DVA-C02)</title>
+    <!-- Load Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind for custom colors and use Inter font -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#232F3E', // AWS Blue/Dark Accent
+                        'secondary': '#FF9900', // AWS Orange/Highlight/CTA
+                        'aws-light': '#FFC069', // Lighter AWS Orange for visual emphasis
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Custom scrollbar for a sleek light theme look */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f0f0f0; } /* Light track */
+        ::-webkit-scrollbar-thumb { background: #94A3B8; border-radius: 4px; } /* Slate 400 */
+        ::-webkit-scrollbar-thumb:hover { background: #232F3E; }
+
+        /* General styling for smooth transitions */
+        .transition-all {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        /* Ensure Razorpay button is styled correctly */
+        .razorpay-form button {
+            width: 100%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #FF9900 !important; /* Force AWS orange for the button */
+            color: #232F3E !important;
+            font-weight: bold !important;
+            padding: 0.75rem 2.5rem !important; /* py-3 px-10 */
+            border-radius: 0.75rem !important; /* rounded-xl */
+            box-shadow: 0 10px 15px -3px rgba(35, 47, 62, 0.1), 0 4px 6px -2px rgba(35, 47, 62, 0.05) !important; /* custom shadow */
+            transition: all 0.3s ease-in-out;
+            margin-top: 1rem;
+        }
+        .razorpay-form button:hover {
+            background-color: #ffaa33 !important;
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<!-- Body uses light background and dark text -->
+<body class="bg-gray-50 text-gray-900 font-sans antialiased">
+
+    <main>
+        <!-- Hero Section -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24 text-center">
+            <span class="inline-block bg-secondary/20 text-secondary text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-widest mb-4 border border-secondary/50">
+                50 HOURS OF LABS & THEORY
+            </span>
+            <h1 class="text-5xl sm:text-7xl font-extrabold leading-tight mb-6">
+                Become an <span class="bg-clip-text text-transparent bg-gradient-to-r from-secondary to-orange-700">AWS Certified Developer</span>
+                Associate (DVA-C02).
+            </h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-10">
+                Hands-on training focused on the official exam blueprint. Master deployment, serverless architecture, security, and CI/CD on the AWS platform.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="#enroll" class="w-full sm:w-auto bg-primary text-white font-bold py-3 px-10 rounded-xl shadow-lg hover:bg-gray-800 transition-all transform hover:scale-105 text-lg">
+                    Access The Full Course
+                </a>
+                <a href="#modules" class="w-full sm:w-auto bg-gray-100 border border-gray-300 text-gray-800 font-medium py-3 px-10 rounded-xl hover:bg-gray-200 transition-all text-lg shadow-md">
+                    View Exam Domains
+                </a>
+            </div>
+            <div class="mt-12">
+                <p class="text-gray-400 text-sm">Join **15,200** successful students who have used this course to pass.</p>
+            </div>
+        </section>
+        
+        <!-- Key Features Section -->
+        <section id="features" class="bg-gray-100 py-20 border-t border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center mb-16">
+                    Hands-On <span class="text-secondary">Skills</span> You Will Gain
+                </h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Feature Card 1: Serverless -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-secondary/20 transition-all transform hover:-translate-y-1">
+                        <div class="text-secondary mb-4 text-3xl">
+                            <!-- Icon: Cloud Lightning (Serverless) -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cloud-lightning"><path d="M6 16.32V16a4 4 0 0 1 0-8c.24-.2.5-.37.77-.52A6 6 0 0 1 18 8a4 4 0 0 1 0 8"/><path d="m14 20-3-5h3l-3-5"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900">Serverless Architecture</h3>
+                        <p class="text-gray-600 text-sm">
+                            Master **AWS Lambda**, API Gateway, and Step Functions to build scalable, cost-effective serverless microservices.
+                        </p>
+                    </div>
+
+                    <!-- Feature Card 2: Security & IAM -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-secondary/20 transition-all transform hover:-translate-y-1">
+                        <div class="text-primary mb-4 text-3xl">
+                            <!-- Icon: Lock (Security/IAM) -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900">IAM & Secure Deployment</h3>
+                        <p class="text-gray-600 text-sm">
+                            Learn to write effective IAM policies, secure resources using roles, and leverage Cognito for user authentication.
+                        </p>
+                    </div>
+
+                    <!-- Feature Card 3: CI/CD -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-secondary/20 transition-all transform hover:-translate-y-1">
+                        <div class="text-secondary mb-4 text-3xl">
+                            <!-- Icon: Wrench (CI/CD/Automation) -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wrench"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6.29 6.29 0 1 1-1.47-1.47L14.7 6.3z"/><path d="M21 21l-4.3-4.3"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900">Continuous Delivery</h3>
+                        <p class="text-gray-600 text-sm">
+                            Implement automated deployments using **CodePipeline**, CodeBuild, and CodeDeploy, following best practices for production.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Modules Section -->
+        <section id="modules" class="py-20">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center mb-16">
+                    Complete <span class="text-primary">DVA-C02</span> Exam Blueprint
+                </h2>
+                
+                <div id="module-list" class="space-y-4">
+                    <!-- Module Item 1 -->
+                    <div class="module-item bg-white p-5 rounded-xl border border-gray-300 shadow-md cursor-pointer hover:border-secondary transition-all">
+                        <h4 class="flex justify-between items-center font-semibold text-lg text-gray-800">
+                            <span>01. Deployment and Provisioning (22% of Exam)</span>
+                            <span class="text-primary text-sm">8 Hrs</span>
+                        </h4>
+                        <p class="module-content text-gray-600 text-sm mt-2 hidden">CloudFormation, Elastic Beanstalk, EC2 deployment strategies, Parameter Store, and handling application configurations securely.</p>
+                    </div>
+
+                    <!-- Module Item 2 -->
+                    <div class="module-item bg-white p-5 rounded-xl border border-gray-300 shadow-md cursor-pointer hover:border-secondary transition-all">
+                        <h4 class="flex justify-between items-center font-semibold text-lg text-gray-800">
+                            <span>02. Security (26% of Exam)</span>
+                            <span class="text-primary text-sm">13 Hrs</span>
+                        </h4>
+                        <p class="module-content text-gray-600 text-sm mt-2 hidden">IAM roles/policies, Resource Access Control (S3 bucket policies, security groups), Secrets Manager, and application security best practices.</p>
+                    </div>
+
+                    <!-- Module Item 3 -->
+                    <div class="module-item bg-white p-5 rounded-xl border border-gray-300 shadow-md cursor-pointer hover:border-secondary transition-all">
+                        <h4 class="flex justify-between items-center font-semibold text-lg text-gray-800">
+                            <span>03. Development with AWS Services (30% of Exam)</span>
+                            <span class="text-primary text-sm">15 Hrs</span>
+                        </h4>
+                        <p class="module-content text-gray-600 text-sm mt-2 hidden">Lambda, API Gateway, DynamoDB data modeling and indexing, S3, SQS, SNS, and ElastiCache. Focus on service integration patterns.</p>
+                    </div>
+
+                    <!-- Module Item 4 -->
+                    <div class="module-item bg-white p-5 rounded-xl border border-gray-300 shadow-md cursor-pointer hover:border-secondary transition-all">
+                        <h4 class="flex justify-between items-center font-semibold text-lg text-gray-800">
+                            <span>04. Refactoring and Monitoring (14% of Exam)</span>
+                            <span class="text-primary text-sm">7 Hrs</span>
+                        </h4>
+                        <p class="module-content text-gray-600 text-sm mt-2 hidden">CloudWatch Logs, Metrics, Alarms, X-Ray for distributed tracing, and implementing logging and debugging across services.</p>
+                    </div>
+
+                    <!-- Module Item 5 -->
+                    <div class="module-item bg-white p-5 rounded-xl border border-gray-300 shadow-md cursor-pointer hover:border-secondary transition-all">
+                        <h4 class="flex justify-between items-center font-semibold text-lg text-gray-800">
+                            <span>05. Testing (8% of Exam)</span>
+                            <span class="text-primary text-sm">4 Hrs</span>
+                        </h4>
+                        <p class="module-content text-gray-600 text-sm mt-2 hidden">Testing strategies for serverless applications, performing A/B tests with Lambda versions, and automated rollbacks with CodeDeploy.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA/Enrollment Section -->
+        <section id="enroll" class="py-24">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 bg-white p-10 rounded-3xl shadow-2xl text-center border border-primary/30">
+                <h2 class="text-4xl font-extrabold text-gray-900 mb-4">
+                    Pass Your Exam. Get Certified.
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">
+                    Gain the skills and confidence required to ace the AWS Certified Developer - Associate exam (DVA-C02).
+                </p>
+                
+                <div class="flex flex-col space-y-4">
+                    <div class="bg-gray-100 p-6 rounded-xl text-left border-l-4 border-secondary shadow-md">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-2xl font-bold text-gray-900">Complete Course Access</span>
+                            <!-- Price for certification course -->
+                            <span class="text-3xl font-extrabold text-secondary">₹1999</span>
+                        </div>
+                        <ul class="text-gray-700 space-y-2 text-sm">
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>50 Hours of Video Lectures & Demos</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Full Practice Exam & Review Quizzes</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Downloadable Slides and Cheat Sheets</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Lifetime Access & Exam Updates</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Razorpay Payment Button Integration -->
+                    <form class="w-full razorpay-form">
+                        <!-- The Razorpay SDK will replace this form with a stylized payment button -->
+                        <script 
+                            src="https://checkout.razorpay.com/v1/payment-button.js" 
+                            data-payment_button_id="pl_RYmlalKwelooGs" 
+                            async
+                        ></script> 
+                    </form>
+
+                    <p id="enroll-message" class="mt-4 text-green-600 hidden font-medium"></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-10 border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
+            <p>&copy; 2025 AWS Developer Certification Training. All rights reserved.</p>
+            <div class="mt-2 space-x-4">
+                <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
+                <span class="text-gray-300">|</span>
+                <a href="#" class="hover:text-primary transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for module collapse functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const moduleItems = document.querySelectorAll('.module-item');
+
+            moduleItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const content = item.querySelector('.module-content');
+                    
+                    // Close all other open modules
+                    moduleItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.querySelector('.module-content').classList.add('hidden');
+                        }
+                    });
+
+                    // Toggle the current module content
+                    content.classList.toggle('hidden');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

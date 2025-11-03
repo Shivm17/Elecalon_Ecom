@@ -1,5 +1,5 @@
-"use client";
-import React, { useState } from "react";
+"use client"
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -7,6 +7,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 
 export const NAV_ITEMS = [
   { name: "Home", href: "/" },
+  { name: "Blogs", href: "/Blogs" },
   {
     name: "Web Scraping Services",
     href: "/webScrap",
@@ -17,10 +18,7 @@ export const NAV_ITEMS = [
     submenu: [
       { name: "Data entry Executive", href: "/Job/data_entry" },
       { name: "Automation executive", href: "/Job/automation" },
-      {
-        name: "Product Listing & Management (Remote) ",
-        href: "/Job/product_listing",
-      },
+      { name: "Product Listing & Management (Remote) ", href: "/Job/product_listing" },
       { name: "Email Marketing Assistant", href: "/Job/email_marketing" },
       { name: "Web Scraping Executive ", href: "/Job/web_scrap" },
       { name: "Data Verification Assistant ", href: "/Job/data_verification" },
@@ -32,13 +30,15 @@ export const NAV_ITEMS = [
   },
   {
     name: "Courses",
-    href: "/cources/all_courses",
+    href: "/courses/all_courses",
     submenu: [
-      {
-        name: "online ethical hacking",
-        href: "/cources/online_ethical_hacking",
-      },
-      { name: "Full Stack Development", href: "/cources/full-stake" },
+      { name: "Online Ethical Hacking", href: "/courses/online_ethical_hacking" },
+      { name: "Full Stack Development", href: "/courses/full-stake" },
+      { name: "JavaScript Master Course", href: "/courses/javascript_master" },
+      { name: "React.JS & Next.JS Course", href: "/courses/react_nextjs" },
+      { name: "AWS Certified Developer ", href: "/courses/amazon" },
+      { name: "Advanced Python for Data Science", href: "/courses/python_course" },
+      { name: "UI/UX Design with Figma", href: "/courses/ui_ux_course" },
     ],
   },
   { name: "About Us", href: "#about" },
@@ -46,15 +46,9 @@ export const NAV_ITEMS = [
     name: "T&C",
     href: "/terms&condition/terms&condition",
     submenu: [
-      { name: "contact-us", href: "/terms&condition/contact-us" },
-      {
-        name: "Cancle and Refund policy ",
-        href: "/terms&condition/cancle-refund-policy",
-      },
-      {
-        name: "Shiping And Delivery ",
-        href: "/terms&condition/shiping_delivery",
-      },
+      { name: "Contact-US", href: "/terms&condition/contact-us" },
+      { name: "Cancle And Refund Policy ", href: "/terms&condition/cancle-refund-policy" },
+      { name: "Shiping And Delivery ", href: "/terms&condition/shiping_delivery" },
       { name: "Privacy Policy", href: "/terms&condition/privacy-policy" },
     ],
   },
@@ -63,21 +57,81 @@ export const NAV_ITEMS = [
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState(null);
-  const pathname = usePathname() || "/";
+  const [mounted, setMounted] = useState(false);
+
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const isActive = (href) => {
-    // Treat in-page anchors as not conflicting with route path
-    if (href.startsWith("#")) return false;
-    // exact match or route startsWith (keeps parent active for nested paths)
-    return pathname === href || pathname.startsWith(href + "/");
+    if (!mounted || !pathname) return false;
+    if (!href || href.startsWith("#")) return false;
+    
+    // Exact match
+    if (pathname === href) return true;
+    
+    // For parent routes with children (like /courses or /terms&condition)
+    // Only match if pathname starts with href followed by /
+    if (pathname.startsWith(href + "/")) return true;
+    
+    return false;
   };
 
-  // Check if any submenu item is active
   const hasActiveSubmenu = (submenu) => {
-    if (!submenu) return false;
-    return submenu.some(
-      (subItem) => !subItem.href.startsWith("#") && isActive(subItem.href)
-    );
+    if (!mounted || !submenu || !pathname) return false;
+    return submenu.some((subItem) => !subItem.href.startsWith("#") && isActive(subItem.href));
+  };
+
+  // Get className strings
+  const getNavLinkClass = (href, submenu) => {
+    const baseClass = "text-gray-600 hover:text-indigo-600 transition duration-150 font-medium flex items-center py-2";
+    const activeClass = "text-indigo-600 font-semibold";
+    
+    if (!mounted) return baseClass;
+    
+    const shouldBeActive = isActive(href) || hasActiveSubmenu(submenu);
+    return shouldBeActive ? `${baseClass} ${activeClass}` : baseClass;
+  };
+
+  const getSubmenuLinkClass = (href) => {
+    const baseClass = "block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition duration-150";
+    const activeClass = "bg-indigo-50 text-indigo-600 font-semibold";
+    
+    if (!mounted) return baseClass;
+    
+    return isActive(href) ? `${baseClass} ${activeClass}` : baseClass;
+  };
+
+  const getMobileNavLinkClass = (href) => {
+    const baseClass = "block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 transition";
+    const activeClass = "text-indigo-600 bg-indigo-50 font-semibold";
+    const inactiveClass = "text-gray-700";
+    
+    if (!mounted) return `${baseClass} ${inactiveClass}`;
+    
+    return isActive(href) ? `${baseClass} ${activeClass}` : `${baseClass} ${inactiveClass}`;
+  };
+
+  const getMobileSubmenuContainerClass = (submenu) => {
+    const baseClass = "flex justify-between items-center w-full px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 transition";
+    const activeClass = "text-indigo-600 bg-indigo-50";
+    const inactiveClass = "text-gray-700";
+    
+    if (!mounted) return `${baseClass} ${inactiveClass}`;
+    
+    return hasActiveSubmenu(submenu) ? `${baseClass} ${activeClass}` : `${baseClass} ${inactiveClass}`;
+  };
+
+  const getMobileSubmenuLinkClass = (href) => {
+    const baseClass = "block px-3 py-2 rounded-md text-sm font-regular hover:bg-indigo-100 transition";
+    const activeClass = "bg-indigo-100 text-indigo-600 font-semibold";
+    const inactiveClass = "text-gray-600";
+    
+    if (!mounted) return `${baseClass} ${inactiveClass}`;
+    
+    return isActive(href) ? `${baseClass} ${activeClass}` : `${baseClass} ${inactiveClass}`;
   };
 
   return (
@@ -96,30 +150,18 @@ export default function Header() {
                 {item.href.startsWith("#") ? (
                   <a
                     href={item.href}
-                    className={`text-gray-600 hover:text-indigo-600 transition duration-150 font-medium flex items-center py-2 ${
-                      isActive(item.href) || hasActiveSubmenu(item.submenu)
-                        ? "text-indigo-600 font-semibold"
-                        : ""
-                    }`}
+                    className={getNavLinkClass(item.href, item.submenu)}
                   >
                     {item.name}
-                    {item.submenu && (
-                      <ChevronDown className="w-3 h-3 ml-1 transition-transform duration-200 group-hover:rotate-180" />
-                    )}
+                    {item.submenu && <ChevronDown className="w-3 h-3 ml-1 transition-transform duration-200 group-hover:rotate-180" />}
                   </a>
                 ) : (
                   <Link
                     href={item.href}
-                    className={`text-gray-600 hover:text-indigo-600 transition duration-150 font-medium flex items-center py-2 ${
-                      isActive(item.href) || hasActiveSubmenu(item.submenu)
-                        ? "text-indigo-600 font-semibold"
-                        : ""
-                    }`}
+                    className={getNavLinkClass(item.href, item.submenu)}
                   >
                     {item.name}
-                    {item.submenu && (
-                      <ChevronDown className="w-3 h-3 ml-1 transition-transform duration-200 group-hover:rotate-180" />
-                    )}
+                    {item.submenu && <ChevronDown className="w-3 h-3 ml-1 transition-transform duration-200 group-hover:rotate-180" />}
                   </Link>
                 )}
 
@@ -131,11 +173,7 @@ export default function Header() {
                           <a
                             key={subItem.name}
                             href={subItem.href}
-                            className={`block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition duration-150 ${
-                              isActive(subItem.href)
-                                ? "bg-indigo-50 text-indigo-600 font-semibold"
-                                : ""
-                            }`}
+                            className={getSubmenuLinkClass(subItem.href)}
                           >
                             {subItem.name}
                           </a>
@@ -143,11 +181,7 @@ export default function Header() {
                           <Link
                             key={subItem.name}
                             href={subItem.href}
-                            className={`block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition duration-150 ${
-                              isActive(subItem.href)
-                                ? "bg-indigo-50 text-indigo-600 font-semibold"
-                                : ""
-                            }`}
+                            className={getSubmenuLinkClass(subItem.href)}
                           >
                             {subItem.name}
                           </Link>
@@ -160,15 +194,8 @@ export default function Header() {
             ))}
           </nav>
 
-          <button
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
+          <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
@@ -180,13 +207,7 @@ export default function Header() {
               <React.Fragment key={item.name}>
                 {item.submenu ? (
                   <div className="relative">
-                    <div
-                      className={`flex justify-between items-center w-full px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 transition ${
-                        hasActiveSubmenu(item.submenu)
-                          ? "text-indigo-600 bg-indigo-50"
-                          : "text-gray-700"
-                      }`}
-                    >
+                    <div className={getMobileSubmenuContainerClass(item.submenu)}>
                       <Link
                         href={item.href}
                         onClick={() => {
@@ -198,18 +219,12 @@ export default function Header() {
                       </Link>
                       <button
                         onClick={(e) => {
-                          e.stopPropagation(); // prevent link click
-                          setOpenSubmenu(
-                            openSubmenu === item.name ? null : item.name
-                          );
+                          e.stopPropagation();
+                          setOpenSubmenu(openSubmenu === item.name ? null : item.name);
                         }}
                         className="p-2"
                       >
-                        <ChevronDown
-                          className={`w-4 h-4 transition-transform duration-200 ${
-                            openSubmenu === item.name ? "rotate-180" : ""
-                          }`}
-                        />
+                        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${openSubmenu === item.name ? "rotate-180" : ""}`} />
                       </button>
                     </div>
 
@@ -220,11 +235,7 @@ export default function Header() {
                             <a
                               key={subItem.name}
                               href={subItem.href}
-                              className={`block px-3 py-2 rounded-md text-sm font-regular hover:bg-indigo-100 transition ${
-                                isActive(subItem.href)
-                                  ? "bg-indigo-100 text-indigo-600 font-semibold"
-                                  : "text-gray-600"
-                              }`}
+                              className={getMobileSubmenuLinkClass(subItem.href)}
                               onClick={() => {
                                 setIsMenuOpen(false);
                                 setOpenSubmenu(null);
@@ -236,11 +247,7 @@ export default function Header() {
                             <Link
                               key={subItem.name}
                               href={subItem.href}
-                              className={`block px-3 py-2 rounded-md text-sm font-regular hover:bg-indigo-100 transition ${
-                                isActive(subItem.href)
-                                  ? "bg-indigo-100 text-indigo-600 font-semibold"
-                                  : "text-gray-600"
-                              }`}
+                              className={getMobileSubmenuLinkClass(subItem.href)}
                               onClick={() => {
                                 setIsMenuOpen(false);
                                 setOpenSubmenu(null);
@@ -256,11 +263,7 @@ export default function Header() {
                 ) : item.href.startsWith("#") ? (
                   <a
                     href={item.href}
-                    className={`block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 transition ${
-                      isActive(item.href)
-                        ? "text-indigo-600 bg-indigo-50 font-semibold"
-                        : "text-gray-700"
-                    }`}
+                    className={getMobileNavLinkClass(item.href)}
                     onClick={() => {
                       setIsMenuOpen(false);
                       setOpenSubmenu(null);
@@ -271,11 +274,7 @@ export default function Header() {
                 ) : (
                   <Link
                     href={item.href}
-                    className={`block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 transition ${
-                      isActive(item.href)
-                        ? "text-indigo-600 bg-indigo-50 font-semibold"
-                        : "text-gray-700"
-                    }`}
+                    className={getMobileNavLinkClass(item.href)}
                     onClick={() => {
                       setIsMenuOpen(false);
                       setOpenSubmenu(null);
@@ -287,10 +286,6 @@ export default function Header() {
               </React.Fragment>
             ))}
           </div>
-          {/* <div className="px-5 py-4 border-t border-gray-100 flex flex-col space-y-2">
-                        <button className="text-indigo-600 hover:text-indigo-800 font-medium text-left">Log In</button>
-                        <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition duration-150 font-medium shadow-md">Sign Up</button>
-                    </div> */}
         </div>
       )}
     </header>

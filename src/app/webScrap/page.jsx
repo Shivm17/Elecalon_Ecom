@@ -1,6 +1,49 @@
 import React from 'react';
 import RazorpayButton from '../components/Razorpay';
 
+export const metadata = {
+  title: "Web Scraping Services in India | Custom Data Extraction Company | Elecalon",
+  description:
+    "Elecalon offers professional web scraping services in India — including custom data extraction, eCommerce scraping, and Python automation solutions for businesses.",
+  keywords: [
+    "Elecalon Ecom web scraping",
+    "web scraping services india",
+    "data extraction company",
+    "python scraping services",
+    "hire web scraping developer",
+    "custom web scraping solutions",
+    "data scraping for ecommerce",
+    "best web scraping company",
+    "web automation services",
+    "web scraping tool development",
+    "affordable data scraping services",
+    "B2B data scraping india",
+    "web scraping agency india",
+    "scraping ecommerce websites",
+    "data collection and cleaning service",
+  ],
+  openGraph: {
+    title: "Web Scraping Services in India | Elecalon",
+    description:
+      "Hire expert Python developers for custom web scraping, eCommerce data extraction, and automation solutions in India.",
+    url: "https://www.elecalon.com/web-scraping",
+    siteName: "Elecalon",
+    images: [
+      {
+        url: "https://www.elecalon.com/og-web-scraping.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Web Scraping Services - Elecalon",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://www.elecalon.com/web-scraping",
+  },
+};
+
 // The entire CSS from the original <style> block is placed here
 const styles = `
    

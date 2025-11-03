@@ -544,7 +544,7 @@ const WebScrapingServicePage = () => {
                                     <form>
                                         <div 
                                             dangerouslySetInnerHTML={{
-                                                __html: '<script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_RJqNvANBTKjsrc" async></script>'
+                                                __html: '<script src="https://checkout.razorpay.com/v1/payment-" data-payment_button_id="pl_RJqNvANBTKjsrc" async></script>'
                                             }}
                                         />
                                     </form>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The React & Next.js Fullstack Bootcamp | 2025 Edition</title>
+    <!-- Load Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind for custom colors and use Inter font -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#06B6D4', // Cyan 500 (Used for accents)
+                        'secondary': '#F97316', // Orange 500 (Used for CTA/Highlights)
+                        'react-color': '#61DAFB', // Custom React color for visual emphasis
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Custom scrollbar for a sleek light theme look */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f0f0f0; } /* Light track */
+        ::-webkit-scrollbar-thumb { background: #94A3B8; border-radius: 4px; } /* Slate 400 */
+        ::-webkit-scrollbar-thumb:hover { background: #06B6D4; }
+
+        /* General styling for smooth transitions */
+        .transition-all {
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<!-- Body uses light background and dark text -->
+<body class="bg-gray-50 text-gray-900 font-sans antialiased">
+
+    <main>
+        <!-- Hero Section -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24 text-center">
+            <span class="inline-block bg-react-color/20 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-widest mb-4 border border-react-color/50">
+                REACT 19 & NEXT.JS 15 READY
+            </span>
+            <h1 class="text-5xl sm:text-7xl font-extrabold leading-tight mb-6">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-react-color to-blue-700">The React & Next.js</span>
+                Fullstack Developer Bootcamp.
+            </h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-10">
+                Master modern component architecture, advanced state management, and build high-performance, SEO-friendly full-stack applications using the Next.js App Router.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="#enroll" class="w-full sm:w-auto bg-secondary text-white font-bold py-3 px-10 rounded-xl shadow-lg hover:bg-orange-600 transition-all transform hover:scale-105 text-lg">
+                    Begin Your Fullstack Journey
+                </a>
+                <a href="#modules" class="w-full sm:w-auto bg-gray-100 border border-gray-300 text-gray-800 font-medium py-3 px-10 rounded-xl hover:bg-gray-200 transition-all text-lg shadow-md">
+                    Explore Modules
+                </a>
+            </div>
+            <div class="mt-12">
+                <p class="text-gray-400 text-sm">Launch your career with the most in-demand web stack.</p>
+            </div>
+        </section>
+        
+        <!-- Key Features Section -->
+        <section id="features" class="bg-gray-100 py-20 border-t border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center mb-16">
+                    Why This <span class="text-secondary">Bootcamp</span>?
+                </h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Feature Card 1: React Components -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-cyan-400/20 transition-all transform hover:-translate-y-1">
+                        <div class="text-react-color mb-4 text-3xl">
+                            <!-- Icon: Component -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-git-branch-plus"><path d="M6 3v12"/><path d="M18 6V3"/><path d="M18 18v3"/><path d="M6 3c0 7 2.4 10 5.4 12"/><path d="M18 6c0 7-3.2 10-5.4 12"/><circle cx="18" cy="15" r="3"/><path d="M21 15h-6"/><circle cx="6" cy="3" r="3"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900">Modern React Hooks</h3>
+                        <p class="text-gray-600 text-sm">
+                            Master functional components, deep dive into `useEffect`, `useContext`, and build powerful custom hooks for reusable, clean logic.
+                        </p>
+                    </div>
+
+                    <!-- Feature Card 2: Next.js Fullstack -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-cyan-400/20 transition-all transform hover:-translate-y-1">
+                        <div class="text-primary mb-4 text-3xl">
+                            <!-- Icon: Server -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-server"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" x2="6" y1="6" y2="6"/><line x1="6" x2="6" y1="18" y2="18"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900">Next.js Full-Stack Power</h3>
+                        <p class="text-gray-600 text-sm">
+                            Learn Server Components, Client Components, Server Actions, and database integration to create true full-stack applications effortlessly.
+                        </p>
+                    </div>
+
+                    <!-- Feature Card 3: Performance -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-cyan-400/20 transition-all transform hover:-translate-y-1">
+                        <div class="text-secondary mb-4 text-3xl">
+                            <!-- Icon: Speedometer -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gauge-circle"><path d="M15.6 2.7a10 10 0 1 0 5.8 5.8"/><path d="M12 2v2"/><path d="M22 12h-2"/><path d="m18.5 5.5-1.4 1.4"/><path d="M7.9 7.9 6.5 6.5"/><path d="M3.5 16.5 4.9 15.1"/><path d="M2 12h2"/><path d="m5.5 18.5 1.4-1.4"/><path d="M12 12v4"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900">Optimization & Deployment</h3>
+                        <p class="text-gray-600 text-sm">
+                            Optimize rendering patterns (SSR, SSG, ISR), lazy loading, code splitting, and deploy your Next.js apps to production environments.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Modules Section -->
+        <section id="modules" class="py-20">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center mb-16">
+                    In-Depth <span class="text-secondary">Modules</span>
+                </h2>
+                
+                <div id="module-list" class="space-y-4">
+                    <!-- Module Item 1 -->
+                    <div class="module-item bg-white p-5 rounded-xl border border-gray-300 shadow-md cursor-pointer hover:border-primary transition-all">
+                        <h4 class="flex justify-between items-center font-semibold text-lg text-gray-800">
+                            <span>01. React Fundamentals: Components & Props</span>
+                            <span class="text-primary text-sm">10 Lectures / 5 Hrs</span>
+                        </h4>
+                        <p class="module-content text-gray-600 text-sm mt-2 hidden">JSX, functional vs. class components, prop drilling solutions, and setting up your Vite/Next.js environment.</p>
+                    </div>
+
+                    <!-- Module Item 2 -->
+                    <div class="module-item bg-white p-5 rounded-xl border border-gray-300 shadow-md cursor-pointer hover:border-primary transition-all">
+                        <h4 class="flex justify-between items-center font-semibold text-lg text-gray-800">
+                            <span>02. State, Hooks, and Component Lifecycle</span>
+                            <span class="text-primary text-sm">14 Lectures / 7 Hrs</span>
+                        </h4>
+                        <p class="module-content text-gray-600 text-sm mt-2 hidden">The power of `useState`, side effects with `useEffect`, performance optimization with `useMemo` and `useCallback`, and the Context API.</p>
+                    </div>
+
+                    <!-- Module Item 3 -->
+                    <div class="module-item bg-white p-5 rounded-xl border border-gray-300 shadow-md cursor-pointer hover:border-primary transition-all">
+                        <h4 class="flex justify-between items-center font-semibold text-lg text-gray-800">
+                            <span>03. Next.js Routing and Data Fetching (App Router)</span>
+                            <span class="text-primary text-sm">18 Lectures / 9 Hrs</span>
+                        </h4>
+                        <p class="module-content text-gray-600 text-sm mt-2 hidden">Nested layouts, dynamic routes, loading states, error boundaries, and fetching data using server and client patterns.</p>
+                    </div>
+
+                    <!-- Module Item 4 -->
+                    <div class="module-item bg-white p-5 rounded-xl border border-gray-300 shadow-md cursor-pointer hover:border-primary transition-all">
+                        <h4 class="flex justify-between items-center font-semibold text-lg text-gray-800">
+                            <span>04. Fullstack Development: Server Actions & APIs</span>
+                            <span class="text-primary text-sm">12 Lectures / 6 Hrs</span>
+                        </h4>
+                        <p class="module-content text-gray-600 text-sm mt-2 hidden">Implementing Server Actions for mutations, building secure API routes, and connecting to a database (using Prisma ORM). </p>
+                    </div>
+
+                    <!-- Module Item 5 -->
+                    <div class="module-item bg-white p-5 rounded-xl border border-gray-300 shadow-md cursor-pointer hover:border-primary transition-all">
+                        <h4 class="flex justify-between items-center font-semibold text-lg text-gray-800">
+                            <span>05. Authentication, Testing, and Deployment</span>
+                            <span class="text-primary text-sm">11 Lectures / 5.5 Hrs</span>
+                        </h4>
+                        <p class="module-content text-gray-600 text-sm mt-2 hidden">Setting up session management, writing component tests with Jest/RTL, and deploying projects to Vercel and Netlify.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="bg-gray-100 py-20 border-t border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center mb-16">
+                    Launch Your Career: <span class="text-primary">Alumni Stories</span>
+                </h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    
+                    <!-- Testimonial 1 -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-secondary">
+                        <blockquote class="text-gray-700 italic mb-4">
+                            "Before this, I only knew functional components, but the full-stack Next.js modules and Server Actions taught me how to deliver professional, ready-to-scale applications."
+                        </blockquote>
+                        <div class="flex items-center">
+                            <img src="https://placehold.co/40x40/F97316/FFFFFF/png?text=R" alt="Avatar" class="w-10 h-10 rounded-full mr-4 border-2 border-secondary">
+                            <div>
+                                <p class="font-semibold text-gray-900">Rajiv P.</p>
+                                <p class="text-sm text-gray-500">Fullstack Developer</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-react-color">
+                        <blockquote class="text-gray-700 italic mb-4">
+                            "The section on performance optimization and component testing alone made this worth it. I finally understand the 'why' behind using `useMemo` in large applications."
+                        </blockquote>
+                        <div class="flex items-center">
+                            <img src="https://placehold.co/40x40/61DAFB/000000/png?text=A" alt="Avatar" class="w-10 h-10 rounded-full mr-4 border-2 border-react-color">
+                            <div>
+                                <p class="font-semibold text-gray-900">Alicia V.</p>
+                                <p class="text-sm text-gray-500">Frontend Specialist</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-primary">
+                        <blockquote class="text-gray-700 italic mb-4">
+                            "This course is the definitive guide to the App Router. It completely demystifies Server Components and the new routing paradigm. I feel ready for any React job."
+                        </blockquote>
+                        <div class="flex items-center">
+                            <img src="https://placehold.co/40x40/06B6D4/FFFFFF/png?text=J" alt="Avatar" class="w-10 h-10 rounded-full mr-4 border-2 border-primary">
+                            <div>
+                                <p class="font-semibold text-gray-900">Jenna M.</p>
+                                <p class="text-sm text-gray-500">Junior Developer</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA / Enrollment Section -->
+        <section id="enroll" class="py-24">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 bg-white p-10 rounded-3xl shadow-2xl text-center border border-secondary/30">
+                <h2 class="text-4xl font-extrabold text-gray-900 mb-4">
+                    Build Production-Ready Applications.
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">
+                    Enroll today to get lifetime access, all future updates, and direct mentorship via our community forum.
+                </p>
+                
+                <div class="flex flex-col space-y-4">
+                    <div class="bg-gray-100 p-6 rounded-xl text-left border-l-4 border-secondary shadow-md">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-2xl font-bold text-gray-900">Bootcamp Access</span>
+                            <span class="text-3xl font-extrabold text-secondary">₹1999</span>
+                        </div>
+                        <ul class="text-gray-700 space-y-2 text-sm">
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>45+ Hours of HD Projects & Content</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>3 Capstone Projects (E-commerce, SaaS Dashboard, Blog)</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Private Mentorship & Job Prep Guides</li>
+                            <li class="flex items-center"><svg class="w-4 h-4 mr-2 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Lifetime Access & Free Updates</li>
+                        </ul>
+                    </div>
+                    
+                   <form class="w-full razorpay-form">
+                        <script 
+                            src="https://checkout.razorpay.com/v1/payment-button.js" 
+                            data-payment_button_id="pl_RYmlalKwelooGs" 
+                            async
+                        ></script> 
+                    </form>
+
+                    <p id="enroll-message" class="mt-4 text-green-600 hidden font-medium"></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-10 border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
+            <p>&copy; 2025 Fullstack Bootcamp. All rights reserved.</p>
+            <div class="mt-2 space-x-4">
+                <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
+                <span class="text-gray-300">|</span>
+                <a href="#" class="hover:text-primary transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for module collapse and CTA simulation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const moduleItems = document.querySelectorAll('.module-item');
+
+            moduleItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const content = item.querySelector('.module-content');
+                    
+                    // Close all other open modules
+                    moduleItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.querySelector('.module-content').classList.add('hidden');
+                        }
+                    });
+
+                    // Toggle the current module content
+                    content.classList.toggle('hidden');
+                });
+            });
+        });
+
+        // Function to simulate enrollment (since we can't process payments)
+        function simulateEnrollment() {
+            const enrollButton = document.querySelector('#enroll button');
+            const messageElement = document.getElementById('enroll-message');
+
+            // Disable button and show loading
+            enrollButton.disabled = true;
+            enrollButton.textContent = 'Processing Enrollment...';
+            enrollButton.classList.remove('bg-secondary', 'hover:bg-orange-600');
+            enrollButton.classList.add('bg-gray-400', 'cursor-not-allowed', 'text-white'); 
+            messageElement.classList.add('hidden');
+
+            setTimeout(() => {
+                // Restore button state
+                enrollButton.disabled = false;
+                enrollButton.textContent = 'Secure Your Spot for  ₹999';
+                enrollButton.classList.add('bg-secondary', 'hover:bg-orange-600', 'text-white');
+                enrollButton.classList.remove('bg-gray-400', 'cursor-not-allowed');
+
+                // Show success message instead of alert()
+                messageElement.textContent = 'Success! You are now enrolled in the React & Next.js Fullstack Bootcamp!';
+                messageElement.classList.remove('hidden');
+                messageElement.classList.add('text-green-600');
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
